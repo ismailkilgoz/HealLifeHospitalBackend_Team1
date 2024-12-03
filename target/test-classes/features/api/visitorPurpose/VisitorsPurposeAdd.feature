@@ -1,5 +1,5 @@
 Feature: As an administrator (admin) I want to be able to create a new visitor purpose record via API connection.
-
+  @US
   Scenario Outline: A POST request to the "/api/visitorsPurposeAdd" endpoint with valid authorization and correct data
   should return a 200 status code, a response body with the message "Success," and the creation of the new visitor
   purpose record should be verified via a GET request to the "/api/visitorsPurposeId" endpoint using the "addId"
