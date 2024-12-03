@@ -66,4 +66,14 @@ public class API_Stepdefinitions extends BaseTest {
         Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
     }
 
+    @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string}, {string}, {string} and {string}.")
+    public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_index_including_and(int dataIndex, String exp_category, String description, String is_active, String is_deleted, String created_at) {
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(exp_category, repJP.getString("lists[" + dataIndex + "].exp_category"));
+        Assert.assertEquals(description, repJP.getString("lists[" + dataIndex + "].description"));
+        Assert.assertEquals(is_active, repJP.getString("lists[" + dataIndex + "].is_active"));
+        Assert.assertEquals(is_deleted, repJP.getString("lists[" + dataIndex + "].is_deleted"));
+        Assert.assertEquals(created_at, repJP.getString("lists[" + dataIndex + "].created_at"));
+    }
 }
