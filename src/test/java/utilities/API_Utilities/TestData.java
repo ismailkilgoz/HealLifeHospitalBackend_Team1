@@ -17,4 +17,16 @@ public class TestData extends BaseTest {
         return requestBody;
     }
 
+    public HashMap expenseHeadUpdateRequestBody(int id, String exp_category, String description, String is_active, String is_deleted) {
+
+        HashMap<String, Object> requestBody = new HashMap<>();
+
+        requestBody.put("id", id);
+        requestBody.put("exp_category", exp_category);
+        requestBody.put("description", description);
+        requestBody.put("is_active", is_active);
+        requestBody.put("is_deleted", is_deleted);
+
+        return requestBody;
+    }
 }
