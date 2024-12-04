@@ -30,6 +30,7 @@ public class API_Stepdefinitions extends BaseTest {
                 .get(fullPath);
 
         response.prettyPrint();
+
     }
 
     @Given("The api user verifies that the status code is {int}.")
@@ -82,15 +83,6 @@ public class API_Stepdefinitions extends BaseTest {
 
     }
 
-
-    @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string}, {string}.")
-    public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_index_including(Integer dataIndex, String name, String is_blood_group, String created_at) {
-        repJP = response.jsonPath();
-        Assert.assertEquals(name, repJP.getString("lists[" + dataIndex + "].name"));
-        Assert.assertEquals(is_blood_group, repJP.getString("lists[" + dataIndex + "].is_blood_group"));
-        Assert.assertEquals(created_at, repJP.getString("lists[" + dataIndex + "].created_at"));
-
-    }
 
 
     @Given("The api user verifies the information in the response body for the entry with the specified {int} index, includes {string}, {string}, {string}.")

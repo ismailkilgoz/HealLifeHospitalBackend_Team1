@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="7.027">
-    <testcase classname="API_US30 As an administrator (admin), I should be able to access the relevant finding category data by entering id via API connection." name="API_US30_TC01_ValidAuth_SuccessStatus_ResponseBodyValidation_ById" time="6.473">
-        <system-out><![CDATA[* The api user sets "api/getFindingCategoryById" path parameters............passed
-* The api user prepares a GET request containing the 7 information to send to the api FindingCategoryById endpoint..passed
-* The api user sends a "GET" request body and saves the returned response...passed
-* The api user verifies that the status code is 200.........................passed
-* The api user verifies that the "message" information in the response body is "Success"..passed
-* The api user verifies that the data in the response body includes "7", "Nose Diseases", "2021-10-25 06:19:58"..passed
-=======
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="1.58">
-    <testcase classname="As an administrator (admin) I should be able to access the Visitor Purpose List via API connection." name="Invalid Token When a GET request is sent to the /api/visitorsPurposeList endpoint with invalid authorization" time="1.436">
-        <system-out><![CDATA[* The api user sets "api/visitorsPurposeList" path parameters...............passed
-* The api user sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden..passed
->>>>>>> main
-]]></system-out>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="0.331">
+    <testcase classname="API_US30 As an administrator (admin), I should be able to access the relevant finding category data by entering id via API connection." name="API_US30_TC02_InvalidOrMissingData_203Error_NoIdOrWrongId" time="0.056">
+        <failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[* The api user sets "api/getFindingCategoryById" path parameters............passed
+* The api user prepares a GET request with <id> for the FindingCategoryById API endpoint..undefined
+* The api user sends a "GET" request body and saves the returned response...skipped
+* The api user verifies that the status code is 203.........................skipped
+* The api user verifies that the "message" information in the response body is "No id or wrong id."..skipped
+]]></failure>
     </testcase>
 </testsuite>

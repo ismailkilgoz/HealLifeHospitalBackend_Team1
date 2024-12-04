@@ -60,7 +60,10 @@ public class FindingCategorySerenStepdefinitions extends BaseTest {
         API_Methods.assertBody("details.created_at",created_at);
 
     }
+    @Given("The api user prepares a GET request with <id> for the FindingCategoryById API endpoint.")
+    public void the_api_user_prepares_a_get_request_with_id_for_the_finding_category_by_id_api_endpoint() {
 
+    }
 
 
 
