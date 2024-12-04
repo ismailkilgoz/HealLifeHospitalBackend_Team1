@@ -41,16 +41,15 @@ public class API_Stepdefinitions extends BaseTest {
         response.then()
                 .assertThat()
                 .body(key, Matchers.equalTo(value));
-
     }
 
     @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string} and {string}.")
     public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_index_including_and(int dataIndex, String visitors_purpose, String description, String created_at) {
-        respJP = response.jsonPath();
+        repJP = response.jsonPath();
 
-        Assert.assertEquals(visitors_purpose, respJP.getString("lists[" + dataIndex + "].visitors_purpose"));
-        Assert.assertEquals(description, respJP.getString("lists[" + dataIndex + "].description"));
-        Assert.assertEquals(created_at, respJP.getString("lists[" + dataIndex + "].created_at"));
+        Assert.assertEquals(visitors_purpose, repJP.getString("lists[" + dataIndex + "].visitors_purpose"));
+        Assert.assertEquals(description, repJP.getString("lists[" + dataIndex + "].description"));
+        Assert.assertEquals(created_at, repJP.getString("lists[" + dataIndex + "].created_at"));
     }
 
     @Given("The api user sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.")
@@ -70,45 +69,45 @@ public class API_Stepdefinitions extends BaseTest {
 
     @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string}, {string}, {string} and {string}.")
     public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_index_including_and(int dataIndex, String exp_category, String description, String is_active, String is_deleted, String created_at) {
-        respJP = response.jsonPath();
+        repJP = response.jsonPath();
 
-        Assert.assertEquals(exp_category, respJP.getString("lists[" + dataIndex + "].exp_category"));
-        Assert.assertEquals(description, respJP.getString("lists[" + dataIndex + "].description"));
-        Assert.assertEquals(is_active, respJP.getString("lists[" + dataIndex + "].is_active"));
-        Assert.assertEquals(is_deleted, respJP.getString("lists[" + dataIndex + "].is_deleted"));
-        Assert.assertEquals(created_at, respJP.getString("lists[" + dataIndex + "].created_at"));
+        Assert.assertEquals(exp_category, repJP.getString("lists[" + dataIndex + "].exp_category"));
+        Assert.assertEquals(description, repJP.getString("lists[" + dataIndex + "].description"));
+        Assert.assertEquals(is_active, repJP.getString("lists[" + dataIndex + "].is_active"));
+        Assert.assertEquals(is_deleted, repJP.getString("lists[" + dataIndex + "].is_deleted"));
+        Assert.assertEquals(created_at, repJP.getString("lists[" + dataIndex + "].created_at"));
     }
 
 
     @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string}, {string}.")
     public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_index_including(Integer dataIndex, String name, String is_blood_group, String created_at) {
-        respJP = response.jsonPath();
-        Assert.assertEquals(name, respJP.getString("lists[" + dataIndex + "].name"));
-        Assert.assertEquals(is_blood_group, respJP.getString("lists[" + dataIndex + "].is_blood_group"));
-        Assert.assertEquals(created_at, respJP.getString("lists[" + dataIndex + "].created_at"));
+        repJP = response.jsonPath();
+        Assert.assertEquals(name, repJP.getString("lists[" + dataIndex + "].name"));
+        Assert.assertEquals(is_blood_group, repJP.getString("lists[" + dataIndex + "].is_blood_group"));
+        Assert.assertEquals(created_at, repJP.getString("lists[" + dataIndex + "].created_at"));
     }
 
 
     @Given("The api user verifies the information in the response body for the entry with the specified {int} index, includes {string}, {string}, {string}.")
     public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_index_includes(Integer dataindex, String name, String surname, String employee_id) {
-        respJP =response.jsonPath();
-        Assert.assertEquals(name, respJP.getString("lists[" + dataindex + "].name"));
-        Assert.assertEquals(surname, respJP.getString("lists[" + dataindex + "].surname"));
-        Assert.assertEquals(employee_id, respJP.getString("lists[" + dataindex + "].employee_id"));
+        repJP =response.jsonPath();
+        Assert.assertEquals(name, repJP.getString("lists[" + dataindex + "].name"));
+        Assert.assertEquals(surname, repJP.getString("lists[" + dataindex + "].surname"));
+        Assert.assertEquals(employee_id, repJP.getString("lists[" + dataindex + "].employee_id"));
     }
 
     @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string}.")
     public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_index_including(Integer dataindex, String patient_name, String patient_id) {
-        respJP = response.jsonPath();
-        Assert.assertEquals(patient_name, respJP.getString("lists[" + dataindex + "].patient_name"));
-        Assert.assertEquals(patient_id, respJP.getString("lists[" + dataindex + "].patient_id"));
+        repJP = response.jsonPath();
+        Assert.assertEquals(patient_name, repJP.getString("lists[" + dataindex + "].patient_name"));
+        Assert.assertEquals(patient_id, repJP.getString("lists[" + dataindex + "].patient_id"));
     }
 
     @Given("The api user verifies in IPDList the information in the response body for the entry with the specified {int} index, including, {string}, {string}.")
     public void the_api_user_verifies_in_ipd_list_the_information_in_the_response_body_for_the_entry_with_the_specified_index_including(Integer dataindex, String patient_name, String patient_id) {
-        respJP = response.jsonPath();
-        Assert.assertEquals(patient_name, respJP.getString("lists[" + dataindex + "].patient_name"));
-        Assert.assertEquals(patient_id, respJP.getString("lists[" + dataindex + "].patient_id"));
+        repJP = response.jsonPath();
+        Assert.assertEquals(patient_name, repJP.getString("lists[" + dataindex + "].patient_name"));
+        Assert.assertEquals(patient_id, repJP.getString("lists[" + dataindex + "].patient_id"));
     }
 }
 
