@@ -15,13 +15,11 @@ import org.junit.runner.RunWith;
         },
         features = {"src/test/resources/features/api", "src/test/resources/features/db"},
         glue = {"stepdefinitions","hooks","utilities"},
-        tags = "@seren",
-        dryRun =true
+        tags = "@XN",
+        dryRun =false
 
 
 
 )
-public class RunnerSeren {
-
-
+public class RunnerXaver {
 }

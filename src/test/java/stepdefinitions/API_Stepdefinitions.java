@@ -30,6 +30,7 @@ public class API_Stepdefinitions extends BaseTest {
                 .get(fullPath);
 
         response.prettyPrint();
+
     }
 
     @Given("The api user verifies that the status code is {int}.")
@@ -79,7 +80,9 @@ public class API_Stepdefinitions extends BaseTest {
         Assert.assertEquals(is_active, repJP.getString("lists[" + dataIndex + "].is_active"));
         Assert.assertEquals(is_deleted, repJP.getString("lists[" + dataIndex + "].is_deleted"));
         Assert.assertEquals(created_at, repJP.getString("lists[" + dataIndex + "].created_at"));
+
     }
+
 
 
     @Given("The api user verifies the information in the response body for the entry with the specified {int} index, includes {string}, {string}, {string}.")
@@ -102,6 +105,7 @@ public class API_Stepdefinitions extends BaseTest {
         repJP = response.jsonPath();
         Assert.assertEquals(patient_name, repJP.getString("lists[" + dataindex + "].patient_name"));
         Assert.assertEquals(patient_id, repJP.getString("lists[" + dataindex + "].patient_id"));
+
     }
 
     @Given("The api user prepares a Get request containing the {int} information to send to the api getBloodGroupById endpoint.")
@@ -216,6 +220,7 @@ public class API_Stepdefinitions extends BaseTest {
         repJP = response.jsonPath();
 
         Assert.assertEquals(map.get("id"), repJP.getInt("updateId"));
+
     }
 }
 
