@@ -10,14 +10,18 @@ import java.util.HashMap;
 
 public abstract class BaseTest {
 
-    protected static ConfigLoader configLoader;
+    public static ConfigLoader configLoader;
 
-    protected static JsonPath repJP;
-    protected static Response response;
-    protected static HashMap map;
-    protected static Faker faker;
 
-    protected static JSONObject requestBody;
+
+
+    public static JsonPath repJP;
+    public static Response response;
+    public static HashMap map;
+    public static Faker faker;
+
+
+    public static JSONObject requestBody;
 
     public BaseTest() {
         map = new HashMap<>();
