@@ -13,6 +13,7 @@ import static utilities.API_Utilities.API_Methods.fullPath;
 
 public class API_StepdefinitionsXaver extends BaseTest {
     String exceptionMesaj = null;
+
     @Given("The api user sets {string} path  parameters.")
     public void the_api_user_sets_path_parameters(String pathParam) {
 
@@ -49,22 +50,6 @@ public class API_StepdefinitionsXaver extends BaseTest {
         Assert.assertEquals(url, repJP.getString("lists[" + dataindex + "].url"));
         Assert.assertEquals(date, repJP.getString("lists[" + dataindex + "].date"));
 
-    }
-    @Given("The api user sends  a GET request, saves the returned response, and verifies that the status code is {string} with the reason phrase Forbidden.")
-    public void the_api_user_sends_a_get_request_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(String string) {
-        try {
-            response = given()
-                    .spec(spec)
-                    .contentType(ContentType.JSON)
-                    .when()
-                    .body(requestBody.toString())
-                    .get(fullPath);
-        } catch (Exception e) {
-            exceptionMesaj = e.getMessage();
-        }
-
-        System.out.println("exceptionMesaj : " + exceptionMesaj);
-        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
     }
     }
 
