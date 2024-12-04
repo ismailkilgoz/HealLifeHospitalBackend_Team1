@@ -5,7 +5,7 @@ Feature:  API_US30 As an administrator (admin), I should be able to access the r
 
     * The api user sets "api/getFindingCategoryById" path parameters.
     * The api user prepares a GET request containing the <id> information to send to the api FindingCategoryById endpoint.
-    * The api user sends a GET request body and saves the returned response.
+    * The api user sends a "GET" request body and saves the returned response.
     * The api user verifies that the status code is 200.
     * The api user verifies that the "message" information in the response body is "Success".
     * The api user verifies that the data in the response body includes "<id>", "<category>", "<created_at>".

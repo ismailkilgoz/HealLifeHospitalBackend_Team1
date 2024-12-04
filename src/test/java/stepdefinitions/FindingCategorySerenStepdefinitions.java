@@ -13,9 +13,6 @@ import static utilities.API_Utilities.API_Methods.fullPath;
 
 public class FindingCategorySerenStepdefinitions extends BaseTest {
 
-    Response response;
-
-
 
     @Given("The api user sends a {string} request and saves the returned response.")
     public void the_api_user_sends_a_request_and_saves_the_returned_response(String httpMethod ) {
@@ -48,19 +45,10 @@ public class FindingCategorySerenStepdefinitions extends BaseTest {
 
     }
 
-    @Given("The api user sends a GET request body and saves the returned response.")
-    public void the_api_user_sends_a_request_body_and_saves_the_returned_response() {
+    @Given("The api user sends a {string} request body and saves the returned response.")
+    public void the_api_user_sends_a_request_body_and_saves_the_returned_response(String httpMethod) {
 
-
-        response=given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .when()
-                .body(requestBody.toString())
-                .get(fullPath);
-
-
-            response.prettyPrint();
+        API_Methods.sendRequest(httpMethod,requestBody.toString());
     }
 
 
