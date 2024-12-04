@@ -49,6 +49,8 @@ public class FindingCategorySerenStepdefinitions extends BaseTest {
     public void the_api_user_sends_a_request_body_and_saves_the_returned_response(String httpMethod) {
 
         API_Methods.sendRequest(httpMethod,requestBody.toString());
+
+
     }
 
 
@@ -60,13 +62,14 @@ public class FindingCategorySerenStepdefinitions extends BaseTest {
         API_Methods.assertBody("details.created_at",created_at);
 
     }
-    @Given("The api user prepares a GET request with <id> for the FindingCategoryById API endpoint.")
-    public void the_api_user_prepares_a_get_request_with_id_for_the_finding_category_by_id_api_endpoint() {
+
+
+    @Given("The api user prepares a GET request with {int} for the FindingCategoryById API endpoint.")
+    public void the_api_user_prepares_a_get_request_with_id_for_the_finding_category_by_id_api_endpoint(int id) {
+        requestBody.put("id",id);
+
 
     }
-
-
-
 
 
 }
