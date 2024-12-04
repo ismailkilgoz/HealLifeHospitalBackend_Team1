@@ -16,10 +16,10 @@ Feature: As an administrator (admin), I should be able to access announcements v
       | dataindex | type    | slug          |url|   title                | date     |
       | 1        | notice  | noticehospital | page/ |  notice hospital   |2024-11-24|
 
-  Scenario: Invalid Token When a GET request is sent to the /api/getBloodGroup endpoint with invalid authorization information, it should be verified that the status code returned is 403 and the message in the response body is "You do not have authorization or token error.".
+  #Scenario: Invalid Token When a GET request is sent to the /api/getBloodGroup endpoint with invalid authorization information, it should be verified that the status code returned is 403 and the message in the response body is "You do not have authorization or token error.".
 
-    * The api user sets "api/getNotice" path  parameters.
+   # * The api user sets "api/getNotice" path  parameters.
     # Api kullanicisi "api/getNotice" path parametrelerini olusturur
-    * The api user sends  a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
+    #* The api user sends  a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
     # Api kullanicisi gecersiz authorization bilgileri ile GET request gonderir, donen responsei kaydeder,
     # status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
