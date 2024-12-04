@@ -79,6 +79,17 @@ public class API_Stepdefinitions extends BaseTest {
         Assert.assertEquals(is_active, repJP.getString("lists[" + dataIndex + "].is_active"));
         Assert.assertEquals(is_deleted, repJP.getString("lists[" + dataIndex + "].is_deleted"));
         Assert.assertEquals(created_at, repJP.getString("lists[" + dataIndex + "].created_at"));
+
+    }
+
+
+    @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string}, {string}.")
+    public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_index_including(Integer dataIndex, String name, String is_blood_group, String created_at) {
+        repJP = response.jsonPath();
+        Assert.assertEquals(name, repJP.getString("lists[" + dataIndex + "].name"));
+        Assert.assertEquals(is_blood_group, repJP.getString("lists[" + dataIndex + "].is_blood_group"));
+        Assert.assertEquals(created_at, repJP.getString("lists[" + dataIndex + "].created_at"));
+
     }
 
 
@@ -102,6 +113,7 @@ public class API_Stepdefinitions extends BaseTest {
         repJP = response.jsonPath();
         Assert.assertEquals(patient_name, repJP.getString("lists[" + dataindex + "].patient_name"));
         Assert.assertEquals(patient_id, repJP.getString("lists[" + dataindex + "].patient_id"));
+
     }
 
     @Given("The api user prepares a Get request containing the {int} information to send to the api getBloodGroupById endpoint.")
@@ -216,6 +228,7 @@ public class API_Stepdefinitions extends BaseTest {
         repJP = response.jsonPath();
 
         Assert.assertEquals(map.get("id"), repJP.getInt("updateId"));
+
     }
 }
 

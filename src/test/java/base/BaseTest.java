@@ -12,10 +12,14 @@ public abstract class BaseTest {
 
     public static ConfigLoader configLoader;
 
+
+
+
     public static JsonPath repJP;
     public static Response response;
     public static HashMap map;
     public static Faker faker;
+
 
     public static JSONObject requestBody;
 
