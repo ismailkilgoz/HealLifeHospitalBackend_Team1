@@ -38,6 +38,7 @@ public class API_Stepdefinitions extends BaseTest {
         response.then()
                 .assertThat()
                 .statusCode(code);
+
     }
 
     @Given("The api user verifies that the {string} information in the response body is {string}.")
