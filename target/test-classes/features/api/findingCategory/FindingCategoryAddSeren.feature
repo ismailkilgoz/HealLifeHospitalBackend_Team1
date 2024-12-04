@@ -15,7 +15,7 @@ Feature: Adding a Finding Category via API
       | api/findingCategoryAdd | Test Category | 2023-12-03 |
 
   Scenario Outline: Valid Token for Adding Finding Category
-    Given The API user sets "<endpoint>" path parameters
+    * The api user sets "/api/addFindingCategory" path parameters.
     When The API user sends a "POST" request with the following request body:
       | key       | value           |
       | category  | <category>      |

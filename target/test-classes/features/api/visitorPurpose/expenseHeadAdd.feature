@@ -28,7 +28,6 @@ Feature: As an administrator (admin) I should be able to access Expense Head Lis
 
     * The api user sets "api/getExpenseHead" path parameters.
     # Api kullanicisi "api/getExpenseHead" path parametrelerini olusturur
-    * The api user sends a GET request and saves the returned response.
-    #* The api user sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
+    * The api user sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
     # Api kullanicisi gecersiz authorization bilgileri ile GET request gonderir, donen responsei kaydeder,
-    # status codeun '403' ve response body'deki message bilgisinin "You do not have authorization or token error" oldugu dogrular
+    # status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
