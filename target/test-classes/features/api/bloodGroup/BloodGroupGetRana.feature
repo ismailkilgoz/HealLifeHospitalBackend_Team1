@@ -24,6 +24,8 @@ Feature: As an administrator (admin) I should be able to access the list of bloo
 
     * The api user sets "/api/getBloodGroup" path parameters.
     # Api kullanicisi "/api/getBloodGroup" path parametrelerini olusturur
+    * The api user sets "api/getBloodGroup" path parameters.
+    # Api kullanicisi "api/getBloodGroup" path parametrelerini olusturur
     * The api user sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
     # Api kullanicisi gecersiz authorization bilgileri ile GET request gonderir, donen responsei kaydeder,
     # status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
