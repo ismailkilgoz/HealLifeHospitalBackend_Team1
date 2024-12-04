@@ -2,24 +2,21 @@ package stepdefinitions;
 
 import base.BaseTest;
 import io.cucumber.java.en.Given;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
+import org.json.JSONObject;
 import org.junit.Assert;
 import utilities.API_Utilities.API_Methods;
+import utilities.API_Utilities.TestData;
 
-import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
-import static utilities.API_Utilities.API_Methods.fullPath;
 
-public class FindingCategorySerenStepdefinitions extends BaseTest {
-
-
+public class API_FindingCategorySerenStepdefinitions extends BaseTest {
+    TestData testData=new TestData();
     @Given("The api user sends a {string} request and saves the returned response.")
     public void the_api_user_sends_a_request_and_saves_the_returned_response(String httpMethod ) {
         if (requestBody == null || requestBody.isEmpty()) {
             API_Methods.sendRequest(httpMethod, null);
         } else {
-            API_Methods.sendRequest(httpMethod, requestBody);
+            API_Methods.sendRequest(httpMethod, requestBody.toString());
         }
 
 
@@ -68,6 +65,35 @@ public class FindingCategorySerenStepdefinitions extends BaseTest {
     public void the_api_user_prepares_a_get_request_with_id_for_the_finding_category_by_id_api_endpoint(int id) {
         requestBody.put("id",id);
 
+
+    }
+
+    @Given("The api user prepares a POST request containing {string} and {string} information to send to the api FindingCategory endpoint.")
+    public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_finding_category_endpoint(String category, String created_at) {
+       requestBody=requestBody.put("category",category);
+       requestBody=requestBody.put("created_at",created_at);
+
+    }
+
+    @Given("The api user prepares a {string} request that does not contain data for FindingCategory.")
+    public void the_api_user_prepares_a_request_that_does_not_contain_data_for_finding_category(String HttpMethod) {
+
+    }
+
+
+    @Given("The api user prepares a PATCH request containing {int} and {string} information to send to the api Finding Category endpoint.")
+    public void the_api_user_prepares_a_patch_request_containing_and_ill_category_information_to_send_to_the_api_finding_category_endpoint(Integer id, String category) {
+      requestBody.put("id",id);
+      requestBody.put("category",category);
+
+
+    }
+    @Given("The api user verifies that the {string} information in the Response body is the same as the id information in the patch request body.")
+    public void the_api_user_verifies_that_the_updated_information_in_the_response_body_is_the_same_as_the_id_information_in_the_patch_request_body(String updateId) {
+
+        repJP=response.jsonPath();
+
+      Assert.assertEquals(requestBody.getInt("id"), repJP.getInt(updateId));
 
     }
 
