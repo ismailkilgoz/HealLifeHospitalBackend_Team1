@@ -14,7 +14,7 @@ Feature: API_US29 As an administrator (admin) I should be able to access the fin
 
 
   @seren
-  Scenario: Invalid Token API_US29_TC02 Invalid Authorization: 403 Error and Unauthorized Message
+  Scenario: Invalid Token
 
     * The api user sets "api/getFindingCategory" path parameters.
     * The api user sends a "GET" request and saves the returned response.

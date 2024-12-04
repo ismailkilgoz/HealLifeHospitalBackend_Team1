@@ -12,7 +12,7 @@ public abstract class BaseTest {
 
     protected static ConfigLoader configLoader;
 
-    protected static JsonPath repJP;
+    protected static JsonPath respJP;
     protected static Response response;
     protected static HashMap map;
     protected static Faker faker;
