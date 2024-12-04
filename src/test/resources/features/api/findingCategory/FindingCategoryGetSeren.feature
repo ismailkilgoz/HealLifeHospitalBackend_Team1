@@ -11,6 +11,7 @@ Feature: API_US29 As an administrator (admin) I should be able to access the fin
   Examples:
     | dataindex | category | created_at           |
     | 0         | KBB      | 2023-06-01 13:21:03 |
+    |           |          |                     |
 
 
 
