@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" time="0.221"/>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="1.58">
+    <testcase classname="As an administrator (admin) I should be able to access the Visitor Purpose List via API connection." name="Invalid Token When a GET request is sent to the /api/visitorsPurposeList endpoint with invalid authorization" time="1.436">
+        <system-out><![CDATA[* The api user sets "api/visitorsPurposeList" path parameters...............passed
+* The api user sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden..passed
+]]></system-out>
+    </testcase>
+</testsuite>
