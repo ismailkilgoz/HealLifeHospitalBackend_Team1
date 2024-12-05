@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="5.246">
-    <testcase classname="As an administrator (admin), I should be able to access announcements via API connection." name="Invalid Token When a GET request is sent to the /api/getBloodGroup endpoint with invalid authorization information, it should be verified that the status code returned is 403 and the message in the response body is &quot;You do not have authorization or token error.&quot;." time="4.908">
-        <system-out><![CDATA[* The api user sets "api/getNotice" path  parameters........................passed
-* The api user sends a GET request and saves the returned  response.........passed
-* The api user verifies that the status code is  403........................passed
-* The api user verifies that the "message" information in the  response body is "You do not have authorization or token error."..passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="5.595">
+    <testcase classname="As an administrator (admin), I should be able to access" name="GET body with valid authorization information and correct data (id) is sent to the /api/getNoticeById endpoint, it should be verified that the status code returned is 200 and the message information in the response body is “Success”." time="5.232">
+        <system-out><![CDATA[* The api user sets "api/getNoticeById" path parameters.....................passed
+* The api user prepares a Get request containing the 341 information to send to the api getNoticeById endpoint..passed
+* The api user sends a GET body and saves the returned response.............passed
+* The api user verifies that the status code is 200.........................passed
+* The api user verifies that the "message" information in the response body is "Success"..passed
+* The api user verifies the information in the response body includes "341","notice", "Ein","hallo""2023-06-02"..passed
 ]]></system-out>
     </testcase>
 </testsuite>
