@@ -5,25 +5,28 @@ import config_Requirements.ConfigLoader;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import utilities.API_Utilities.TestData;
 
 import java.util.HashMap;
 
 public abstract class BaseTest {
 
-    protected static ConfigLoader configLoader;
+    public static ConfigLoader configLoader;
+    public static JsonPath repJP;
+    public static Response response;
+    public static HashMap map;
+    public static Faker faker;
 
-    protected static JsonPath repJP;
-    protected static Response response;
-    protected static HashMap map;
-    protected static Faker faker;
+    public static JSONObject requestBody;
 
-    protected static JSONObject requestBody;
 
     public BaseTest() {
         map = new HashMap<>();
         configLoader = new ConfigLoader();
         faker = new Faker(); // Faker nesnesi initialize edildi.
         requestBody = new JSONObject();
+
+
 
     }
 }
