@@ -41,7 +41,7 @@ Feature: API_US32 As an administrator (admin), I should be able to update the fi
 
 
 
-  @seren
+
   Scenario Outline: Verify with GET Method that API_US32_TC01_ValidAuth_SuccessStatus_RecordUpdateValidation
 
     * The api user sets "api/getFindingCategoryById" path parameters.

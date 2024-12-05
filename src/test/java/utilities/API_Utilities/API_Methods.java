@@ -1,6 +1,7 @@
 package utilities.API_Utilities;
 
 import base.BaseTest;
+import com.google.gson.Gson;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
@@ -157,5 +158,21 @@ public class API_Methods extends BaseTest {
 
       return   requestBody;
     }
+
+
+
+
+        public static JSONObject convertPojoToJsonObject(Object pojoObject) {
+
+            Gson gson = new Gson();
+            String jsonString = gson.toJson(pojoObject);
+
+
+            return new JSONObject(jsonString);
+        }
+
+
+
+
 
 }
