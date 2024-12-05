@@ -33,22 +33,6 @@ public class API_StepdefinitonsRana extends BaseTest {
 
     }
 
-    @Given("The api user sends a GET body, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.")
-    public void the_api_user_sends_a_get_body_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden() {
-        try {
-            response = given()
-                    .spec(spec)
-                    .contentType(ContentType.JSON)
-                    .when()
-                    .body(requestBody.toString())
-                    .get(fullPath);
-        } catch (Exception e) {
-            exceptionMesaj = e.getMessage();
-        }
-
-        System.out.println("exceptionMesaj : " + exceptionMesaj);
-        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
-    }
 
     @Given("The api user prepares a post request containing the Kan Grubu,{int} information to send to the api getBloodGroupById endpoint.")
     public void the_api_user_prepares_a_post_request_containing_the_kan_grubu_information_to_send_to_the_api_get_blood_group_by_id_endpoint(Integer id) {
@@ -75,21 +59,8 @@ public class API_StepdefinitonsRana extends BaseTest {
     }
 
 
-    @Given("The api user prepares a POST request that does not contain data")
-    public void the_api_user_prepares_a_post_request_that_does_not_contain_data() {
 
-    }
-    @Given("The api user sends a POST request and saves the returned response.")
-    public void the_api_user_sends_a_post_request_and_saves_the_returned_response() {
-        response = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .when()
-                .body(map)
-                .post(fullPath);
 
-        response.prettyPrint();
-    }
 
     @Given("The api user sends a PATCH request and saves the returned response.")
     public void the_api_user_sends_a_patch_request_and_saves_the_returned_response() {
