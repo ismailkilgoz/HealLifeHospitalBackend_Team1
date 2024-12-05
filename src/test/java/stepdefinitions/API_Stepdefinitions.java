@@ -122,6 +122,7 @@ public class API_Stepdefinitions extends BaseTest {
                .when()
                .body(requestBody.toString())
                .get(fullPath);
+       response.prettyPrint();
     }
     @Given("The api user verifies the information in the response body includes {string},{string}, {string}, {string}.")
     public void the_api_user_verifies_the_information_in_the_response_body_includes(String id, String name, String is_blood_group, String created_at) {

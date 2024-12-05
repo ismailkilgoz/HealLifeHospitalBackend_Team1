@@ -56,12 +56,11 @@ Feature: As an administrator (admin) I want to be able to create a new visitor p
       | name        | is_blood_group  |
       | Kan Grubu   | 2               |
 
-
   Scenario Outline: The creation of the new visitor purpose record to be created via the API must be verified via the API.
 
     * The api user sets "api/addBloodGroup" path parameters.
     # Api kullanicisi "api/addBloodGroup" path parametrelerini olusturur
-    * The api user prepares a Get request containing the <id> information to send to the api getBloodGroupById endpoint.
+    * The api user prepares a Get request containing the <id> information to send to the api addBloodGroup endpoint.
     # Api kullanicisi api addBloodGroup endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar
     * The api user sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen responsei kaydeder
@@ -72,6 +71,6 @@ Feature: As an administrator (admin) I want to be able to create a new visitor p
 
     Examples:
       | id  |
-      | 509 |
+      | 514 |
 
 
