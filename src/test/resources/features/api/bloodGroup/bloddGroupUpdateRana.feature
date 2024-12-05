@@ -22,8 +22,8 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
     # Api kullanıcısı Response body icindeki updateId bilgisinin patch request body icindeki id bilgisi ile ayni oldugunu dogrular
 
     Examples:
-      | id  | name | is_blood_group     |
-      | 506 | Kan Grubu Guncelle 1| 1|
+      | id  | name                | is_blood_group     |
+      | 503 | Kan Grubu Güncelle 1| 1                  |
 
 
 
