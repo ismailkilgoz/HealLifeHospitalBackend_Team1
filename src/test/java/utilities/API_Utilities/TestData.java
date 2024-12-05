@@ -30,7 +30,7 @@ public class TestData extends BaseTest {
         return requestBody;
     }
 
-    public HashMap findingCategory(int id, String category){
+    public HashMap findingCategory(String id, String category){
         HashMap<String, Object> requestBody = new HashMap<>();
 
         requestBody.put("id",id);
