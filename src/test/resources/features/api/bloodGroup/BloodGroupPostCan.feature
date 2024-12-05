@@ -7,7 +7,7 @@ Feature: As an administrator (admin) I want to be able to create a new visitor p
 
     * The api user sets "api/addBloodGroup" path parameters.
     # Api kullanicisi "api/addBloodGroup" path parametrelerini olusturur
-    * The api user prepares a POST request containing "<name>" and "<is_blood_group>" information to send to the api visitorsPurposeAdd endpoint.
+    * The api user prepares a POST request containing "<name>" and "<is_blood_group>" information to send to the api addBloodGroup endpoint.
     # Api kullanicisi api addBloodGroup endpointine gondermek icin "<name>" ve "<is_blood_group>" bilgilerini iceren bir post request hazirlar
     * The api user sends a POST request and saves the returned response.
     # Api kullanicisi POST request gonderir ve donen responsei kaydeder
