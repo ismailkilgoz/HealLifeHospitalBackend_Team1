@@ -181,17 +181,6 @@ public class API_Stepdefinitions extends BaseTest {
         System.out.println("Post Body : " + map);
     }
 
-    @Given("The api user prepares a POST request containing {string} and {string} information to send to the api addBloodGroup endpoint.")
-    public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_addBloodGroup_add_endpoint(String name, String is_blood_group) {
-
-        map.put("name", name);
-        map.put("is_blood_group", is_blood_group);
-
-        System.out.println("Post Body : " + map);
-    }
-
-
-
     @Given("The api user sends a POST request and saves the returned response.")
     public void the_api_user_sends_a_post_request_and_saves_the_returned_response() {
         response = given()
