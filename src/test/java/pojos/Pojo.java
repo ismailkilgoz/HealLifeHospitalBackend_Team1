@@ -9,4 +9,10 @@ import lombok.NoArgsConstructor;
 //@AllArgsConstructor
 public class Pojo {
 
+    public Pojo(String name, String isBloodGroup) {
+    }
+
+    public Pojo() {
+
+    }
 }
