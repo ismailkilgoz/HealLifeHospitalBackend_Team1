@@ -23,3 +23,22 @@ Feature: API_US32 As an administrator (admin), I should be able to update the fi
 
 
   Scenario: Invalid Token API_US32_TC03_InvalidAuth_403Error_UnauthorizedMessage_UpdateCategory
+
+
+    Scenario Outline: Verify with GET Method that API_US32_TC01_ValidAuth_SuccessStatus_RecordUpdateValidation
+
+      * The api user sets "api/updateFindingCategory" path parameters.
+      * The api user prepares a PATCH request containing <id> and "<category>" information to send to the api Finding Category endpoint.
+      * The api user sends a "GET" request and saves the returned response.
+
+
+
+      Examples:
+        |id   |    category    |
+        | 143 | ill category 1 |
+
+
+
+
+
+
