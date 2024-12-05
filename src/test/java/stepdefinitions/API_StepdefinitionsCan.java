@@ -14,4 +14,12 @@ public class API_StepdefinitionsCan extends BaseTest {
     String exceptionMesaj = null;
 
 
+    @Given("The api user prepares a POST request containing {string} and {string} information to send to the api addBloodGroup endpoint.")
+    public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_addBloodGroup_add_endpoint(String name, String is_blood_group) {
+
+        map.put("name", name);
+        map.put("is_blood_group", is_blood_group);
+
+        System.out.println("Post Body : " + map);
+    }
 }
