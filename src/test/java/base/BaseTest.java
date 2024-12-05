@@ -19,11 +19,6 @@ public abstract class BaseTest {
     public static Faker faker;
 
 
-    public static JsonPath repJP;
-    protected static Response response;
-    protected static HashMap map;
-    protected static Faker faker;
-
     public static JSONObject requestBody;
     public static RequestBuilder builder;
     public static  String stringRequestBody;
