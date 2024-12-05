@@ -125,6 +125,7 @@ public class API_Stepdefinitions extends BaseTest {
                .when()
                .body(requestBody.toString())
                .get(fullPath);
+       response.prettyPrint();
     }
 
     @Given("The api user prepares a GET request containing the {int} information to send to the api visitorsPurposeid endpoint.")

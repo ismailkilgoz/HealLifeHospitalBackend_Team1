@@ -22,4 +22,13 @@ public class API_StepdefinitionsCan extends BaseTest {
 
         System.out.println("Post Body : " + map);
     }
+
+
+
+    @Given("The api user prepares a Get request containing the {int} information to send to the api addBloodGroup endpoint.")
+    public void the_api_user_prepares_a_get_request_containing_the_information_to_send_to_the_api_add_blood_group_endpoint(Integer id) {
+        requestBody.put("id", id);
+
+        System.out.println("Get Body : " + requestBody);
+    }
 }
