@@ -38,7 +38,6 @@ Feature:  API_US30 As an administrator (admin), I should be able to access the r
 
 
 
-@seren
   Scenario: Invalid Token  API_US30_TC03_InvalidAuth_403Error_UnauthorizedMessage_ById
 
     * The api user sets "api/getFindingCategoryById" path parameters.

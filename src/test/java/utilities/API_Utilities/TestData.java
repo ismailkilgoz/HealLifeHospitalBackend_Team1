@@ -29,4 +29,17 @@ public class TestData extends BaseTest {
 
         return requestBody;
     }
+
+    public HashMap findingCategory(String id, String category){
+        HashMap<String, Object> requestBody = new HashMap<>();
+
+        requestBody.put("id",id);
+        requestBody.put("category",category);
+
+        return requestBody;
+    }
+
+
+
+
 }

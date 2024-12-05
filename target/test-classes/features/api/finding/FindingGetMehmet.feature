@@ -22,9 +22,9 @@ Feature: As an administrator (admin) I should be able to access the finding list
     Given   The Api User sets "api/getFinding" path parameters.
     # Api kullanicisi "api/getFinding" path parametrelerini olusturur
     Then    The Api User sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
-    # Api kullanicisi GET request gonderir, donen response'u' kaydeder, status code'unun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
+    # Api kullanicisi GET request gonderir, donen responsei kaydeder, status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
 
-
+  @US1
   Scenario Outline: When a GET request is sent to /api/getFinding endpoint with valid authorization information,
   the information (name, description, finding_category_id, created_at, category) returned in the response body of id(x)
   should be verified.
@@ -34,7 +34,7 @@ Feature: As an administrator (admin) I should be able to access the finding list
     Then    The Api User sends a GET request and saves the returned response.
     # Api kullanicisi GET request gonderir ve donen response'u kaydeder
     And     The Api User verifies the information in the response body for the entry with the specified <dataIndex> index, including "<name>", "<description>", "<finding_category_id>", "<created_at>" and "<category>"  .
-    # Api kullanıcısı response body icindeki <dataIndex> indexine sahip olanin "<name>", "<description>", "<finding_category_id>", "<created_at>" and "<category>" bilgilerini doğrular.
+    # Api kullanıcısı response body icindeki <dataIndex> indexe sahip olanin "<visitors_purpose>", "<description>" ve "<created_at>" bilgilerini doğrular.
 
     Examples:
       | dataIndex | name    | description         | finding_category_id  | created_at          | category               |
