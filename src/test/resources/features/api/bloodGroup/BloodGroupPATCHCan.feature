@@ -4,7 +4,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
   Scenario Outline: A PATCH request to the "/api/updateBloodGroup" endpoint with valid authorization and correct
   data (id, name, is_blood_group) should return a 200 status code, a response body message of "Success," and
   the "updateId" in the response should match the "id" in the request body. The update should be confirmed via a GET
-  request to the "/api/visitorsPurposeId" endpoint using the "updateId" from the response.
+  request to the "/api/updateBloodGroup" endpoint using the "updateId" from the response.
 
     * The api user sets "api/updateBloodGroup" path parameters.
     # Api kullanicisi "api/visitorsPurposeUpdate" path parametrelerini olusturur
@@ -21,7 +21,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     Examples:
       | id  | name             | is_blood_group |
-      | 520 | havacokguzel     | Z+             |
+      | 520 | name update      | 1             |
 
 
   Scenario Outline: When a PATCH body (id, name, is_blood_group) containing valid authorization information
@@ -108,7 +108,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
     # Api kullanicisi api visitorsPurposeId endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar
     * The api user sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen responsei kaydeder
-    * The api user verifies that the "lists.updateBloodGroup" information in the response body is "name update".
+    * The api user verifies that the "lists.name" information in the response body is "name update".
     # Api kullanicisi response bodydeki lists.updateBloodGroup bilgisinin "name update" oldugunu dogrular
 
     Examples:
