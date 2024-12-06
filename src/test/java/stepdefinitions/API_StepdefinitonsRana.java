@@ -15,6 +15,7 @@ import static io.restassured.RestAssured.given;
 import static utilities.API_Utilities.API_Methods.fullPath;
 
 public class API_StepdefinitonsRana extends BaseTest {
+    Pojo pojoRequest=new Pojo();
     String exceptionMesaj = null;
 
     @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string}, {string}.")
@@ -112,6 +113,5 @@ public class API_StepdefinitonsRana extends BaseTest {
 
         System.out.println("Get Body : " + requestBody);
 
-        //Rana
     }
 }
