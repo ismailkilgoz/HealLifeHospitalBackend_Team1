@@ -76,7 +76,7 @@ Feature: As an administrator (admin), I should be able to access the relevant fi
       | id     |
       | 88888  |
 
-  @US1
+
   Scenario Outline: When a GET body is sent to the /api/getFindingById endpoint with invalid authorization (Invalid Token) information,
   it should be verified that the status code returned is 403 and the message in the response body
   is "You do not have authorization or token error".
