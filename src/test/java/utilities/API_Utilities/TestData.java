@@ -52,8 +52,9 @@ public class TestData extends BaseTest {
         return requestBody;
     }
 
+    public HashMap noticeUpdateRequestBody (String id, String category){
+        HashMap<String, Object> requestBody = new HashMap<>();
+        return requestBody;
 
 
-
-
-}
+}}

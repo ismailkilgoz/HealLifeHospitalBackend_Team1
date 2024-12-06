@@ -49,7 +49,7 @@ public class API_StepdefinitionsXaver extends BaseTest {
     }
     @Given("The api user prepares a PATCH request containing {int}, {string},{string}, {string} and {string} information to send to the api updateNotice endpoint.")
     public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_update_notice_endpoint(int id, String type, String title, String description, String slug) {
-        map = testData.noticeUpdateRequestBody(id, type, title, description, slug);
+        map = testData.noticeUpdateRequestBody (id, type, title, description, slug);
     }
 }
 
