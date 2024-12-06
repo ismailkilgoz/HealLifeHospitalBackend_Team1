@@ -56,7 +56,7 @@ Feature: As an administrator (admin), I should be able to access
     * The api user verifies that the "message" information in the response body is "No id or wrong id. Please check your id number.".
     # Api kullanicisi response bodydeki message bilgisinin "No id or wrong id." oldugunu dogrular
 
-  @XN
+
   Scenario Outline: Invalid Token When sending a GET body with invalid authorization information to the /api/getNoticeById
   endpoint, it should be verified that the status code returned is 403 and the message in the response body is
   "You do not have authorization or token error".

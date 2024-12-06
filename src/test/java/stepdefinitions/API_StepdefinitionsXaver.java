@@ -46,12 +46,22 @@ public class API_StepdefinitionsXaver extends BaseTest {
     map.put("title",title);
     map.put("description",description);
     map.put("slug",slug);
+
+        }
+    @Given("The api user prepares a PATCH request that does not contain an id but includes {string},{string}, {string} and {string} information to send to the api updateNotice endpoint.")
+    public void the_api_user_prepares_a_patch_request_that_does_not_contain_an_id_but_includes_and_information_to_send_to_the_api_update_notice_endpoint(String type, String title, String description, String slug) {
+
     }
-    @Given("The api user prepares a PATCH request containing {int}, {string},{string}, {string} and {string} information to send to the api updateNotice endpoint.")
-    public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_update_notice_endpoint(int id, String type, String title, String description, String slug) {
-        map = testData.noticeUpdateRequestBody (id, type, title, description, slug);
+    @Given("The api user prepares a  DELETE request to send to the api visitorsPurposeDelete add endpoint.")
+    public void the_api_user_prepares_a_delete_request_to_send_to_the_api_visitors_purpose_delete_add_endpoint() {
+
+        requestBody.put("id", 775);
+
+        System.out.println("Delete Body : " + requestBody);
     }
-}
+    }
+
+
 
 
 

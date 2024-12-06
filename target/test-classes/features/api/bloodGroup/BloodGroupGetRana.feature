@@ -11,14 +11,10 @@ Feature: As an administrator (admin) I should be able to access the list of bloo
     # Api kullanicisi status codeun 200 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "Success".
     # Api kullanicisi response bodydeki message bilgisinin "Success" oldugunu dogrular
-    * The api user verifies the information in the response body for the entry with the specified <dataindex> index, including "<id>","<name>", "<is_blood_group>", "<created_at>".
+    * The api user verifies the information in the response body for the entry with the specified <dataindex> index, including "<id>", "<name>","<is_blood_group>" and "<created_at>".
     Examples:
-      | dataindex | id | name    | is_blood_group | created_at        |
+      | dataindex | id | name | is_blood_group | created_at |
       |0          |1   |DirtBlood| 0              |2023-06-02 12:17:06|
-     #  the information (<name>", "<is_blood_group>", "<created_at>) returned in the response body of id(x) should be verified
-
-
-
 
 
   Scenario: Invalid Token When a GET request is sent to the /api/getBloodGroup endpoint with invalid authorization information, it should be verified that the status code returned is 403 and the message in the response body is "You do not have authorization or token error.".

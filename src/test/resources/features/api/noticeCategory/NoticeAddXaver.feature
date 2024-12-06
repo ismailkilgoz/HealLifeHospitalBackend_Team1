@@ -53,7 +53,7 @@ Feature: As an administrator (admin) I want to be able to create a new visitor p
       | type  | title              |description  |slug       |
       | notice| notice deneme 12345|notice deneme|noticedeneme|
 
-  Scenario Outline: The creation of the new visitor purpose record to be created via the API must be verified via the API.
+  Scenario Outline: The creation of the new noticeAdd record to be created via the API must be verified via the API.
 
     * The api user sets "api/getNoticeById" path parameters.
     # Api kullanicisi "api/visitorsPurposeId" path parametrelerini olusturur

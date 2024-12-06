@@ -19,6 +19,7 @@ Scenario Outline: API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation
 
 
 
+
   Scenario: API_US31_TC02_InvalidOrMissingData_203Error_MissingOrIncorrectInput
 
     * The api user sets "api/addFindingCategory" path parameters.

@@ -82,7 +82,7 @@ public class API_StepdefinitonsRana extends BaseTest {
                 .spec(spec)
                 .contentType(ContentType.JSON)
                 .when()
-                .body(map)
+                .body(requestBody.toString())
                 .patch(fullPath);
         response.prettyPrint();
 
