@@ -2,11 +2,14 @@ Feature:   Adding a Finding Category via API
   This feature tests the addition of finding categories using the POST API endpoint.
 
 
+
 @seren
 Scenario Outline:API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation
+
+
   * The api user sets "api/addFindingCategory" path parameters.
   * The api user prepares a POST request containing "<category>" and "<created_at>" information to send to the api FindingCategory endpoint.
-  * The api user sends a POST request body and saves the returned response.
+  * The api user sends a "POST" request body and saves the returned response.
   * The api user verifies that the status code is 200.
   * The api user verifies that the "message" information in the response body is "Success".
 
@@ -19,7 +22,11 @@ Scenario Outline:API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation
 
 
 
+
   Scenario:API_US31_TC02_InvalidOrMissingData_203Error_MissingOrIncorrectInput
+
+
+
 
     * The api user sets "api/addFindingCategory" path parameters.
     * The api user prepares a "POST" request that does not contain data for FindingCategory.
@@ -29,15 +36,15 @@ Scenario Outline:API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation
 
 
 
+
   Scenario Outline:Invalid Token  API_US31_TC03_InvalidAuth_403Error_UnauthorizedMessage_AddCategory
+
     * The api user sets "api/addFindingCategory" path parameters.
-    * The api user prepares a POST request containing "<category>" and "<created_at>" information to send to the api FindingCategory endpoint.
+    * The api user prepares a "POST" request that does not contain data for FindingCategory.
     * The api user sends a "POST" request body and saves the returned response.
     * The api user verifies that the status code is 403.
     * The api user verifies that the "message" information in the response body is "You do not have authorization or token error".
-Examples:
-  | category            | created_at          |
-  | Abdominal Diseases  | 2024-04-12 02:19:41 |
+
 
 
   Scenario Outline:

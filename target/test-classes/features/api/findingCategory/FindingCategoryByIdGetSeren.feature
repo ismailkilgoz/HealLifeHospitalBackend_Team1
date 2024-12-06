@@ -24,13 +24,13 @@ Feature:  API_US30 As an administrator (admin), I should be able to access the r
   Scenario Outline: Invalid Token API_US30_TC02_InvalidOrMissingData_203Error_NoIdOrWrongId
 
     * The api user sets "api/getFindingCategoryById" path parameters.
-    * The api user prepares a "GET" request with <id> for the FindingCategoryById API endpoint.
+    * The api user prepares a GET request with <id> for the FindingCategoryById API endpoint.
     * The api user sends a "GET" request body and saves the returned response.
-    * The api user verifies that the status code is 403.
-    * The api user verifies that the "message" information in the response body is "You do not have authorization or token error".
+    * The api user verifies that the status code is 203.
+    * The api user verifies that the "message" information in the response body is "No id or wrong id.".
        Examples:
          | id     |
-         | 20 |
+         | 369874 |
 
 
 
@@ -38,29 +38,18 @@ Feature:  API_US30 As an administrator (admin), I should be able to access the r
 
 
 
-  Scenario: API_US30_TC03_InvalidAuth_403Error_UnauthorizedMessage_ById
+  Scenario: Invalid Token  API_US30_TC03_InvalidAuth_403Error_UnauthorizedMessage_ById
 
     * The api user sets "api/getFindingCategoryById" path parameters.
     * The api user prepares a GET request that does not contain data
     * The api user sends a "GET" request body and saves the returned response.
-    * The api user verifies that the status code is 203.
-    * The api user verifies that the "message" information in the response body is "No id or wrong id.".
+    * The api user verifies that the status code is 403.
+    * The api user verifies that the "message" information in the response body is "You do not have authorization or token error".
 
 
 
 
 
-
-  Scenario Outline: API_US30_TC02_InvalidOrMissingData_203Error_NoIdOrWrongId
-
-    * The api user sets "api/getFindingCategoryById" path parameters.
-    * The api user prepares a "GET" request with <id> for the FindingCategoryById API endpoint.
-    * The api user sends a "GET" request body and saves the returned response.
-    * The api user verifies that the status code is 203.
-    * The api user verifies that the "message" information in the response body is "No id or wrong id.".
-    Examples:
-      | id     |
-      | 42863 |
 
 
 
