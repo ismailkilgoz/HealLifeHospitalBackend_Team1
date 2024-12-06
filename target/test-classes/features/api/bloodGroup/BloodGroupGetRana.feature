@@ -11,11 +11,12 @@ Feature: As an administrator (admin) I should be able to access the list of bloo
     # Api kullanicisi status codeun 200 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "Success".
     # Api kullanicisi response bodydeki message bilgisinin "Success" oldugunu dogrular
-    * The api user verifies the information in the response body for the entry with the specified <dataindex> index, including "<name>", "<is_blood_group>", "<created_at>".
-     #  the information (<name>", "<is_blood_group>", "<created_at>) returned in the response body of id(x) should be verified
+    * The api user verifies the information in the response body for the entry with the specified <dataindex> index, including "<id>","<name>", "<is_blood_group>", "<created_at>".
     Examples:
-      | dataindex | name      | is_blood_group | created_at          |
-      | 0         |DirtBlood  | 0              | 2023-06-02 12:17:06 |
+      | dataindex | id | name    | is_blood_group | created_at        |
+      |0          |1   |DirtBlood| 0              |2023-06-02 12:17:06|
+     #  the information (<name>", "<is_blood_group>", "<created_at>) returned in the response body of id(x) should be verified
+
 
 
 

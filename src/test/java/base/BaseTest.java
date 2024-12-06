@@ -18,6 +18,9 @@ public abstract class BaseTest {
     public static HashMap map;
     public static Faker faker;
 
+
+
+
     public static JSONObject requestBody;
     public static RequestBuilder builder;
     public static  String stringRequestBody;

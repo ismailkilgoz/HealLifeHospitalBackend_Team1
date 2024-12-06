@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="5.043">
-    <testcase classname="As an administrator (admin), I should be able to access" name="Invalid Token When sending a GET body with invalid authorization information to the /api/getNoticeById" time="3.225">
-        <system-out><![CDATA[* The api user sets "api/getNoticeById" path parameters.....................passed
-* The api user prepares a Get request containing the 341 information to send to the api getNoticeById endpoint..passed
-* The api user sends a GET body and saves the returned response.............passed
-* The api user verifies that the status code is 403.........................passed
-* The api user verifies that the "message" information in the response body is "You do not have authorization or token error"..passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="4.53">
+    <testcase classname="Adding a Finding Category via API" name="API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation" time="4.133">
+        <system-out><![CDATA[* The api user sets "api/addFindingCategory" path parameters................passed
+* The api user prepares a POST request containing "Abdominal Diseases" and "2024-04-12 02:19:41" information to send to the api FindingCategory endpoint..passed
+* The api user sends a POST request body and saves the returned response....passed
+* The api user verifies that the status code is 200.........................passed
+* The api user verifies that the "message" information in the response body is "Success"..passed
 ]]></system-out>
-    </testcase>
-    <testcase classname="As an administrator (admin), I should be able to update the visitor purpose information registered in the" name="A PATCH request to the &quot;api/updateNotice&quot; endpoint with valid authorization and correct" time="1.363">
-        <failure message="Cannot invoke &quot;java.lang.Integer.intValue()&quot; because the return value of &quot;io.restassured.internal.common.path.ObjectConverter.convertObjectTo(Object, java.lang.Class)&quot; is null" type="java.lang.NullPointerException"><![CDATA[* The api user sets "api/updateNotice" path parameters......................passed
-* The api user prepares a PATCH request containing 34567, "notice","notice hospital", "notice deneme" and "noticehospital" information to send to the api updateNotice endpoint..passed
-* The api user sends a PATCH request and saves the returned response........passed
-* The api user verifies that the status code is 203.........................passed
-* The api user verifies that the "message" information in the response body is "Wrong information or missing information. Please check your input data and id number."..passed
-* The api user verifies that the updateid information in the Response body is the same as the id information in the patch request body.failed
-
-StackTrace:
-java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "io.restassured.internal.common.path.ObjectConverter.convertObjectTo(Object, java.lang.Class)" is null
-	at io.restassured.path.json.JsonPath.getInt(JsonPath.java:245)
-	at stepdefinitions.API_Stepdefinitions.the_api_user_verifies_that_the_updateid_information_in_the_response_body_is_the_same_as_the_id_information_in_the_patch_request_body(API_Stepdefinitions.java:217)
-	at ✽.The api user verifies that the updateid information in the Response body is the same as the id information in the patch request body(file:///C:/Users/User/IdeaProjects/HealLifeHospitalBackend_Team1/src/test/resources/features/api/noticeCategory/NoticeUpdateXaver.feature:42)
-]]></failure>
     </testcase>
 </testsuite>

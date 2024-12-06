@@ -3,6 +3,7 @@ package stepdefinitions;
 import base.BaseTest;
 import io.cucumber.java.en.Given;
 import org.hamcrest.Matchers;
+import org.junit.Assert;
 import pojos.Pojo;
 import utilities.API_Utilities.TestData;
 
@@ -74,5 +75,19 @@ public class API_StepsMustafa extends BaseTest {
         requestBody.put("id", id);
 
         System.out.println("Get Body : " + requestBody);
+    }
+
+    @Given("The api user prepares a DELETE request to send to the api deleteExpenseHead add endpoint.")
+    public void the_api_user_prepares_a_delete_request_to_send_to_the_api_delete_expense_head_add_endpoint() {
+        requestBody.put("id", 596);
+
+        System.out.println("Delete Body : " + requestBody);
+    }
+
+    @Given("The api user verifies that the deletedId information is the same as the id information in the request body")
+    public void the_api_user_verifies_that_the_deletedid_information_is_the_same_as_the_id_information_in_the_request_body() {
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(requestBody.get("id"), repJP.getInt("deletedId")); //D d farkli oldugu icin step bastan yazdim
     }
 }
