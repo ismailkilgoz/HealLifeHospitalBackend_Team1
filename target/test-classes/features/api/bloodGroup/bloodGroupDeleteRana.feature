@@ -3,19 +3,19 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
   Scenario: A DELETE request to the "api/deleteBloodGroup" endpoint with valid authorization
   and correct data (id) should return a 200 status code, a response body message of "Success," and the "DeletedId" in the
   response should match the "id" in the request body. The deletion should be confirmed by sending a GET request to the
-  "api/deleteBloodGroup" endpoint using the "DeletedId" from the response.
+  "/api/visitorsPurposeId" endpoint using the "DeletedId" from the response.
 
     * The api user sets "api/deleteBloodGroup" path parameters.
     # Api kullanicisi "api/deleteBloodGroup" path parametrelerini olusturur
-    * The api user prepares a DELETE request to send to the api deleteBloodGroup add endpoint.
+    * The api user prepares a DELETE request to send to the api visitorsPurposeDelete add endpointt.
     # Api kullanıcısı api visitorsPurposeDelete endpointine gönderilmek üzere bir DELETE request hazırlar.
-    * The api user sends a DELETE request and saves the returned response.
+    * The api user sends a DELETE request and saves the returned responsee.
     # Api kullanicisi DELETE request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 200.
     # Api kullanicisi status codeun 200 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "Success".
     # Api kullanicisi response bodydeki message bilgisinin "Success" oldugunu dogrular
-    * The api user verifies that the Deletedid information is the same as the id information in the request body
+    * The api user verifies that the Deletedid information is the same as the id information in the request bodyy
     # Api kullanıcısı DeletedId bilgisinin request body icindeki id bilgisi ile ayni oldugunu dogrular
 
 
@@ -25,9 +25,9 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
 
     * The api user sets "api/deleteBloodGroup" path parameters.
     # Api kullanicisi "api/deleteBloodGroup" path parametrelerini olusturur
-    * The api user prepares a DELETE request to send to the api visitorsPurposeDelete add endpoint.
+    * The api user prepares a DELETE request to send to the api visitorsPurposeDelete add endpointt.
     # Api kullanıcısı api visitorsPurposeDelete endpointine gönderilmek üzere bir DELETE request hazırlar.
-    * The api user sends a DELETE request and saves the returned response.
+    * The api user sends a DELETE request and saves the returned responsee.
     # Api kullanicisi DELETE request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 203.
     # Api kullanicisi status codeun 203 oldugunu dogrular
@@ -41,9 +41,9 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
 
     * The api user sets "api/deleteBloodGroup" path parameters.
     # Api kullanicisi "api/deleteBloodGroup" path parametrelerini olusturur
-    * The api user prepares a DELETE request that does not contain data
+    * The api user prepares a DELETE request that does not contain dataa
     # Api kullanicisi data icermeyen bir delete request hazırlar
-    * The api user sends a DELETE request and saves the returned response.
+    * The api user sends a DELETE request and saves the returned responsee.
     # Api kullanicisi DELETE request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 203.
     # Api kullanicisi status codeun 203 oldugunu dogrular
@@ -57,9 +57,9 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
 
     * The api user sets "api/deleteBloodGroup" path parameters.
     # Api kullanicisi "api/deleteBloodGroup" path parametrelerini olusturur
-    * The api user prepares a DELETE request that does not contain data
+    * The api user prepares a DELETE request that does not contain dataa
     # Api kullanicisi data icermeyen bir delete request hazırlar
-    * The api user sends a DELETE request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
+    * The api user sends a DELETE request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbiddenn.
     # Api kullanicisi DELETE request gonderir, donen responsei kaydeder, status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
 
 
@@ -68,7 +68,7 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
 
     * The api user sets "api/deleteBloodGroup" path parameters.
     # Api kullanicisi "api/deleteBloodGroup" path parametrelerini olusturur
-    * The api user prepares a GET request containing the <id> information to send to the api bloodGroupId endpoint.
+    * The api user prepares a GET request containing the <id> information to send to the api bloodGroupid endpointt.
     # Api kullanicisi api visitorsPurposeId endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar
     * The api user sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen responsei kaydeder
@@ -77,9 +77,7 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
 
     Examples:
       | id  |
-      | 521 |
-
-    
+      | 758 |
   Scenario: A DELETE request to the "api/deleteBloodGroup" endpoint with valid authorization
   and correct data (id) should return a 200 status code, a response body message of "Success," and the "DeletedId" in the
   response should match the "id" in the request body. The deletion should be confirmed by sending a GET request to the
@@ -87,15 +85,15 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
 
     * The api user sets "api/deleteBloodGroup" path parameters.
     # Api kullanicisi "api/deleteBloodGroup" path parametrelerini olusturur
-    * The api user prepares a DELETE request to send to the api deleteBloodGroup add endpoint.
+    * The api user prepares a DELETE request to send to the api bloodGroupDelete add endpointt.
     # Api kullanıcısı api visitorsPurposeDelete endpointine gönderilmek üzere bir DELETE request hazırlar.
-    * The api user sends a DELETE request and saves the returned response.
+    * The api user sends a DELETE request and saves the returned responsee.
     # Api kullanicisi DELETE request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 200.
     # Api kullanicisi status codeun 200 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "Success".
     # Api kullanicisi response bodydeki message bilgisinin "Success" oldugunu dogrular
-    * The api user verifies that the Deletedid information is the same as the id information in the request body
+    * The api user verifies that the Deletedid information is the same as the id information in the request bodyy
     # Api kullanıcısı DeletedId bilgisinin request body icindeki id bilgisi ile ayni oldugunu dogrular
 
 
@@ -105,9 +103,9 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
 
     * The api user sets "api/deleteBloodGroup" path parameters.
     # Api kullanicisi "api/deleteBloodGroup" path parametrelerini olusturur
-    * The api user prepares a DELETE request to send to the api deleteBloodGroup add endpoint.
+    * The api user prepares a DELETE request to send to the api bloodGroupDelete add endpointt.
     # Api kullanıcısı api visitorsPurposeDelete endpointine gönderilmek üzere bir DELETE request hazırlar.
-    * The api user sends a DELETE request and saves the returned response.
+    * The api user sends a DELETE request and saves the returned responsee.
     # Api kullanicisi DELETE request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 203.
     # Api kullanicisi status codeun 203 oldugunu dogrular
@@ -121,9 +119,9 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
 
     * The api user sets "api/visitorsPurposeDelete" path parameters.
     # Api kullanicisi "api/visitorsPurposeDelete" path parametrelerini olusturur
-    * The api user prepares a DELETE request that does not contain data
+    * The api user prepares a DELETE request that does not contain dataa
     # Api kullanicisi data icermeyen bir delete request hazırlar
-    * The api user sends a DELETE request and saves the returned response.
+    * The api user sends a DELETE request and saves the returned responsee.
     # Api kullanicisi DELETE request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 203.
     # Api kullanicisi status codeun 203 oldugunu dogrular
@@ -137,9 +135,9 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
 
     * The api user sets "api/visitorsPurposeDelete" path parameters.
     # Api kullanicisi "api/visitorsPurposeDelete" path parametrelerini olusturur
-    * The api user prepares a DELETE request that does not contain data
+    * The api user prepares a DELETE request that does not contain dataa
     # Api kullanicisi data icermeyen bir delete request hazırlar
-    * The api user sends a DELETE request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
+    * The api user sends a DELETE request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbiddenn.
     # Api kullanicisi DELETE request gonderir, donen responsei kaydeder, status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
 
 
@@ -148,7 +146,7 @@ Feature: As an administrator (admin) I should be able to delete the blood group 
 
     * The api user sets "api/getBloodGroup" path parameters.
     # Api kullanicisi "api/getBloodGroup" path parametrelerini olusturur
-    * The api user prepares a GET request containing the <id> information to send to the api visitorsPurposeid endpoint.
+    * The api user prepares a GET request containing the <id> information to send to the api visitorsPurposeid endpointt.
     # Api kullanicisi api visitorsPurposeId endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar
     * The api user sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen responsei kaydeder

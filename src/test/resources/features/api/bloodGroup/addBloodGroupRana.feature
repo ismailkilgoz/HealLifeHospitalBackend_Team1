@@ -55,7 +55,7 @@ response body'deki message bilgisinin "You do not have authorization or token er
 
   Scenario Outline:The new blood group record to be created from the API must be verified from the API.
   (It can be verified that the record was created by sending GET body to /api/getBloodGroupById endpoint with "addId" returned in the response body).
-    * The api user sets "api/addBloodGroupById" path parameters.
+    * The api user sets "api/addBloodGroup" path parameters.
     # Api kullanicisi "api/addBloodGroup" path parametrelerini olusturur
     * The api user prepares a Get request containing the <id> information to send to the api getBloodGroupById endpoint.
     # Api kullanicisi id iceren bir get request gonderir
