@@ -21,7 +21,7 @@ Feature: An administrator (admin) should be able to access the Visitors List via
 
     * An api user sets "api/visitorsList" path parameters.
     # Api kullanicisi "api/visitorsList" path parametrelerini olusturur
-    * An api user sends a GET request with a body containing <id> and saves the returned response.
+    * An api user sends a GET request with a body containing "<id>" and saves the returned response.
     # Api kullanicisi GET request gonderir ve donen response'i kaydeder
     * An api user verifies the data of "<purpose>", "<source>", "<created_at>", "<name>", "<email>", "<no_of_pepple>", "<date>", "<note>", "<id_proof>", "<visit_to>", "<ipd_opd_staff_id>", "<related_to>" that is returned in the response body of id(x).
     # Api kullanicisi response body'deki "<source>", "<purpose>", "<name>", "<email>", "<contact>", "<id_proof>", "<visit_to>","<ipd_opd_staff_id>","<related_to>", "<no_of_people>", "<date, in_time>", "<out_time>", "<note>", "<image>", "<created_at>" bilgilerini dogrular
@@ -37,5 +37,5 @@ Feature: An administrator (admin) should be able to access the Visitors List via
 
     * An api user sets "api/visitorsList" path parameters.
     # Api kullanicisi "api/visitorsList" path parametrelerini olusturur
-    * An api user sends a GET request with invalid authorization, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
+    * An api user sends a GET request with invalid authorization, saves the returned response, and verifies that the status code is "403" with the reason phrase "Forbidden".
     # Api kullanicisi GET request gonderir, donen response'i kaydeder ve status code'un 403 oldugunu dogrular.
