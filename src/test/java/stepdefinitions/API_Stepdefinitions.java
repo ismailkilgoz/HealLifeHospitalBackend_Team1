@@ -6,7 +6,6 @@ import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import pojos.Pojo;
-import pojos.VisitorsPojo;
 import utilities.API_Utilities.API_Methods;
 import utilities.API_Utilities.TestData;
 
@@ -16,7 +15,7 @@ import static utilities.API_Utilities.API_Methods.fullPath;
 
 public class API_Stepdefinitions extends BaseTest {
 
-    VisitorsPojo pojoRequest;
+    Pojo pojoRequest;
     TestData testData = new TestData();
     String exceptionMesaj = null;
 
@@ -219,14 +218,14 @@ public class API_Stepdefinitions extends BaseTest {
     }
     @Given("The api user prepares a PATCH request that does not contain an id but includes {string} and {string} information to send to the api visitorsPurposeUpdate endpoint.")
     public void the_api_user_prepares_a_patch_request_that_does_not_contain_an_id_but_includes_and_information_to_send_to_the_api_visitors_purpose_update_endpoint(String visitors_purpose, String description) {
-        pojoRequest = new VisitorsPojo(visitors_purpose, description);
+        pojoRequest = new Pojo(visitors_purpose, description);
 
         System.out.println("Patch Body : " + pojoRequest);
     }
 
     @Given("The api user prepares a PATCH request that does not contain data")
     public void the_api_user_prepares_a_patch_request_that_does_not_contain_data() {
-        pojoRequest = new VisitorsPojo();
+        pojoRequest = new Pojo();
     }
 
     @Given("The api user sends a PATCH request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.")
