@@ -3,9 +3,9 @@ package stepdefinitions;
 import base.BaseTest;
 import io.cucumber.java.en.Given;
 import org.hamcrest.Matchers;
+import org.junit.Assert;
 import utilities.API_Utilities.TestData;
 
-import static io.restassured.RestAssured.given;
 
 public class API_StepsMustafa extends BaseTest {
 
@@ -59,5 +59,33 @@ public class API_StepsMustafa extends BaseTest {
         map = testData.expenseHeadUpdateRequestBody(id, exp_category, description, is_active, is_deleted);
 
         System.out.println("Patch Body : " + map);
+    }
+
+    @Given("The api user prepares a PATCH request that does not contain an id but includes {string}, {string}, {string} and {string} information to send to the api updateExpenseHead endpoint.")
+    public void the_api_user_prepares_a_patch_request_that_does_not_contain_an_id_but_includes_and_information_to_send_to_the_api_update_expense_head_endpoint(String string, String string2, String string3, String string4) {
+
+        // pojo.
+    }
+
+
+    @Given("The api user prepares a GET request containing the {int} information to send to the api updateExpenseHead endpoint.")
+    public void the_api_user_prepares_a_get_request_containing_the_information_to_send_to_the_api_update_expense_head_endpoint(int id) {
+        requestBody.put("id", id);
+
+        System.out.println("Get Body : " + requestBody);
+    }
+
+    @Given("The api user prepares a DELETE request to send to the api deleteExpenseHead add endpoint.")
+    public void the_api_user_prepares_a_delete_request_to_send_to_the_api_delete_expense_head_add_endpoint() {
+        requestBody.put("id", 596);
+
+        System.out.println("Delete Body : " + requestBody);
+    }
+
+    @Given("The api user verifies that the deletedId information is the same as the id information in the request body")
+    public void the_api_user_verifies_that_the_deletedid_information_is_the_same_as_the_id_information_in_the_request_body() {
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(requestBody.get("id"), repJP.getInt("deletedId")); //D d farkli oldugu icin step bastan yazdim
     }
 }
