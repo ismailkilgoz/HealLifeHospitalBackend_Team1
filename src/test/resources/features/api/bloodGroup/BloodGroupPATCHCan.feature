@@ -1,6 +1,6 @@
 Feature: As an administrator (admin), I should be able to update the visitor purpose information registered in the
   system via API connection.
-
+@US
   Scenario Outline: A PATCH request to the "/api/updateBloodGroup" endpoint with valid authorization and correct
   data (id, name, is_blood_group) should return a 200 status code, a response body message of "Success," and
   the "updateId" in the response should match the "id" in the request body. The update should be confirmed via a GET
@@ -8,7 +8,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     * The api user sets "api/updateBloodGroup" path parameters.
     # Api kullanicisi "api/visitorsPurposeUpdate" path parametrelerini olusturur
-    * The api user prepares a PATCH request containing <id>, "<name>" and "<is_blood_group>" information to send to the api api/updateBloodGroup endpoint.
+    * The api user prepares a PATCH request containing <id>,"<name>" and "<is_blood_group>" information to send to the api updateBloodGroup endpoint.
     # Api kullanicisi api visitorsPurposeUpdate endpointine gondermek icin "<name>" ve "<is_blood_group>" bilgilerini iceren bir patch request hazirlar
     * The api user sends a PATCH request and saves the returned response.
     # Api kullanicisi PATCH request gonderir ve donen responsei kaydeder
