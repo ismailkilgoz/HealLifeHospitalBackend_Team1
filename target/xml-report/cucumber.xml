@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="4.022">
-    <testcase classname="API_US32 As an administrator (admin), I should be able to update the finding category information registered in the system via API connection." name="Verify with GET Method that API_US32_TC01_ValidAuth_SuccessStatus_RecordUpdateValidation" time="3.65">
-        <system-out><![CDATA[* The api user sets "api/getFindingCategoryById" path parameters............passed
-* The api user prepares a GET request containing the 61 information to send to the api FindingCategoryById endpoint..passed
-* The api user sends a "GET" request body and saves the returned response...passed
-* The api user verifies that the "details.id" information in the response body is "61"..passed
-* The api user verifies that the "details.category" information in the response body is "heart problem"..passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="3.976">
+    <testcase classname="API_US32 As an administrator (admin), I should be able to update the finding category information registered in the system via API connection." name="API_US32_TC01_ValidAuth_SuccessStatus_RecordUpdateValidation" time="3.625">
+        <system-out><![CDATA[* The api user sets "api/updateFindingCategory" path parameters.............passed
+* The api user prepares a PATCH request containing 143 and "ill category 1" information to send to the api Finding Category endpoint..passed
+* The api user sends a "PATCH" request and saves the returned response......passed
+* The api user verifies that the status code is 200.........................passed
+* The api user verifies that the "message" information in the response body is "Success"..passed
+* The api user verifies that the "updateId" information in the Response body is the same as the id information in the patch request body..passed
 ]]></system-out>
     </testcase>
 </testsuite>

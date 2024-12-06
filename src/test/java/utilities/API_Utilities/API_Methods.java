@@ -3,7 +3,6 @@ package utilities.API_Utilities;
 import base.BaseTest;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.json.JSONObject;
 
 import java.util.Arrays;
 
@@ -144,18 +143,6 @@ public class API_Methods extends BaseTest {
         response.then()
                 .assertThat()
                 .body(path, equalTo(value));
-    }
-
-
-
-    public static JSONObject toJSONObject(String stringRequestBody){
-
-
-       JSONObject jsonObject=new JSONObject(stringRequestBody);
-
-        requestBody= jsonObject;
-
-      return   requestBody;
     }
 
 }
