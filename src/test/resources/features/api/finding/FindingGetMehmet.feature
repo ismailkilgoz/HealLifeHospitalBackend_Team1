@@ -24,7 +24,7 @@ Feature: As an administrator (admin) I should be able to access the finding list
     Then    The Api User sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
     # Api kullanicisi GET request gonderir, donen responsei kaydeder, status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
 
-  @US1
+
   Scenario Outline: When a GET request is sent to /api/getFinding endpoint with valid authorization information,
   the information (name, description, finding_category_id, created_at, category) returned in the response body of id(x)
   should be verified.
