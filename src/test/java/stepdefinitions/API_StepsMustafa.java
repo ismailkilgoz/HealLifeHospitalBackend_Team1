@@ -4,10 +4,8 @@ import base.BaseTest;
 import io.cucumber.java.en.Given;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
-import pojos.Pojo;
 import utilities.API_Utilities.TestData;
 
-import static io.restassured.RestAssured.given;
 
 public class API_StepsMustafa extends BaseTest {
 
@@ -66,7 +64,7 @@ public class API_StepsMustafa extends BaseTest {
     @Given("The api user prepares a PATCH request that does not contain an id but includes {string}, {string}, {string} and {string} information to send to the api updateExpenseHead endpoint.")
     public void the_api_user_prepares_a_patch_request_that_does_not_contain_an_id_but_includes_and_information_to_send_to_the_api_update_expense_head_endpoint(String string, String string2, String string3, String string4) {
 
-        // pojo
+        // pojo.
     }
 
 
