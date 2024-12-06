@@ -4,10 +4,8 @@ import base.BaseTest;
 import io.cucumber.java.en.Given;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
-import pojos.Pojo;
 import utilities.API_Utilities.TestData;
 
-import static io.restassured.RestAssured.given;
 
 public class API_StepsMustafa extends BaseTest {
 
