@@ -175,13 +175,39 @@ public class API_Stepdefinitions extends BaseTest {
         System.out.println("Post Body : " + map);
     }
 
+    @Given("The api user sends a POST request and saves the returned response.")
+    public void the_api_user_sends_a_post_request_and_saves_the_returned_response() {
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(map)
+                .post(fullPath);
 
+        response.prettyPrint();
+    }
+
+    @Given("The api user prepares a POST request that does not contain data")
+    public void the_api_user_prepares_a_post_request_that_does_not_contain_data() {
+    }
 
     @Given("The api user prepares a PATCH request containing {int}, {string} and {string} information to send to the api visitorsPurposeUpdate endpoint.")
     public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_visitors_purpose_update_endpoint(int id, String visitors_purpose, String description) {
         map = testData.visitorsPurposeUpdateRequestBody(id, visitors_purpose, description);
 
         System.out.println("Patch Body : " + map);
+    }
+
+    @Given("The api user sends a PATCH request and saves the returned response.")
+    public void the_api_user_sends_a_patch_request_and_saves_the_returned_response() {
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(map)
+                .patch(fullPath);
+
+        response.prettyPrint();
     }
 
     @Given("The api user verifies that the updateid information in the Response body is the same as the id information in the patch request body")
