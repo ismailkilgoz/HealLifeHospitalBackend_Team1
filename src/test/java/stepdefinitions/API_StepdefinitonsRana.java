@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import pojos.Pojo;
+import pojos.VisitorsPojo;
 import utilities.API_Utilities.API_Methods;
 import utilities.API_Utilities.TestData;
 
@@ -123,13 +124,33 @@ public class API_StepdefinitonsRana extends BaseTest {
     }
 
 
+    @Given("The api user prepares a PATCH request containing {int}, {string} and {string} information to send to the api api\\/updateBloodGroup endpoint.")
+    public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_api_update_blood_group_endpoint(Integer id, String name, String is_blood_group) {
+        pojoRequest = new Pojo(name, is_blood_group);
 
-    @Given("The api user prepares a PATCH request containing {int}, {string} and {string} information to send to the api updateBloodGroup endpoint.")
-    public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_update_blood_group_endpoint(Integer id, String name, String is_blood_group) {
-        map=testData.bloodGroupUpdateRequestBody(id,name, is_blood_group );
-        System.out.println("Patch Body : " + map);
+        System.out.println("Patch Body : " + pojoRequest);
     }
 
+    @Given("The api user prepares a PATCH request that does not contain an id but includes, {string} and {string} information to send to the api updateBloodGroup endpoint.")
+    public void the_api_user_prepares_a_patch_request_that_does_not_contain_an_id_but_includes_and_information_to_send_to_the_api_update_blood_group_endpoint(String name, String is_blood_group) {
+        pojoRequest = new Pojo(name, is_blood_group);
+
+        System.out.println("Patch Body : " + pojoRequest);
 
 
+    }
+
+    @Given("The api user prepares a DELETE request to send to the api deleteBloodGroup add endpoint.")
+    public void the_api_user_prepares_a_delete_request_to_send_to_the_api_delete_blood_group_add_endpoint() {
+        requestBody.put("id",521);
+
+        System.out.println("Delete Body: "+requestBody);
+    }
+
+    @Given("The api user prepares a GET request containing the {int} information to send to the api bloodGroupId endpoint.")
+    public void the_api_user_prepares_a_get_request_containing_the_information_to_send_to_the_api_blood_GroupId_endpoint(int id) {
+        requestBody.put("id", id);
+
+        System.out.println("Get Body : " + requestBody);
+    }
 }
