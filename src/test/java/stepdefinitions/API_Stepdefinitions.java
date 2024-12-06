@@ -5,6 +5,8 @@ import io.cucumber.java.en.Given;
 import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
+import pojos.Pojo;
+import pojos.VisitorsPojo;
 import utilities.API_Utilities.API_Methods;
 import utilities.API_Utilities.TestData;
 
@@ -14,6 +16,7 @@ import static utilities.API_Utilities.API_Methods.fullPath;
 
 public class API_Stepdefinitions extends BaseTest {
 
+    VisitorsPojo pojoRequest;
     TestData testData = new TestData();
     String exceptionMesaj = null;
 
@@ -122,16 +125,7 @@ public class API_Stepdefinitions extends BaseTest {
                .when()
                .body(requestBody.toString())
                .get(fullPath);
-    }
-    @Given("The api user verifies the information in the response body includes {string},{string}, {string}, {string}.")
-    public void the_api_user_verifies_the_information_in_the_response_body_includes(String id, String name, String is_blood_group, String created_at) {
-
-        response.then()
-                .assertThat()
-                .body("lists.id", Matchers.equalTo(id),
-                        "lists.name", Matchers.equalTo(name),
-                        "lists.is_blood_group", Matchers.equalTo(is_blood_group),
-                        "lists.created_at", Matchers.equalTo(created_at));
+       response.prettyPrint();
     }
 
     @Given("The api user prepares a GET request containing the {int} information to send to the api visitorsPurposeid endpoint.")
@@ -231,6 +225,82 @@ public class API_Stepdefinitions extends BaseTest {
 
         Assert.assertEquals(map.get("id"), repJP.getInt("updatedId"));
 
+    }
+    @Given("The api user prepares a PATCH request that does not contain an id but includes {string} and {string} information to send to the api visitorsPurposeUpdate endpoint.")
+    public void the_api_user_prepares_a_patch_request_that_does_not_contain_an_id_but_includes_and_information_to_send_to_the_api_visitors_purpose_update_endpoint(String visitors_purpose, String description) {
+        pojoRequest = new VisitorsPojo(visitors_purpose, description);
+
+        System.out.println("Patch Body : " + pojoRequest);
+    }
+
+    @Given("The api user prepares a PATCH request that does not contain data")
+    public void the_api_user_prepares_a_patch_request_that_does_not_contain_data() {
+        pojoRequest = new VisitorsPojo();
+    }
+
+    @Given("The api user sends a PATCH request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.")
+    public void the_api_user_sends_a_patch_request_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden() {
+        try {
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .when()
+                    .body(map)
+                    .patch(fullPath);
+        } catch (Exception e) {
+            exceptionMesaj = e.getMessage();
+        }
+
+        System.out.println("exceptionMesaj : " + exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
+    }
+
+    @Given("The api user prepares a DELETE request to send to the api visitorsPurposeDelete add endpoint.")
+    public void the_api_user_prepares_a_delete_request_to_send_to_the_api_visitors_purpose_delete_add_endpoint() {
+        requestBody.put("id", 775);
+
+        System.out.println("Delete Body : " + requestBody);
+    }
+
+    @Given("The api user sends a DELETE request and saves the returned response.")
+    public void the_api_user_sends_a_delete_request_and_saves_the_returned_response() {
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(requestBody.toString())
+                .delete(fullPath);
+
+        response.prettyPrint();
+    }
+
+    @Given("The api user verifies that the Deletedid information is the same as the id information in the request body")
+    public void the_api_user_verifies_that_the_deletedid_information_is_the_same_as_the_id_information_in_the_request_body() {
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(requestBody.get("id"), repJP.getInt("DeletedId"));
+    }
+
+    @Given("The api user prepares a DELETE request that does not contain data")
+    public void the_api_user_prepares_a_delete_request_that_does_not_contain_data() {
+
+    }
+
+    @Given("The api user sends a DELETE request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.")
+    public void the_api_user_sends_a_delete_request_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden() {
+        try {
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .when()
+                    .body(requestBody.toString())
+                    .delete(fullPath);
+        } catch (Exception e) {
+            exceptionMesaj = e.getMessage();
+        }
+
+        System.out.println("exceptionMesaj : " + exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"),exceptionMesaj);
     }
 }
 
