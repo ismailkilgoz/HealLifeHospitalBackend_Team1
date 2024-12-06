@@ -6,7 +6,6 @@ import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import pojos.Pojo;
-import pojos.VisitorsPojo;
 import utilities.API_Utilities.API_Methods;
 import utilities.API_Utilities.TestData;
 
@@ -16,7 +15,7 @@ import static utilities.API_Utilities.API_Methods.fullPath;
 
 public class API_Stepdefinitions extends BaseTest {
 
-    VisitorsPojo pojoRequest;
+    Pojo pojoRequest;
     TestData testData = new TestData();
     String exceptionMesaj = null;
 
@@ -175,7 +174,21 @@ public class API_Stepdefinitions extends BaseTest {
         System.out.println("Post Body : " + map);
     }
 
+    @Given("The api user sends a POST request and saves the returned response.")
+    public void the_api_user_sends_a_post_request_and_saves_the_returned_response() {
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(map)
+                .post(fullPath);
 
+        response.prettyPrint();
+    }
+
+    @Given("The api user prepares a POST request that does not contain data")
+    public void the_api_user_prepares_a_post_request_that_does_not_contain_data() {
+    }
 
     @Given("The api user prepares a PATCH request containing {int}, {string} and {string} information to send to the api visitorsPurposeUpdate endpoint.")
     public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_visitors_purpose_update_endpoint(int id, String visitors_purpose, String description) {
@@ -184,23 +197,44 @@ public class API_Stepdefinitions extends BaseTest {
         System.out.println("Patch Body : " + map);
     }
 
+    @Given("The api user sends a PATCH request and saves the returned response.")
+    public void the_api_user_sends_a_patch_request_and_saves_the_returned_response() {
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(map)
+                .patch(fullPath);
+
+        response.prettyPrint();
+    }
+
+    @Given("The api user prepares a PATCH request containing {int},{string} and {string} information to send to the api updateBloodGroup endpoint.")
+    public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_update_blood_group_endpoint(int id, String name, String is_blood_group) {
+        map.put("id", id);
+        map.put("name", name);
+        map.put("is_blood_group", is_blood_group);
+
+        System.out.println("Patch : " + map);
+    }
+
     @Given("The api user verifies that the updateid information in the Response body is the same as the id information in the patch request body")
     public void the_api_user_verifies_that_the_updateid_information_in_the_response_body_is_the_same_as_the_id_information_in_the_patch_request_body() {
         repJP = response.jsonPath();
 
-        Assert.assertEquals(map.get("id"), repJP.getInt("updateId"));
+        Assert.assertEquals(map.get("id"), repJP.getInt("updatedId"));
 
     }
     @Given("The api user prepares a PATCH request that does not contain an id but includes {string} and {string} information to send to the api visitorsPurposeUpdate endpoint.")
     public void the_api_user_prepares_a_patch_request_that_does_not_contain_an_id_but_includes_and_information_to_send_to_the_api_visitors_purpose_update_endpoint(String visitors_purpose, String description) {
-        pojoRequest = new VisitorsPojo(visitors_purpose, description);
+        pojoRequest = new Pojo(visitors_purpose, description);
 
         System.out.println("Patch Body : " + pojoRequest);
     }
 
     @Given("The api user prepares a PATCH request that does not contain data")
     public void the_api_user_prepares_a_patch_request_that_does_not_contain_data() {
-        pojoRequest = new VisitorsPojo();
+        pojoRequest = new Pojo();
     }
 
     @Given("The api user sends a PATCH request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.")

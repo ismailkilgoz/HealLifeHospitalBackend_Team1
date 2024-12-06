@@ -73,7 +73,7 @@ Feature: As an administrator (admin) I should be able to delete the Expense Head
     * The api user sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen responsei kaydeder
     * The api user verifies that the "message" information in the response body is "No id or wrong id.".
-    # Api kullanicisi response bodydeki message bilgisinin "No id or wrong id." oldugunu dogrular
+    # Api kullanicisi response bodydeki message bilgisinin "No id or wrong id." oldugunu dogrular.
 
     Examples:
       | id  |
