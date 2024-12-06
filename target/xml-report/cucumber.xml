@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="3.976">
-    <testcase classname="API_US32 As an administrator (admin), I should be able to update the finding category information registered in the system via API connection." name="API_US32_TC01_ValidAuth_SuccessStatus_RecordUpdateValidation" time="3.625">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="4.813">
+    <testcase classname="API_US32 As an administrator (admin), I should be able to update the finding category information registered in the system via API connection." name="API_US32_TC02_InvalidData_203Error_WrongOrMissingInput" time="4.333">
         <system-out><![CDATA[* The api user sets "api/updateFindingCategory" path parameters.............passed
-* The api user prepares a PATCH request containing 143 and "ill category 1" information to send to the api Finding Category endpoint..passed
+* The api user prepares a PATCH request containing "6523" and "ill category 1" information to send to the api FindingCategory endpoint..passed
 * The api user sends a "PATCH" request and saves the returned response......passed
-* The api user verifies that the status code is 200.........................passed
-* The api user verifies that the "message" information in the response body is "Success"..passed
-* The api user verifies that the "updateId" information in the Response body is the same as the id information in the patch request body..passed
+* The api user verifies that the status code is 203.........................passed
+* The api user verifies that the "message" information in the response body is "Wrong information or missing information. Please check your input data and id number."..passed
 ]]></system-out>
     </testcase>
 </testsuite>
