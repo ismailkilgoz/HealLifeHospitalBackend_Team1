@@ -18,7 +18,7 @@ public class API_StepdefinitonsRana extends BaseTest {
     String exceptionMesaj = null;
     Pojo pojoRequest;
 
-    @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string}, {string}.")
+    @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string},{string} and {string}.")
     public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_index_including(Integer dataIndex, String id, String name, String is_blood_group, String created_at) {
         repJP = response.jsonPath();
         Assert.assertEquals(id, repJP.getString("lists[" + dataIndex + "].id"));
@@ -87,12 +87,6 @@ public class API_StepdefinitonsRana extends BaseTest {
         response.prettyPrint();
 
     }
-    @Given("The api user verifies that the updateid information in the Response body is the same as the id information in the patch request body")
-    public void the_api_user_verifies_that_the_updateid_information_in_the_response_body_is_the_same_as_the_id_information_in_the_patch_request_body() {
-        repJP = response.jsonPath();
-
-        Assert.assertEquals(map.get("id"), repJP.getInt("updateId"));
-    }
 
 
     @Given("The api user prepares a PATCH request containing {string} and {string} information to send to the api api\\/updateBloodGroup endpointt.")
@@ -129,14 +123,12 @@ public class API_StepdefinitonsRana extends BaseTest {
     }
 
 
-    @Given("The api user prepares a PATCH request containing {int} , {string} and {string} information to send to the api api\\/updateBloodGroup endpointt.")
-    public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_api_update_blood_group_endpointt(Integer id, String name, String is_blood_group) {
+
+    @Given("The api user prepares a PATCH request containing {int}, {string} and {string} information to send to the api updateBloodGroup endpoint.")
+    public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_update_blood_group_endpoint(Integer id, String name, String is_blood_group) {
         map=testData.bloodGroupUpdateRequestBody(id,name, is_blood_group );
         System.out.println("Patch Body : " + map);
     }
-
-
-
 
 
 
