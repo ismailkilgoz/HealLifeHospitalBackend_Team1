@@ -84,12 +84,12 @@ Feature: As an administrator (admin), I want to be able to update the Expense He
     * The api user sets "api/updateExpenseHead" path parameters.
     # Api kullanicisi "api/updateExpenseHead" path parametrelerini olusturur
     * The api user prepares a PATCH request containing <id>, "<exp_category>", "<description>", "<is_active>" and "<is_deleted>" information to send to the api updateExpenseHead endpoint.
-    # Api kullanicisi api updateExpenseHead endpointine gondermek icin "<visitors_purpose>" ve "<description>" bilgilerini iceren bir patch request hazirlar
+    # Api kullanicisi api updateExpenseHead endpointine gondermek icin "<exp_category>", "<description>", "<is_active>" ve "<is_deleted>" bilgilerini iceren bir patch request hazirlar
     * The api user sends a PATCH request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
     # Api kullanicisi PATCH request gonderir, donen responsei kaydeder, status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
     Examples:
       | id | exp_category | description | is_active | is_deleted |
-      |    |              |             |           |            |
+      |  588 |  updated_exp  | updated_desc |    yes   |   no   |
 
 
   Scenario Outline: It must be verified via the API that the visitor purpose record that you want to update via the API
@@ -102,7 +102,7 @@ Feature: As an administrator (admin), I want to be able to update the Expense He
     * The api user sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen responsei kaydeder
     * The api user verifies that the "details.exp_category" information in the response body is "updated_exp".
-    # Api kullanicisi response bodydeki details.exp_category bilgisinin "exp_update" oldugunu dogrular
+    # Api kullanicisi response bodydeki details.exp_category bilgisinin "updated_exp" oldugunu dogrular.
 
     Examples:
       | id  |

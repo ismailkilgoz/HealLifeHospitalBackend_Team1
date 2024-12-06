@@ -21,7 +21,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     Examples:
       | id  | visitors_purpose | description            |
-      | 774 | purpose update   | purpose update details |
+      | 599 | purpose update   | purpose update details |
 
 
   Scenario Outline: When a PATCH body (id, visitors_purpose, description) containing valid authorization information
@@ -96,7 +96,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     Examples:
       | id  | visitors_purpose | description            |
-      | 774 | purpose update   | purpose update details |
+      | 756 | purpose update   | purpose update details |
 
 
   Scenario Outline: It must be verified via the API that the visitor purpose record that you want to update via the API
@@ -113,4 +113,4 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     Examples:
       | id  |
-      | 774 |
+      | 756 |

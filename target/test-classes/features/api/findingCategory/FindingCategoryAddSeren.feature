@@ -3,7 +3,10 @@ Feature:   Adding a Finding Category via API
 
 
 
-Scenario Outline: API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation
+@seren
+Scenario Outline:API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation
+
+
   * The api user sets "api/addFindingCategory" path parameters.
   * The api user prepares a POST request containing "<category>" and "<created_at>" information to send to the api FindingCategory endpoint.
   * The api user sends a "POST" request body and saves the returned response.
@@ -20,7 +23,10 @@ Scenario Outline: API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation
 
 
 
-  Scenario: API_US31_TC02_InvalidOrMissingData_203Error_MissingOrIncorrectInput
+  Scenario:API_US31_TC02_InvalidOrMissingData_203Error_MissingOrIncorrectInput
+
+
+
 
     * The api user sets "api/addFindingCategory" path parameters.
     * The api user prepares a "POST" request that does not contain data for FindingCategory.
@@ -30,7 +36,9 @@ Scenario Outline: API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation
 
 
 
-  Scenario: Invalid Token  API_US31_TC03_InvalidAuth_403Error_UnauthorizedMessage_AddCategory
+
+  Scenario Outline:Invalid Token  API_US31_TC03_InvalidAuth_403Error_UnauthorizedMessage_AddCategory
+
     * The api user sets "api/addFindingCategory" path parameters.
     * The api user prepares a "POST" request that does not contain data for FindingCategory.
     * The api user sends a "POST" request body and saves the returned response.

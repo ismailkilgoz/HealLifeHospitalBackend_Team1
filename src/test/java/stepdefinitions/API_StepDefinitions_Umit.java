@@ -99,8 +99,9 @@ public class API_StepDefinitions_Umit extends BaseTest {
     }
 
 
-    @Given("An api user sends a GET request with invalid authorization, saves the returned response, and verifies that the status code is {int} with the reason phrase {string}.")
-    public void an_api_user_sends_a_get_body_with_invalid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(Integer code, String message) {
+    @Given("An api user sends a GET request with invalid authorization, saves the returned response, and verifies that the status code is {string} with the reason phrase {string}.")
+    public void an_api_user_sends_a_get_body_with_invalid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(String code, String message) {
+
 
         try {
             response = given()
@@ -112,7 +113,7 @@ public class API_StepDefinitions_Umit extends BaseTest {
         }
 
         System.out.println("exceptionMesaj : " + exceptionMesaj);
-        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), response.statusCode());
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), code);
 
 
     }

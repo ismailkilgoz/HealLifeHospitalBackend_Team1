@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pojo {
+public class PojoFindingCategoryListsDataRequest {
 
-    private String name;
-    private String is_blood_group;
 
+   private String category;
+   private String created_at;
 
 }
