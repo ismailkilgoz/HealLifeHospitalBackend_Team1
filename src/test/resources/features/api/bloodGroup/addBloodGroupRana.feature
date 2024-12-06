@@ -68,6 +68,6 @@ response body'deki message bilgisinin "You do not have authorization or token er
 
   Examples:
     |id|
-    | 506 |
+    | 510 |
 
 

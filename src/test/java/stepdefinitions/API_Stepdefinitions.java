@@ -49,6 +49,8 @@ public class API_Stepdefinitions extends BaseTest {
         response.then()
                 .assertThat()
                 .body(key, Matchers.equalTo(value));
+
+        response.prettyPrint();
     }
 
     @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {string}, {string} and {string}.")
