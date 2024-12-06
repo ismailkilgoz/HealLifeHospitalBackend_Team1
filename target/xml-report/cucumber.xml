@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="5.659">
-    <testcase classname="As an administrator (admin) I want to be able to create a new visitor purpose record via API connection." name="The creation of the new visitor purpose record to be created via the API must be verified via the API." time="4.725">
-        <failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[* The api user sets "api/addBloodGroup" path parameters.....................passed
-* The api user prepares a Get request containing the 514 information to send to the api addBloodGroup endpoint..undefined
-* The api user sends a GET body and saves the returned response.............skipped
-* The api user verifies that the status code is 200.........................skipped
-* The api user verifies that the "message" information in the response body is "Success"..skipped
-]]></failure>
-    </testcase>
-    <testcase classname="As an administrator (admin) I should be able to access the Visitor Purpose List via API connection." name="Invalid Token When a GET request is sent to the /api/visitorsPurposeList endpoint with invalid authorization" time="0.323">
-        <system-out><![CDATA[* The api user sets "api/visitorsPurposeList" path parameters...............passed
-* The api user sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden..passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="4.53">
+    <testcase classname="Adding a Finding Category via API" name="API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation" time="4.133">
+        <system-out><![CDATA[* The api user sets "api/addFindingCategory" path parameters................passed
+* The api user prepares a POST request containing "Abdominal Diseases" and "2024-04-12 02:19:41" information to send to the api FindingCategory endpoint..passed
+* The api user sends a POST request body and saves the returned response....passed
+* The api user verifies that the status code is 200.........................passed
+* The api user verifies that the "message" information in the response body is "Success"..passed
 ]]></system-out>
     </testcase>
 </testsuite>
