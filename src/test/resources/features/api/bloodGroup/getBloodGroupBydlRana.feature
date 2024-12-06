@@ -14,10 +14,10 @@ Feature: As an administrator (admin), I should be able to access
     # Api kullanicisi status codeun 200 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "Success".
     # Api kullanicisi response bodydeki message bilgisinin "Success" oldugunu dogrular
-    * The api user verifies the information in the response body includes <id> ,"<name>", "<is_blood_group>", "<created_at>".
+    * The api user verifies that the data in the response body includes "<id>", "<name>", "<is_blood_group>" and "<created_at>".
     Examples:
-      | id | id | name | is_blood_group | created_at |
-      | 0   | 0   |      |                |            |
+      | id | id | name      | is_blood_group | created_at                    |
+      | 0  | 4  |    AB+    |     1          |    2021-10-25 06:32:48        |
      #  the information ("<id>","<name>", "<is_blood_group>", "<created_at>) returned in the response body of id(x) should be verified
 
 
