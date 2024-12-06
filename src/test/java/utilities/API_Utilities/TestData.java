@@ -1,6 +1,7 @@
 package utilities.API_Utilities;
 
 import base.BaseTest;
+import io.cucumber.java.hu.Ha;
 
 import java.util.HashMap;
 
@@ -39,7 +40,15 @@ public class TestData extends BaseTest {
         return requestBody;
     }
 
+public HashMap noticeUpdateRequestBody (int id,String type, String title, String description, String slug) {
 
+    HashMap<String, Object> requestBody = new HashMap<>();
+    requestBody.put("id", id);
+    requestBody.put("type", type);
+    requestBody.put("title", title);
+    requestBody.put("type", description);
+    requestBody.put("type", slug);
 
+    return requestBody;
 
-}
+}}
