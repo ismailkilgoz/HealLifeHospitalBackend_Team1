@@ -13,6 +13,4 @@ public class Pojo {
     private String is_blood_group;
 
 
-    private String visitors_purpose;
-    private String description;
 }
