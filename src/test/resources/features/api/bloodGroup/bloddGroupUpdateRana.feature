@@ -10,7 +10,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     * The api user sets "api/updateBloodGroup" path parameters.
     # Api kullanicisi "api/updateBloodGroup" path parametrelerini olusturur
-    * The api user prepares a PATCH request containing <id> , "<name>" and "<is_blood_group>" information to send to the api api/updateBloodGroup endpointt.
+    * The api user prepares a PATCH request containing <id>, "<name>" and "<is_blood_group>" information to send to the api updateBloodGroup endpoint.
     # Api kullanicisi api visitorsPurposeUpdate endpointine gondermek icin "<visitors_purpose>" ve "<description>" bilgilerini iceren bir patch request hazirlar
     * The api user sends a PATCH request and saves the returned response.
     # Api kullanicisi PATCH request gonderir ve donen responsei kaydeder
@@ -19,11 +19,11 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
     * The api user verifies that the "message" information in the response body is "Success".
     # Api kullanicisi response bodydeki message bilgisinin "Success" oldugunu dogrular
     * The api user verifies that the updateid information in the Response body is the same as the id information in the patch request body
+    Examples:
+      | id | name | is_blood_group |
+      | 800 |hello| 1                  |
     # Api kullanıcısı Response body icindeki updateId bilgisinin patch request body icindeki id bilgisi ile ayni oldugunu dogrular
 
-    Examples:
-      | id  | name                | is_blood_group     |
-      | 503 | Kan Grubu Güncelle 1| 1                  |
 
 
 
@@ -34,18 +34,18 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     * The api user sets "api/updateBloodGroup" path parameters.
     # Api kullanicisi "api/updateBloodGroup" path parametrelerini olusturur
-    * The api user prepares a PATCH request containing <id>, "<name>" and "<is_blood_group>" information to send to the api api/updateBloodGroup endpointt.
+    * The api user prepares a PATCH request containing <id>, "<name>" and "<is_blood_group>" information to send to the api updateBloodGroup endpoint.
     # Api kullanicisi api visitorsPurposeUpdate endpointine gondermek icin "<visitors_purpose>" ve "<description>" bilgilerini iceren bir patch request hazirlar
     * The api user sends a PATCH request and saves the returned response.
     # Api kullanicisi PATCH request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 203.
     # Api kullanicisi status codeun 203 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "Wrong information or missing information. Please check your input data and id number.".
-    # Api kullanicisi response bodydeki message bilgisinin "Wrong information or missing information. Please check your input data and id number." oldugunu dogrular
-
     Examples:
-      | id    | name             |is_blood_group          |
+      | id | name | is_blood_group |
       | 57896 |Kan Grubu Güncelle 1| 1 |
+
+
 
 
   Scenario Outline:a PATCH body (id, name, is_blood_group) that does not contain valid authorization
@@ -55,7 +55,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     * The api user sets "api/updateBloodGroup" path parameters.
     # Api kullanicisi "api/updateBloodGroup" path parametrelerini olusturur
-    * The api user prepares a PATCH request containing "<name>" and "<is_blood_group>" information to send to the api api/updateBloodGroup endpointt.
+    * The api user prepares a PATCH request that does not contain an id but includes, "<name>" and "<is_blood_group>" information to send to the api updateBloodGroup endpoint.
     # Api kullanicisi api visitorsPurposeUpdate endpointine gondermek icin id içermeyen ama "<visitors_purpose>" ve "<description>" bilgilerini iceren bir patch request hazirlar
     * The api user sends a PATCH request and saves the returned response.
     # Api kullanicisi PATCH request gonderir ve donen responsei kaydeder
@@ -91,9 +91,9 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     * The api user sets "api/updateBloodGroup" path parameters.
     # Api kullanicisi "api/updateBloodGroup" path parametrelerini olusturur
-    * The api user prepares a PATCH request containing <id>, "<name>" and "<is_blood_group>" information to send to the api api/updateBloodGroup endpointt.
+    * The api user prepares a PATCH request containing <id>, "<name>" and "<is_blood_group>" information to send to the api updateBloodGroup endpoint.
     # Api kullanicisi api visitorsPurposeUpdate endpointine gondermek icin "<visitors_purpose>" ve "<description>" bilgilerini iceren bir patch request hazirlar
-    * The api user sends a PATCH request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbiddenn.
+    * The api user sends a PATCH request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
     # Api kullanicisi PATCH request gonderir, donen responsei kaydeder, status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
 
     Examples:

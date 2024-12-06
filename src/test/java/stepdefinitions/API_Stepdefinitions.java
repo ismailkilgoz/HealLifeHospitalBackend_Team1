@@ -209,11 +209,20 @@ public class API_Stepdefinitions extends BaseTest {
         response.prettyPrint();
     }
 
+    @Given("The api user prepares a PATCH request containing {int},{string} and {string} information to send to the api updateBloodGroup endpoint.")
+    public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_update_blood_group_endpoint(int id, String name, String is_blood_group) {
+        map.put("id", id);
+        map.put("name", name);
+        map.put("is_blood_group", is_blood_group);
+
+        System.out.println("Patch : " + map);
+    }
+
     @Given("The api user verifies that the updateid information in the Response body is the same as the id information in the patch request body")
     public void the_api_user_verifies_that_the_updateid_information_in_the_response_body_is_the_same_as_the_id_information_in_the_patch_request_body() {
         repJP = response.jsonPath();
 
-        Assert.assertEquals(map.get("id"), repJP.getInt("updateId"));
+        Assert.assertEquals(map.get("id"), repJP.getInt("updatedId"));
 
     }
     @Given("The api user prepares a PATCH request that does not contain an id but includes {string} and {string} information to send to the api visitorsPurposeUpdate endpoint.")

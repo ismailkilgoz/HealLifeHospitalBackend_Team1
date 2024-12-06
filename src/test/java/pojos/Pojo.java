@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Pojo {
 
-    private String visitors_purpose;
-    private String description;
+    private String name;
+    private String is_blood_group;
+
+
 }
