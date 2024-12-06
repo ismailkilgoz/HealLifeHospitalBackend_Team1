@@ -40,7 +40,7 @@ response body'deki message bilgisinin "You do not have authorization or token er
 
   * The api user sets "api/addBloodGroup" path parameters.
     # Api kullanicisi "api/addBloodGroup" path parametrelerini olusturur
-  *  The api user prepares a post request containing the "<name>" and "<is_blood_group>" information to send to the api addBloodGroup endpointt.
+  * The api user prepares a POST request containing "<name>" and "<is_blood_group>" information to send to the api addBloodGroup endpoint.
     # Api kullanicisi api visitorsPurposeAdd endpointine gondermek icin "<name>" ve "<is_blood_group>" bilgilerini iceren bir post request hazirlar
   * The api user sends a POST request and saves the returned response.
     # Api kullanicisi POST request gonderir ve donen responsei kaydeder
@@ -49,7 +49,8 @@ response body'deki message bilgisinin "You do not have authorization or token er
   * The api user verifies that the "message" information in the response body is "You do not have authorization or token error".
   Examples:
     | name | is_blood_group |
-    |Sanane|2               |
+    |sanane|2               |
+
     # Api kullanicisi response bodydeki message bilgisinin "You do not have authorization or token error" oldugunu dogrular
 
 
