@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>VisitorsList.feature</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #b3ae60;}
+.s4 { color: #5c92ff;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+VisitorsList.feature</font>
+</center></td></tr></table>
+<pre><span class="s0">Feature</span><span class="s1">: </span><span class="s2">As an administrator (admin) I should be able to access the Visitor List via API connection.</span>
+
+  <span class="s3">@uygar</span>
+  <span class="s0">Scenario</span><span class="s1">: </span><span class="s2">When a GET request is sent to the /api/visitorsList endpoint with valid authorization</span>
+  <span class="s2">information, it should be verified that the status code returned is 200 and the message information</span>
+  <span class="s2">in the response body is “Success”.</span>
+    <span class="s0">Given </span><span class="s2">The api user sets &quot;api/visitorsList&quot; path parameters.</span>
+    <span class="s0">When </span><span class="s2">The api user send the GET request and saves the returned response.</span>
+    <span class="s0">Then </span><span class="s2">The api user verifies that the returned code is 200.</span>
+    <span class="s0">Then </span><span class="s2">The api user verifies that the &quot;message&quot; information in the response body is &quot;Success&quot;.</span>
+
+  <span class="s0">Scenario</span><span class="s1">: </span><span class="s2">When a GET request is sent to the /api/visitorsList endpoint with invalid authorization information,</span>
+  <span class="s2">it should be verified that the status code returned is 403 and the message in the response body is</span>
+  <span class="s2">&quot;You do not have authorization or token error.&quot;.</span>
+    <span class="s0">Given </span><span class="s2">The api user sets &quot;api/visitorsList&quot; path parameters.</span>
+    <span class="s0">When </span><span class="s2">The api user sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.</span>
+
+    <span class="s0">Scenario Outline</span><span class="s1">:  </span><span class="s2">When a GET request is sent to the /api/visitorsList endpoint with valid authorization information</span>
+    <span class="s2">,the information (source, purpose, name, email, contact, id_proof, visit_to, ipd_opd_staff_id, related_to,</span>
+    <span class="s2">no_of_pepple, date, in_time, out_time, note, image, created_at) returned in the response body of id(x)</span>
+    <span class="s2">should be verified.</span>
+      <span class="s0">Given </span><span class="s2">The api user sets &quot;api/visitorsId&quot; path parameters.</span>
+      <span class="s0">Then </span><span class="s2">The api user send the GET request and saves the returned response.</span>
+      <span class="s0">Then </span><span class="s2">The api user verifies the information in the response body for the entry with the specified  </span><span class="s1">&lt;dataindex&gt; </span><span class="s2">index, including&quot;</span><span class="s1">&lt;source&gt;</span><span class="s2">&quot;, &quot;</span><span class="s1">&lt;purpose&gt;</span><span class="s2">&quot;, &quot;</span><span class="s1">&lt;name&gt;</span><span class="s2">&quot;, &quot;</span><span class="s1">&lt;email&gt;</span><span class="s2">&quot;, &quot;</span><span class="s1">&lt;contact&gt;</span><span class="s2">&quot;, &quot;</span><span class="s1">&lt;id_proof&gt;</span><span class="s2">&quot;,&quot;</span><span class="s1">&lt;visit_to&gt;</span><span class="s2">&quot;,&quot;</span><span class="s1">&lt;ipd_opd_staff_id&gt;</span><span class="s2">&quot;,&quot;</span><span class="s1">&lt;related_to&gt;</span><span class="s2">&quot;,&quot;</span><span class="s1">&lt;no_of_pepple&gt;</span><span class="s2">&quot;,&quot;</span><span class="s1">&lt;date&gt;</span><span class="s2">&quot;,&quot;</span><span class="s1">&lt;in_time&gt;</span><span class="s2">&quot;,&quot;</span><span class="s1">&lt;out_time&gt;</span><span class="s2">&quot;,&quot;</span><span class="s1">&lt;note&gt;</span><span class="s2">&quot;,&quot;</span><span class="s1">&lt;image&gt;</span><span class="s2">&quot;,&quot;</span><span class="s1">&lt;created_at&gt;</span><span class="s2">&quot;.</span>
+      <span class="s0">Examples</span><span class="s1">:</span>
+        <span class="s0">|  </span><span class="s4">dataindex </span><span class="s0">| </span><span class="s4">source </span><span class="s0">| </span><span class="s4">purpose </span><span class="s0">|</span><span class="s4">name </span><span class="s0">| </span><span class="s4">email </span><span class="s0">| </span><span class="s4">contact </span><span class="s0">| </span><span class="s4">id_proof </span><span class="s0">| </span><span class="s4">visit_to </span><span class="s0">| </span><span class="s4">ipd_opd_staff_id </span><span class="s0">| </span><span class="s4">related_to </span><span class="s0">| </span><span class="s4">no_of_pepple </span><span class="s0">| </span><span class="s4">date </span><span class="s0">| </span><span class="s4">in_time </span><span class="s0">| </span><span class="s4">out_time </span><span class="s0">| </span><span class="s4">note </span><span class="s0">| </span><span class="s4">image </span><span class="s0">|</span><span class="s4">created_at</span><span class="s0">|</span>
+        <span class="s0">|     </span><span class="s4">0      </span><span class="s0">| </span><span class="s4">Online </span><span class="s0">|</span><span class="s4">Let's turn up the heat tonight... Just you and me</span><span class="s0">|</span><span class="s4">AmandaSofRenue1</span><span class="s0">|</span><span class="s4">amandafrotte2@gmail.com</span><span class="s0">| | | | </span><span class="s4">null</span><span class="s0">| | </span><span class="s4">0 </span><span class="s0">|</span><span class="s4">2024-11-11</span><span class="s0">| | |</span><span class="s4">I want you tonight... just the two of us, no distractions -  https://rb.gy/ycu4is?Diaphy</span><span class="s0">| | </span><span class="s4">2024-11-11 22:12:33</span></pre>
+</body>
+</html>
