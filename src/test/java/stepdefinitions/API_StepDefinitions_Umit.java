@@ -173,4 +173,56 @@ public class API_StepDefinitions_Umit extends BaseTest {
     }
 
 
+    @Given("An api user prepears a POST request with a body containing correct data of {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void an_api_user_preapers_and_sends_a_request_with_a_body_containing_correct_data_of_and_saves_the_returned_response(String purpose, String name, String email, String contact, String id_proof, String visit_to, String ipd_opd_staff_id, String related_to, String no_of_pepple, String date, String in_time, String out_time, String note) {
+
+        requestBody.put("purpose", purpose);
+        requestBody.put("name", name);
+        requestBody.put("email", email);
+        requestBody.put("contact", contact);
+        requestBody.put("id_proof", id_proof);
+        requestBody.put("visit_to", visit_to);
+        requestBody.put("ipd_opd_staff_id", ipd_opd_staff_id);
+        requestBody.put("related_to", related_to);
+        requestBody.put("no_of_pepple", no_of_pepple);
+        requestBody.put("date", date);
+        requestBody.put("in_time", in_time);
+        requestBody.put("out_time", out_time);
+        requestBody.put("note", note);
+
+        System.out.println("Post Body : " + requestBody.toString());
+
+
+    }
+
+    @Given("An api user sends a {string} request and saves the returned response.")
+    public void an_api_user_sends_a_request_and_saves_the_returned_response(String httpMethod) {
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(requestBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+
+
+    }
+
+    @Given("An api user prepears a {string} request with a body containing no data")
+    public void an_api_user_prepears_a_request_with_a_body_containing_no_data(String httpMethod) {
+
+
+    }
+    @Given("An api user sends a {string} request with a body with invalid token and saves the returned response.")
+    public void an_api_user_sends_a_request_with_a_body_with_invalid_token_and_saves_the_returned_response(String httpMethod) {
+
+        API_Methods.sendRequest(httpMethod,requestBody);
+
+
+    }
+
+
+
 }
