@@ -31,14 +31,12 @@ public class API_StepDefinitionsMehmet extends BaseTest {
 
         response.prettyPrint();
     }
-
     @Then("The Api User verifies that the status code is {int}.")
     public void the_api_user_verifies_that_the_status_code_is(Integer statusCode) {
         response.then()
                 .assertThat()
                 .statusCode(statusCode);
     }
-
     @Then("The Api User verifies that the {string} information in the response body is {string}.")
     public void the_api_user_verifies_that_the_information_in_the_response_body_is(String key, String value) {
         response.then()
@@ -47,7 +45,6 @@ public class API_StepDefinitionsMehmet extends BaseTest {
 
         //response.prettyPrint();
     }
-
     @Then("The Api User sends a GET request, saves the returned response, and verifies that the status code is {string} with the reason phrase Forbidden.")
     public void the_api_user_sends_a_get_request_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(String string) {
         try {
@@ -62,7 +59,6 @@ public class API_StepDefinitionsMehmet extends BaseTest {
         System.out.println("exceptionMesaj : " + exceptionMesaj);
         Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
     }
-
     @Then("The Api User verifies the information in the response body for the entry with the specified {int} index, including {string}, {string}, {string}, {string} and {string}  .")
     public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_index_including_and(Integer dataIndex, String name, String description, String finding_category_id, String created_at, String category) {
         repJP = response.jsonPath();
@@ -75,6 +71,7 @@ public class API_StepDefinitionsMehmet extends BaseTest {
 
         //response.prettyPrint();
     }
+
 
     @Then("The Api User prepares a GET request containing the {int} information to send to the api getFindingById endpoint.")
     public void the_api_user_prepares_a_get_request_containing_the_id_information_to_send_to_the_api_get_finding_by_id_endpoint(Integer id) {
@@ -208,9 +205,6 @@ public class API_StepDefinitionsMehmet extends BaseTest {
         API_Methods.sendRequest("PATCH",requestBody.toString());
 
     }
-
-
-
 
 
 

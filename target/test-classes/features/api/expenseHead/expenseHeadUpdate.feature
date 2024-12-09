@@ -102,7 +102,7 @@ Feature: As an administrator (admin), I want to be able to update the Expense He
     * The api user sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen responsei kaydeder
     * The api user verifies that the "details.exp_category" information in the response body is "updated_exp".
-    # Api kullanicisi response bodydeki details.exp_category bilgisinin "updated_exp" oldugunu dogrular
+    # Api kullanicisi response bodydeki details.exp_category bilgisinin "updated_exp" oldugunu dogrular.
 
     Examples:
       | id  |

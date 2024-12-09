@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="4.53">
-    <testcase classname="Adding a Finding Category via API" name="API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation" time="4.133">
-        <system-out><![CDATA[* The api user sets "api/addFindingCategory" path parameters................passed
-* The api user prepares a POST request containing "Abdominal Diseases" and "2024-04-12 02:19:41" information to send to the api FindingCategory endpoint..passed
-* The api user sends a POST request body and saves the returned response....passed
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="12.004">
+    <testcase classname="As an administrator (admin), I should be able to access announcements via API connection." name="When a GET request is sent to the /api/getNotice endpoint with valid authorization information, it should be verified that the status code returned is 200 and the message information in the response body is “Success”." time="9.095">
+        <failure message="expected:&lt;notice[hospital]&gt; but was:&lt;notice[deneme]&gt;" type="org.junit.ComparisonFailure"><![CDATA[* The api user sets "api/getNotice" path  parameters........................passed
+* The api user sends a GET request and saves the returned  response.........passed
+* The api user verifies that the status code is  200........................passed
+* The api user verifies that the "message" information in the  response body is "Success"..passed
+* The api user verifies the information in the response  body for the entry with the specified 1 , including "notice", "noticehospital", "notice hospital", "page/", "2024-11-24"..failed
+
+StackTrace:
+org.junit.ComparisonFailure: expected:<notice[hospital]> but was:<notice[deneme]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at stepdefinitions.API_StepdefinitionsXaver.the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_including(API_StepdefinitionsXaver.java:47)
+	at ✽.The api user verifies the information in the response  body for the entry with the specified 1 , including "notice", "noticehospital", "notice hospital", "page/", "2024-11-24".(file:///C:/Users/User/IdeaProjects/HealLifeHospitalBackend_Team1/src/test/resources/features/api/noticeCategory/NoticeGetXaver.feature:13)
+]]></failure>
+    </testcase>
+    <testcase classname="As an administrator (admin), I should be able to update the visitor purpose information registered in the" name="A PATCH request to the &quot;api/updateNotice&quot; endpoint with valid authorization and correct" time="1.817">
+        <system-out><![CDATA[* The api user sets "api/updateNotice" path parameters......................passed
+* The api user prepares a PATCH request containing 409, "notice", "notice hospital", "notice deneme" and "noticehospital" information to send to the api updateNotice endpoint..passed
+* The api user sends a PATCH request and saves the returned response........passed
 * The api user verifies that the status code is 200.........................passed
 * The api user verifies that the "message" information in the response body is "Success"..passed
+* The api user verifies that the updatedid information in the Response body is the same as the id information in the patch request body.passed
 ]]></system-out>
     </testcase>
 </testsuite>

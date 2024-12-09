@@ -148,31 +148,21 @@ public class API_Methods extends BaseTest {
     }
 
 
-
     public static JSONObject toJSONObject(String stringRequestBody){
 
 
-       JSONObject jsonObject=new JSONObject(stringRequestBody);
+        JSONObject jsonObject=new JSONObject(stringRequestBody);
 
         requestBody= jsonObject;
 
-      return   requestBody;
+        return   requestBody;
     }
 
 
-
-
-        public static JSONObject convertPojoToJsonObject(Object pojoObject) {
-
-            Gson gson = new Gson();
-            String jsonString = gson.toJson(pojoObject);
-
-
-            return new JSONObject(jsonString);
-        }
-
-
-
-
+    public static JSONObject convertPojoToJsonObject(Object pojoObject) {
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(pojoObject);
+        return new JSONObject(jsonString);
+    }
 
 }

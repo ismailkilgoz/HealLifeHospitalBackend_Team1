@@ -30,18 +30,13 @@ public class API_StepdefinitionsCan extends BaseTest {
         requestBody.put("id", id);
 
         System.out.println("Get Body : " + requestBody);
-    }
-
-    @Given("The api user prepares a PATCH request containing {int}, {string} and {string} information to send to the api api\\/updateBloodGroup endpoint.")
-    public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_api_update_blood_group_endpoint(Integer id, String name, String is_blood_group) {
-        requestBody.put("id", id);
-
-        requestBody.put("name", name);
-        requestBody.put("is_blood_group", is_blood_group);
-
-        System.out.println("Get Body : " + requestBody);
 
     }
 
+    @Given("The api user prepares a DELETE request to send to the api deleteBloodGroup add endpoint .")
+    public void the_api_user_prepares_a_delete_request_to_send_to_the_api_delete_blood_group_add_endpoint() {
+        requestBody.put("id",558);
 
+        System.out.println("Delete Body: "+requestBody);
+    }
 }

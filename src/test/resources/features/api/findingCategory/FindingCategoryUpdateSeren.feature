@@ -10,9 +10,9 @@ Feature: API_US32 As an administrator (admin), I should be able to update the fi
 
     Examples:
               |id   |    category    |
-              | 61 | heart problem |
+              | 143 | ill category 1 |
 
-
+  @seren
   Scenario Outline: API_US32_TC02_InvalidData_203Error_WrongOrMissingInput
 
     * The api user sets "api/updateFindingCategory" path parameters.
@@ -27,6 +27,11 @@ Feature: API_US32 As an administrator (admin), I should be able to update the fi
 
 
 
+
+
+
+
+
   Scenario Outline: Invalid Token API_US32_TC03_InvalidAuth_403Error_UnauthorizedMessage_UpdateCategory
     * The api user sets "api/updateFindingCategory" path parameters.
     * The api user prepares a PATCH request containing <id> and "<category>" information to send to the api Finding Category endpoint.
@@ -35,9 +40,8 @@ Feature: API_US32 As an administrator (admin), I should be able to update the fi
     * The api user verifies that the "message" information in the response body is "You do not have authorization or token error".
 
     Examples:
-                |id |category      |
-                |61 | ill category Problems|
-
+      |id |category      |
+      |61 | ill category Problems|
 
 
 
@@ -52,10 +56,8 @@ Feature: API_US32 As an administrator (admin), I should be able to update the fi
 
 
     Examples:
-        |id   |
-        | 61 |
-
-
+      |id   |
+      | 61 |
 
 
 

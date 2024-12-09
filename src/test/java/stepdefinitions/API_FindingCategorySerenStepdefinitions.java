@@ -4,26 +4,23 @@ import base.BaseTest;
 import com.google.gson.Gson;
 import io.cucumber.java.en.Given;
 import io.restassured.http.ContentType;
-import org.checkerframework.checker.units.qual.C;
 import org.json.JSONObject;
 import org.junit.Assert;
 import pojos.PojoFindingCategoryListsDataRequest;
 import utilities.API_Utilities.API_Methods;
+import utilities.API_Utilities.RequestBuilder;
 import utilities.API_Utilities.TestData;
-
 import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.requestSpecification;
 import static utilities.API_Utilities.API_Methods.fullPath;
 
 public class API_FindingCategorySerenStepdefinitions extends BaseTest {
+
+
+
     TestData testData=new TestData();
     Gson gson = new Gson();
     PojoFindingCategoryListsDataRequest pojoFindingCategoryListsDataRequest;
-
-
-
-
     @Given("The api user sends a {string} request and saves the returned response.")
     public void the_api_user_sends_a_request_and_saves_the_returned_response(String httpMethod ) {
         if (requestBody == null || requestBody.isEmpty()) {
@@ -55,6 +52,8 @@ public class API_FindingCategorySerenStepdefinitions extends BaseTest {
 
     }
 
+
+
     @Given("The api user sends a {string} request body and saves the returned response.")
     public void the_api_user_sends_a_request_body_and_saves_the_returned_response(String httpMethod) {
 
@@ -85,31 +84,22 @@ public class API_FindingCategorySerenStepdefinitions extends BaseTest {
 
     }
 
+
     @Given("The api user prepares a POST request containing {string} and {string} information to send to the api FindingCategory endpoint.")
     public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_finding_category_endpoint(String category, String created_at) {
-      /* requestBody=requestBody.put("category",category);
-       requestBody=requestBody.put("created_at",created_at);
 
-       */
         pojoFindingCategoryListsDataRequest =new PojoFindingCategoryListsDataRequest(category,created_at);
-
         API_Methods.convertPojoToJsonObject(pojoFindingCategoryListsDataRequest);
-
-
-
-
-
-
     }
 
     @Given("The api user sends a POST request body and saves the returned response.")
     public void the_api_user_sends_a_post_request_body_and_saves_the_returned_response() {
-      response=given()
-              .spec(spec)
-              .contentType(ContentType.JSON)
-              .when()
-              .body(pojoFindingCategoryListsDataRequest)
-              .get(fullPath);
+        response=given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(pojoFindingCategoryListsDataRequest)
+                .get(fullPath);
     }
 
 
@@ -134,23 +124,20 @@ public class API_FindingCategorySerenStepdefinitions extends BaseTest {
       Assert.assertEquals(requestBody.getInt("id"), repJP.getInt(updateId));
 
     }
-
-
     @Given("The api user prepares a PATCH request containing {string} and {string} information to send to the api FindingCategory endpoint.")
     public void the_api_user_prepares_a_request_containing_and_information_to_send_to_the_api_finding_category_endpoint(String id, String category) {
+
         stringRequestBody= builder
                 .addParameterForMap("id",id)
                 .addParameterForMap("category",category)
                 .buildUsingMap();
 
-            API_Methods.toJSONObject(stringRequestBody);
+        API_Methods.toJSONObject(stringRequestBody);
+
 
 
 
     }
-
-
-
 
 
 
