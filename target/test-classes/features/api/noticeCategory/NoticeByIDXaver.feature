@@ -1,5 +1,4 @@
-Feature: As an administrator (admin), I should be able to access
-  the relevant blood data by entering the id through the API connection.
+Feature: As an administrator (admin), I should be able to access the relevant announcement data by entering id through the API connection.
 
   Scenario Outline: GET body with valid authorization information and correct data (id) is sent to the /api/getNoticeById endpoint, it should be verified that the status code returned is 200 and the message information in the response body is “Success”.
   GET body with valid authorization information and correct data (id) is sent to the api/getNoticeById endpoint, the data (id, type, slug, url, title, date) in the response body should be verified.
@@ -18,7 +17,7 @@ Feature: As an administrator (admin), I should be able to access
      #  the information ("<id>","<type>", "<slug>", "<url>","<title>""<date>") returned in the response body of id(x) should be verified
     Examples:
       | id    |id  | type    |slug |title|date      |
-      | 341  |341  |notice   |Ein    |hallo|2023-06-02|
+      | 341  |341  |notice   |Ein    |hallo|2024-12-07|
 
 
   Scenario Outline: When a GET body containing valid authorization information and invalid data (id) is sent to the

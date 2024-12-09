@@ -37,5 +37,6 @@ Feature: As an administrator (admin) I should be able to access the finding list
     # Api kullanıcısı response body icindeki <dataIndex> indexe sahip olanin "<visitors_purpose>", "<description>" ve "<created_at>" bilgilerini doğrular.
 
     Examples:
-      | dataIndex | name    | description         | finding_category_id  | created_at          | category               |
-      |   42      | MAHMUT  | trial description   | 2                    | 2023-05-26 11:39:04 | ill category 2         |
+      | dataIndex | name          | description         | finding_category_id  | created_at          | category               |
+      |   42      | MAHMUT        | trial description   | 2                    | 2023-05-26 11:39:04 | ill category 2         |
+      |   6       | mouth sore    | mouth sore is       | 2                    | 2024-12-06 08:53:46 | ill category 2         |
