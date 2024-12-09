@@ -188,6 +188,11 @@ public class API_Stepdefinitions extends BaseTest {
 
     @Given("The api user prepares a POST request that does not contain data")
     public void the_api_user_prepares_a_post_request_that_does_not_contain_data() {
+        response=given()
+                .spec(spec)
+                .when()
+                .post(fullPath);
+        response.prettyPrint();
     }
 
     @Given("The api user prepares a PATCH request containing {int}, {string} and {string} information to send to the api visitorsPurposeUpdate endpoint.")
@@ -273,8 +278,8 @@ public class API_Stepdefinitions extends BaseTest {
         response.prettyPrint();
     }
 
-    @Given("The api user verifies that the Deletedid information is the same as the id information in the request body")
-    public void the_api_user_verifies_that_the_deletedid_information_is_the_same_as_the_id_information_in_the_request_body() {
+    @Given("The api user verifies that the DeletedId information is the same as the id information in the request body")
+    public void the_api_user_verifies_that_the_DeletedId_information_is_the_same_as_the_id_information_in_the_request_body() {
         repJP = response.jsonPath();
 
         Assert.assertEquals(requestBody.get("id"), repJP.getInt("DeletedId"));
@@ -299,7 +304,8 @@ public class API_Stepdefinitions extends BaseTest {
         }
 
         System.out.println("exceptionMesaj : " + exceptionMesaj);
-        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"),exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
+
     }
 }
 
