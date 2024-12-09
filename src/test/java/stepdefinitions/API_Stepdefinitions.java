@@ -188,6 +188,11 @@ public class API_Stepdefinitions extends BaseTest {
 
     @Given("The api user prepares a POST request that does not contain data")
     public void the_api_user_prepares_a_post_request_that_does_not_contain_data() {
+        response=given()
+                .spec(spec)
+                .when()
+                .post(fullPath);
+        response.prettyPrint();
     }
 
     @Given("The api user prepares a PATCH request containing {int}, {string} and {string} information to send to the api visitorsPurposeUpdate endpoint.")
