@@ -6,9 +6,6 @@ import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import pojos.Pojo;
-import pojos.VisitorsPojo;
-
-import utilities.API_Utilities.API_Methods;
 
 import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;

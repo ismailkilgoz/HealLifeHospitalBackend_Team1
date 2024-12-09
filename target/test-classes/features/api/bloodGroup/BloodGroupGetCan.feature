@@ -11,6 +11,7 @@ Feature: As an administrator (admin) I should be able to access the list of bloo
     * The api user verifies that the "message" information in the response body is "Success".
     # Api kullanicisi response bodydeki message bilgisinin "Success" oldugunu dogrular
     * The api user verifies the information in the response body for the entry with the specified <dataindex> index, including "<name>", "<is_blood_group>", "<created_at>".
+     #  the information (<name>", "<is_blood_group>", "<created_at>) returned in the response body of id(x) should be verified
     Examples:
       | dataindex | name      | is_blood_group | created_at          |
       | 1         | A+        | 1              | 2021-10-25 06:32:10 |

@@ -49,6 +49,20 @@ public class TestData extends BaseTest {
         requestBody.put("slug",slug);
 
         return requestBody;
-
 }
+
+    public HashMap NoticeUpdateRequestBody(int id, String type, String title, String description, String slug) {
+
+        HashMap<String, Object> requestBody = new HashMap<>();
+
+        requestBody.put("id", id);
+        requestBody.put("type",type);
+        requestBody.put("title",title);
+        requestBody.put("description",description);
+        requestBody.put("slug",slug);
+
+        return requestBody;
+    }
+
+
 }

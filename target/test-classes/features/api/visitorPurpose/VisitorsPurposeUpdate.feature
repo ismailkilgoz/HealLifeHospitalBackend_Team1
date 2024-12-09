@@ -21,7 +21,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     Examples:
       | id  | visitors_purpose | description            |
-      | 599 | purpose update   | purpose update details |
+      | 756 | purpose update   | purpose update details |
 
 
   Scenario Outline: When a PATCH body (id, visitors_purpose, description) containing valid authorization information
