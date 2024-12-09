@@ -7,7 +7,7 @@ Feature: As an administrator (admin) I should be able to delete the visitor pusp
 
     * The api user sets "api/deleteNotice" path parameters.
     # Api kullanicisi "api/deleteNotice" path parametrelerini olusturur
-    * The api user prepares a DELETE request to send to the api visitorsPurposeDelete add endpoint.
+    * The api user prepares a DELETE request to send to the api api/deleteNotice add endpoint
     # Api kullanıcısı api deleteNotice endpointine gönderilmek üzere bir DELETE request hazırlar.
     * The api user sends a DELETE request and saves the returned response.
     # Api kullanicisi DELETE request gonderir ve donen responsei kaydeder
