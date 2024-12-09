@@ -1,0 +1,1 @@
+{"uuid":"8c90cacd-37b5-4819-8d32-4d96068712ee","name":"Valid Token and Incorrect Data, When a GET body containing incorrect data (id) is sent, it should be verified that(An administrator ","children":["04bfd9c0-1127-44f5-9df3-5381a2afaf2c"],"befores":[],"afters":[],"links":[],"start":1733512913964,"stop":1733512916136}

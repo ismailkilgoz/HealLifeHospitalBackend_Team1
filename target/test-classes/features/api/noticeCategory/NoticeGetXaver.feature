@@ -14,7 +14,7 @@ Feature: As an administrator (admin), I should be able to access announcements v
      # the information (<type>", "<slag>", "<url>","<title>","<date>" ) returned in the response body of id(x) should be verified
     Examples:
       | dataindex | type    | slug          |   title               | date     |
-      | 0         | notice  | noticedeneme  |  notice deneme 12345  |2024-12-05|
+      | 1         | notice  | noticedeneme  |  notice deneme 12345  |2024-12-05|
 
   Scenario: Invalid Token When a GET request is sent to the api/getNotice endpoint with invalid authorization information, it should be verified that the status code returned is 403 and the message in the response body is "You do not have authorization or token error.".
 
