@@ -97,8 +97,8 @@ public class API_StepdefinitionsFatma extends BaseTest {
     }
 
 
-    @Given("The api user prepares a PATCH request containing {int}, {string}, {string}, {string}, {string} information to send to the api visitorsPurposeUpdate endpoint.")
-    public void the_api_user_prepares_a_patch_request_containing_information_to_send_to_the_api_visitors_purpose_update_endpoint(Integer id, String type, String title, String description, String slug) {
+    @Given("The api user prepares a PATCH request containing {int}, {string}, {string}, {string}, {string} information to send to the api noticeUpdate endpoint")
+    public void the_api_user_prepares_a_patch_request_containing_information_to_send_to_the_api_notice_update_endpoint(Integer id, String type, String title, String description, String slug) {
         map = testData.NoticeUpdateRequestBody(id, type, title, description, slug);
 
         System.out.println("Patch Body : " + map);
@@ -106,7 +106,7 @@ public class API_StepdefinitionsFatma extends BaseTest {
 
 
 
-    @Given("The api user prepares a PATCH request containing {int}, {string}, {string}, {string} and {string} information to send to the api updateNotice endpoint.")
+    @Given("The api user prepares a PATCH request containing {int}, {string}, {string}, {string} and {string} information to send to the api updateNotice endpoint")
     public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_update_notice_endpoint(Integer id, String type, String title, String description, String slug) {
         map = testData.NoticeUpdateRequestBody(id, type, title, description, slug);
 
@@ -114,7 +114,7 @@ public class API_StepdefinitionsFatma extends BaseTest {
     }
 
 
-    @Given("The api user prepares a PATCH request that does not contain an id but includes  {string}, {string}, {string} and {string} information to send to the api visitorsPurposeUpdate endpoint.")
+    @Given("The api user prepares a PATCH request that does not contain an id but includes  {string}, {string}, {string} and {string} information to send to the api noticeUpdate endpoint")
     public void the_api_user_prepares_a_patch_request_that_does_not_contain_an_id_but_includes_and_information_to_send_to_the_api_visitors_purpose_update_endpoint(String type, String title, String description, String slug) {
         pojoRequest = new Pojo();
 
@@ -122,7 +122,7 @@ public class API_StepdefinitionsFatma extends BaseTest {
     }
 
 
-    @Given("The api user prepares a PATCH request containing {int}, {string}, {string}, {string} and {string} information to send to the api visitorsPurposeUpdate endpoint.")
+    @Given("The api user prepares a PATCH request containing {int}, {string}, {string}, {string} and {string} information to send to the api noticeUpdate endpoint.")
     public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_visitors_purpose_update_endpoint(Integer id, String type, String title, String description, String slug) {
         map = testData.NoticeUpdateRequestBody(id, type, title, description, slug);
 
