@@ -8,7 +8,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     * The api user sets "api/updateNotice" path parameters.
     # Api kullanicisi "api/updateNotice" path parametrelerini olusturur
-    * The api user prepares a PATCH request containing <id>, "<type>", "<title>", "<description>", "<slug>" information to send to the api visitorsPurposeUpdate endpoint.
+    * The api user prepares a PATCH request containing <id>, "<type>", "<title>", "<description>", "<slug>" information to send to the api noticeUpdate endpoint
     # Api kullanicisi api visitorsPurposeUpdate endpointine gondermek icin "<type>", "<title>", "<description>", "<slug>" bilgilerini iceren bir patch request hazirlar
     * The api user sends a PATCH request and saves the returned response.
     # Api kullanicisi PATCH request gonderir ve donen responsei kaydeder
@@ -32,7 +32,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     * The api user sets "api/updateNotice" path parameters.
     # Api kullanicisi "api/updateNotice" path parametrelerini olusturur
-    * The api user prepares a PATCH request containing <id>, "<type>", "<title>", "<description>" and "<slug>" information to send to the api updateNotice endpoint.
+    * The api user prepares a PATCH request containing <id>, "<type>", "<title>", "<description>" and "<slug>" information to send to the api updateNotice endpoint
     # Api kullanicisi api api/updateNotice endpointine gondermek icin  "<type>", "<title>", "<description>" and "<slug>" bilgilerini iceren bir patch request hazirlar
     * The api user sends a PATCH request and saves the returned response.
     # Api kullanicisi PATCH request gonderir ve donen responsei kaydeder
@@ -51,7 +51,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
   and id number."
     * The api user sets "api/updateNotice" path parameters.
     # Api kullanicisi "api/updateNotice" path parametrelerini olusturur
-    * The api user prepares a PATCH request that does not contain an id but includes  "<type>", "<title>", "<description>" and "<slug>" information to send to the api visitorsPurposeUpdate endpoint.
+    * The api user prepares a PATCH request that does not contain an id but includes  "<type>", "<title>", "<description>" and "<slug>" information to send to the api noticeUpdate endpoint
     # Api kullanicisi api updateNotice endpointine gondermek icin id içermeyen ama  "<type>", "<title>", "<description>" and "<slug>" bilgilerini iceren bir patch request hazirlar
     * The api user sends a PATCH request and saves the returned response.
     # Api kullanicisi PATCH request gonderir ve donen responsei kaydeder
@@ -71,7 +71,7 @@ Feature: As an administrator (admin), I should be able to update the visitor pur
 
     * The api user sets "api/updateNotice" path parameters.
     # Api kullanicisi "api/updateNotice" path parametrelerini olusturur
-    * The api user prepares a PATCH request containing <id>, "<type>", "<title>", "<description>" and "<slug>" information to send to the api visitorsPurposeUpdate endpoint.
+    * The api user prepares a PATCH request containing <id>, "<type>", "<title>", "<description>" and "<slug>" information to send to the api noticeUpdate endpoint.
     # Api kullanicisi api updateNotice endpointine gondermek icin <id>, "<type>", "<title>", "<description>" and "<slug>" bilgilerini iceren bir patch request hazirlar
     * The api user sends a PATCH request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
     # Api kullanicisi PATCH request gonderir, donen responsei kaydeder, status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular

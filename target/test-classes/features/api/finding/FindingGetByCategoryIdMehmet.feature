@@ -6,8 +6,8 @@ Feature: As an administrator (admin), I should be able to access the relevant fi
   the /api/getFindingCategoryId endpoint, it should be verified that the status code returned is 200 and
   the message information in the response body is “Success”.
 
-    Given   The Api User sets "api/getFindingCategoryId " path parameters.
-    # Api kullanicisi "api/getFindingCategoryId " path parametrelerini olusturur
+    Given   The Api User sets "api/getFindingCategoryId" path parameters.
+    # Api kullanicisi "api/getFindingCategoryId" path parametrelerini olusturur
     Then    The Api User prepares a GET request containing the <id> information to send to the api getFindingCategoryId endpoint.
     # Api kullanicisi api getFindingCategoryId  endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar
     And     The Api User sends a GET body and saves the returned response.
@@ -20,24 +20,25 @@ Feature: As an administrator (admin), I should be able to access the relevant fi
     Examples:
       | id |
       | 5  |
+      #| 6  |
 
-  @US1
+
   Scenario Outline:   When a GET body with valid authorization information and correct data (finding_category_id) is sent to
   the /api/getFindingCategoryId endpoint, the information (name, description, finding_category_id, created_at)
   of id(x) returned in the response body should be verified.
 
-    Given   The Api User sets "api/getFindingCategoryId " path parameters.
+    Given   The Api User sets "api/getFindingCategoryId" path parameters.
     # Api kullanicisi "api/getFindingCategoryId " path parametrelerini olusturur
     Then    The Api User prepares a GET request containing the <id> information to send to the api getFindingCategoryId endpoint.
     # Api kullanicisi api getFindingCategoryId  endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar
-    And     The Api User sends a GET body and saves the returned response body.
+    And     The Api User sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen response'u kaydeder
     And     The Api User verifies the information in the response body for the entry with the specified information, including "<name>", "<description>", "<finding_category_id>" and "<created_at>".
     # Api kullanıcısı response body icindeki <id> numarasına sahip olanin "<name>", "<description>", "<finding_category_id>" ve "<created_at>"  bilgilerini doğrular.
 
     Examples:
       | id | name         | description       | finding_category_id | created_at          |
-      | 5  | Damaged Hair |                   | 5                   | 2021-10-25 06:20:06 |
+      | 5  | Damaged Hair | xxx               | 5                   | 2021-10-25 06:20:06 |
 
 
   Scenario: When a GET body that does not contain valid data (id) with valid authorization information is sent to
