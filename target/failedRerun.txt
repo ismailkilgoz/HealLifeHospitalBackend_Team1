@@ -1,1 +1,1 @@
-file:src/test/resources/features/api/notice/getNoticeFatma.feature:59
+file:src/test/resources/features/api/noticeCategory/NoticeGetXaver.feature:17

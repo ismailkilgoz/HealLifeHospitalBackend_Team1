@@ -1,61 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="2.16">
-    <testcase classname="As an administrator (admin) I should be able to access the list of blood types registered in the system via API connection." name="When a GET request that does not contain valid authorization information and data (id) is sent to the" time="2.024">
-        <failure message="1 expectation failed.&#10;JSON path message doesn't match.&#10;Expected: No id or wrong id.&#10;  Actual: No id or wrong id. Please check your id number.&#10;" type="java.lang.AssertionError"><![CDATA[* The api user sets "api/getNoticeById" path parameters.....................passed
-* The api user prepares a GET request that does not contain data............passed
-* The api user sends a GET request and saves the returned response..........passed
-* The api user verifies that the status code is 203.........................passed
-* The api user verifies that the "message" information in the response body is "No id or wrong id."..failed
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="12.004">
+    <testcase classname="As an administrator (admin), I should be able to access announcements via API connection." name="When a GET request is sent to the /api/getNotice endpoint with valid authorization information, it should be verified that the status code returned is 200 and the message information in the response body is “Success”." time="9.095">
+        <failure message="expected:&lt;notice[hospital]&gt; but was:&lt;notice[deneme]&gt;" type="org.junit.ComparisonFailure"><![CDATA[* The api user sets "api/getNotice" path  parameters........................passed
+* The api user sends a GET request and saves the returned  response.........passed
+* The api user verifies that the status code is  200........................passed
+* The api user verifies that the "message" information in the  response body is "Success"..passed
+* The api user verifies the information in the response  body for the entry with the specified 1 , including "notice", "noticehospital", "notice hospital", "page/", "2024-11-24"..failed
 
 StackTrace:
-java.lang.AssertionError: 1 expectation failed.
-JSON path message doesn't match.
-Expected: No id or wrong id.
-  Actual: No id or wrong id. Please check your id number.
-
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:72)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:105)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:499)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:684)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:193)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:61)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
-	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:262)
-	at io.restassured.specification.ResponseSpecification$body$1.callCurrent(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:212)
-	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:109)
-	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:244)
-	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)
-	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:298)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
-	at stepdefinitions.API_Stepdefinitions.the_api_user_verifies_that_the_information_in_the_response_body_is(API_Stepdefinitions.java:50)
-	at ✽.The api user verifies that the "message" information in the response body is "No id or wrong id.".(file:///C:/Users/User/IdeaProjects/HealLifeHospitalBackend_Team1/src/test/resources/features/api/notice/getNoticeFatma.feature:71)
+org.junit.ComparisonFailure: expected:<notice[hospital]> but was:<notice[deneme]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at stepdefinitions.API_StepdefinitionsXaver.the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_including(API_StepdefinitionsXaver.java:47)
+	at ✽.The api user verifies the information in the response  body for the entry with the specified 1 , including "notice", "noticehospital", "notice hospital", "page/", "2024-11-24".(file:///C:/Users/User/IdeaProjects/HealLifeHospitalBackend_Team1/src/test/resources/features/api/noticeCategory/NoticeGetXaver.feature:13)
 ]]></failure>
+    </testcase>
+    <testcase classname="As an administrator (admin), I should be able to update the visitor purpose information registered in the" name="A PATCH request to the &quot;api/updateNotice&quot; endpoint with valid authorization and correct" time="1.817">
+        <system-out><![CDATA[* The api user sets "api/updateNotice" path parameters......................passed
+* The api user prepares a PATCH request containing 409, "notice", "notice hospital", "notice deneme" and "noticehospital" information to send to the api updateNotice endpoint..passed
+* The api user sends a PATCH request and saves the returned response........passed
+* The api user verifies that the status code is 200.........................passed
+* The api user verifies that the "message" information in the response body is "Success"..passed
+* The api user verifies that the updatedid information in the Response body is the same as the id information in the patch request body.passed
+]]></system-out>
     </testcase>
 </testsuite>
