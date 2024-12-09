@@ -2,7 +2,7 @@ Feature: As an administrator (admin), I should be able to access the relevant fi
   by entering the id through the API connection.
 
 
-  Scenario Outline:   When a GET body with valid authorization information and correct data (id) is sent to
+  Scenario Outline:When a GET body with valid authorization information and correct data (id) is sent to
   the /api/getFindingById endpoint,   it should be verified that the status code returned is 200 and
   the message information in the response body is “Success”.
 
@@ -19,7 +19,7 @@ Feature: As an administrator (admin), I should be able to access the relevant fi
 
     Examples:
       | id |
-      | 88 |
+      | 8  |
 
 
   Scenario Outline: When a GET body with valid authorization information and correct data (id) is sent to
@@ -30,17 +30,17 @@ Feature: As an administrator (admin), I should be able to access the relevant fi
     # Api kullanicisi "api/getFindingById" path parametrelerini olusturur
     Then    The Api User prepares a GET request containing the <id> information to send to the api getFindingById endpoint.
     # Api kullanicisi api getFindingById endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar
-    And     The Api User sends a GET body and saves the returned response body.
+    And     The Api User sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen response'u kaydeder
-    And     The Api User verifies the information in the response body for the entry with the specified <id>, including "<name>", "<description>", "<finding_category_id>", "<created_at>" and "<category>"  .
+    Then    The Api User verifies the information in the response for the entry with the specified <id>, including "<name>", "<description>", "<finding_category_id>", "<created_at>" and "<category>"  .
     # Api kullanıcısı response body icindeki <id> numarasına sahip olanin "<name>", "<description>", "<finding_category_id>", "<created_at>" and "<category>" bilgilerini doğrular.
 
     Examples:
-      | id        | name   | description       | finding_category_id | created_at          | category       |
-      | 88        | MAHMUT | trial description | 2                   | 2023-05-26 11:39:04 | ill category 2 |
+      | id        | name           | description       | finding_category_id | created_at          | category       |
+      | 8         | bauchschmerzen | Bauchproblem      | 188                 | 2024-12-09 04:42:58 | head Diseases  |
 
 
-  Scenario: When a GET body that does not contain valid data (id) with valid authorization information is sent to
+  Scenario: When a GET body that does not contain a data (id) with valid authorization information is sent to
   the /api/getFindingById endpoint, the status code returned is 203 and the message information
   in the response body is "No id or wrong id."
 
@@ -88,6 +88,9 @@ Feature: As an administrator (admin), I should be able to access the relevant fi
     Then    The Api User sends a GET request, saves the returned response, and verifies that the status code is '403' with the reason phrase Forbidden.
     # Api kullanicisi GET request gonderir, donen response'u' kaydeder, status code'unun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
 
+    #And    The Api User verifies that the "message" information in the response body is "You do not have authorization or token error".
+    
+    
         Examples:
       | id |
       | 88 |

@@ -32,9 +32,9 @@ public class API_StepDefinitions_Umit extends BaseTest {
     @Given("An api user sends a GET request and saves the returned response.")
     public void an_api_user_sends_a_get_request_and_saves_the_returned_response() {
 
-       API_Methods.sendRequest("GET", null);
+        API_Methods.sendRequest("GET", null);
 
-      }
+    }
 
     @Given("An api user verifies that the status code is {int}.")
     public void an_api_user_verifies_that_the_status_code_is(Integer code) {
@@ -62,8 +62,8 @@ public class API_StepDefinitions_Umit extends BaseTest {
 
     }
 
-    @Given("An api user sends a GET request with a body containing {int} and saves the returned response.")
-    public void an_api_user_sends_a_get_request_with_a_body_containing_and_saves_the_returned_response(Integer id) {
+    @Given("An api user sends a GET request with a body containing {string} and saves the returned response.")
+    public void an_api_user_sends_a_get_request_with_a_body_containing_and_saves_the_returned_response(String id) {
 
         requestBody.put("id", id);
 
@@ -99,10 +99,9 @@ public class API_StepDefinitions_Umit extends BaseTest {
     }
 
 
+    @Given("An api user sends a GET request with invalid authorization, saves the returned response, and verifies that the status code is {string} with the reason phrase {string}.")
+    public void an_api_user_sends_a_get_body_with_invalid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(String code, String message) {
 
-
-    @Given("An api user sends a GET request with invalid authorization, saves the returned response, and verifies that the status code is {string} with the reason phrase Forbidden.")
-    public void an_api_user_sends_a_get_body_with_invalid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(String code) {
 
         try {
             response = given()
@@ -114,11 +113,116 @@ public class API_StepDefinitions_Umit extends BaseTest {
         }
 
         System.out.println("exceptionMesaj : " + exceptionMesaj);
-        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
-
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), code);
 
 
     }
+
+
+    @Given("An api user sends a GET body with invalid authorization, saves the returned response, and verifies that the status code is {int} with the reason phrase {string}.")
+    public void an_api_user_sends_a_get_request_with_invalid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(Integer code, String message) {
+        Integer id = 1118;
+        requestBody.put("id", id);
+
+        try {
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .when()
+                    .body(requestBody.toString())
+                    .get(fullPath);
+        } catch (Exception e) {
+            exceptionMesaj = e.getMessage();
+        }
+
+        System.out.println("exceptionMesaj : " + exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
+
+
+    }
+
+
+    @Given("An api user sends a GET request with valid authorization and incorrect {string}, saves the returned response, and verifies that the status code is {int} with the reason phrase {string}.")
+    public void an_api_user_sends_a_get_request_with_valid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase(String id, Integer code, String message) {
+
+        requestBody.put("id", id);
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(requestBody.toString())
+                .get(fullPath);
+        response.prettyPrint();
+
+
+    }
+
+    @Given("An api user prepears a GET body without {string}")
+    public void an_api_user_prepears_a_get_body_without_data_id(String id) {
+
+        id = null;
+        requestBody.put("key", id);
+
+
+    }
+
+    @Given("An api user verifies that the returned status code is {int}.")
+    public void an_api_user_verifies_that_the_returned_status_code_is(Integer code) {
+        API_Methods.statusCodeAssert(code);
+    }
+
+
+    @Given("An api user prepears a POST request with a body containing correct data of {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void an_api_user_preapers_and_sends_a_request_with_a_body_containing_correct_data_of_and_saves_the_returned_response(String purpose, String name, String email, String contact, String id_proof, String visit_to, String ipd_opd_staff_id, String related_to, String no_of_pepple, String date, String in_time, String out_time, String note) {
+
+        requestBody.put("purpose", purpose);
+        requestBody.put("name", name);
+        requestBody.put("email", email);
+        requestBody.put("contact", contact);
+        requestBody.put("id_proof", id_proof);
+        requestBody.put("visit_to", visit_to);
+        requestBody.put("ipd_opd_staff_id", ipd_opd_staff_id);
+        requestBody.put("related_to", related_to);
+        requestBody.put("no_of_pepple", no_of_pepple);
+        requestBody.put("date", date);
+        requestBody.put("in_time", in_time);
+        requestBody.put("out_time", out_time);
+        requestBody.put("note", note);
+
+        System.out.println("Post Body : " + requestBody.toString());
+
+
+    }
+
+    @Given("An api user sends a {string} request and saves the returned response.")
+    public void an_api_user_sends_a_request_and_saves_the_returned_response(String httpMethod) {
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(requestBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+
+
+    }
+
+    @Given("An api user prepears a {string} request with a body containing no data")
+    public void an_api_user_prepears_a_request_with_a_body_containing_no_data(String httpMethod) {
+
+
+    }
+    @Given("An api user sends a {string} request with a body with invalid token and saves the returned response.")
+    public void an_api_user_sends_a_request_with_a_body_with_invalid_token_and_saves_the_returned_response(String httpMethod) {
+
+        API_Methods.sendRequest(httpMethod,requestBody);
+
+
+    }
+
 
 
 }
