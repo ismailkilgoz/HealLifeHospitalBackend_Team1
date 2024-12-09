@@ -29,7 +29,7 @@ public class API_StepDefinitionsMehmet extends BaseTest {
                 .when()
                 .get(fullPath);
 
-        //response.prettyPrint();
+        response.prettyPrint();
     }
 
     @Then("The Api User verifies that the status code is {int}.")
@@ -44,6 +44,8 @@ public class API_StepDefinitionsMehmet extends BaseTest {
         response.then()
                 .assertThat()
                 .body(key, Matchers.equalTo(value));
+
+        //response.prettyPrint();
     }
 
     @Then("The Api User sends a GET request, saves the returned response, and verifies that the status code is {string} with the reason phrase Forbidden.")
@@ -89,6 +91,8 @@ public class API_StepDefinitionsMehmet extends BaseTest {
                 .when()
                 .body(requestBody.toString())
                 .get(fullPath);
+
+        response.prettyPrint();
     }
 
     @Then("The Api User sends a GET body and saves the returned response body.")
@@ -99,6 +103,8 @@ public class API_StepDefinitionsMehmet extends BaseTest {
                 .when()
                 .body(map)
                 .get(fullPath);
+
+        response.prettyPrint();
     }
 
     @Then("The Api User verifies the information in the response body for the entry with the specified {int}, including {string}, {string}, {string}, {string} and {string}  .")
@@ -111,6 +117,10 @@ public class API_StepDefinitionsMehmet extends BaseTest {
         Assert.assertEquals(map.get("finding_category_id"), repJP.getString("finding_category_id"));
         Assert.assertEquals(map.get("created_at"), repJP.getString("created_at"));
         Assert.assertEquals(map.get("category"), repJP.getString("category"));
+
+        response.prettyPrint();
+        System.out.println("repJP:");
+        repJP.prettyPrint();
     }
 
     @Then("The Api User prepares a GET request that does not contain data")
@@ -131,6 +141,72 @@ public class API_StepDefinitionsMehmet extends BaseTest {
         Assert.assertEquals(map.get("description"), repJP.getString("description"));
         Assert.assertEquals(map.get("finding_category_id"), repJP.getString("finding_category_id"));
         Assert.assertEquals(map.get("created_at"), repJP.getString("created_at"));
+
+
+        System.out.println("repJP:");
+        repJP.prettyPrint();
+    }
+    @Then("The Api User prepares a POST request containing {string}, {string} and {int} information to send to the api addFinding endpoint.")
+    public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_add_finding_endpoint(String name, String description, Integer finding_category_id) {
+        map.put("name", name);
+        map.put("description", description);
+        map.put("finding_category_id", finding_category_id);
+
+        System.out.println("Post Body : " + map);
+    }
+    @Then("The Api User sends a POST request and saves the returned response.")
+    public void the_api_user_sends_a_post_request_and_saves_the_returned_response() {
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(map)
+                .post(fullPath);
+
+        response.prettyPrint();
+    }
+    @Then("The Api User prepares a POST request that does not contain data.")
+    public void the_api_user_prepares_a_post_request_that_does_not_contain_data() {     }
+
+    @Then("The Api User sends a Post request, saves the returned response, and verifies that the status code is {string} and the message in the response body is {string}.")
+    public void the_api_user_sends_a_post_request_saves_the_returned_response_and_verifies_that_the_status_code_is_and_the_message_in_the_response_body_is(String string, String string2) {
+        try {
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .when()
+                    .body(map)
+                    .post(fullPath);
+        } catch (Exception e) {
+            exceptionMesaj = e.getMessage();
+        }
+
+        System.out.println("exceptionMesaj : " + exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
+    }
+    @Then("The Api User prepares a PATCH request containing {int}, {string}, {string} and {int} information to send to the api updateFinding endpoint.")
+    public void the_api_user_prepares_a_patch_request_containing_and_information_to_send_to_the_api_update_finding_endpoint(Integer id, String name, String description, Integer finding_category_id) {
+        requestBody.put("id", id);
+        requestBody.put("name", name);
+        requestBody.put("description", description);
+        requestBody.put("finding_category_id", finding_category_id);
+
+        System.out.println("Patch Body:" + requestBody);
+
+
+
+    }
+    @Then("The Api User sends a Patch request and saves the returned response.")
+    public void the_api_user_sends_a_patch_request_and_saves_the_returned_response() {
+        /*response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(requestBody.toString())
+                .patch(fullPath);
+        */
+        API_Methods.sendRequest("PATCH",requestBody.toString());
+
     }
 
 
@@ -138,6 +214,38 @@ public class API_StepDefinitionsMehmet extends BaseTest {
 
 
 
+
+
+
+
+    @Then("The Api User prepares a Delete request containing the {int} information to send to the api deleteFinding endpoint.")
+    public void the_api_user_prepares_a_delete_request_containing_the_information_to_send_to_the_api_delete_finding_endpoint(Integer id) {
+        requestBody.put("id", id);
+
+        System.out.println("Delete Body : " + requestBody);
+    }
+    @Then("The Api User sends a Delete body and saves the returned response.")
+    public void the_api_user_sends_a_delete_body_and_saves_the_returned_response() {
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(requestBody.toString())
+                .delete(fullPath);
+
+        response.prettyPrint();
+    }
+    @Then("The Api User prepares a Delete request that does not contain data")
+    public void theApiUserPreparesADeleteRequestThatDoesNotContainData() {  }
+
+    @Then("The Api User verifies that the DeletedId information is the same as the id information in the request body")
+    public void theApiUserVerifiesThatTheDeletedIdInformationIsTheSameAsTheIdInformationInTheRequestBody() {
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(requestBody.get("id"), repJP.getInt("deletedId"));
+        System.out.println(repJP.getInt("deletedId"));
+
+    }
 }
 
 
