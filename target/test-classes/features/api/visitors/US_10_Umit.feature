@@ -52,7 +52,7 @@ Feature: An administrator (admin) should be able to access the Visitor informati
     # Api kullanicisi "api/visitorsId" path parametrelerini olusturur
     * An api user prepears a GET body without "id"
     # Api kullanicisi eksik bir veri (id) ile bir GET body'si hazirlar
-    * An api user sends a GET request with invalid authorization, saves the returned response, and verifies that the status code is 203 with the reason phrase "No id or wrong id.".
+    * An api user sends a GET request with invalid authorization, saves the returned response, and verifies that the status code is "203" with the reason phrase "No id or wrong id.".
     # Api kullanicisi GET request gonderir, donen response'i kaydeder ve status code'un 203 mesaj iceriginin "No id or wrong id." oldugunu dogrular.
 
 

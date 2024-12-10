@@ -10,9 +10,9 @@ Feature: API_US32 As an administrator (admin), I should be able to update the fi
 
     Examples:
               |id   |    category    |
-              | 143 | ill category 1 |
+              |143 | ill category 500|
 
-  @seren
+
   Scenario Outline: API_US32_TC02_InvalidData_203Error_WrongOrMissingInput
 
     * The api user sets "api/updateFindingCategory" path parameters.
