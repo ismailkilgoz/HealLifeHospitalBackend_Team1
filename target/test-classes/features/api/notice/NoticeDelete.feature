@@ -17,3 +17,5 @@ Feature: As an administrator (admin) I should be able to delete the visitor pusp
     # Api kullanicisi response bodydeki message bilgisinin "Success" oldugunu dogrular
     * The api user verifies that the Deletedid information is the same as the id information in the request body
     # Api kullanıcısı DeletedId bilgisinin request body icindeki id bilgisi ile ayni oldugunu dogrular
+
+  # api
