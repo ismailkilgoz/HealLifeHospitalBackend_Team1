@@ -66,7 +66,7 @@ Feature: An administrator (admin), should be able to update the visitor informat
 
     * An api user sets "api/visitorsUpdate" path parameters.
     # Api kullanicisi "api/visitorsUpdate" path parametrelerini olusturur
-    * An api user prepears a "PATCH" request with a body containing no data
+    * An api user prepears a "PATCH" request with a body containing no "data"
     # Api kullanicisi veri icermeyen bir PATCH request gonderir ve donen respons'i kaydeder.
     * An api user sends a "PATCH" request and saves the returned response.
     # Api kullanicisi gecerli yetki ile bir POST request gonderir ve donen response'i kaydeder
@@ -105,14 +105,14 @@ Feature: An administrator (admin), should be able to update the visitor informat
       | 1255 | sorgulama 2 | Karan Ates | karis@gmail.com | 14068377 | 2021     | ipd_patient | 7                | umit ureten(83) | 1            | 2023-10-05 | 09:30 PM | 10:30 PM | please check your mail box! |
 
 
-  @umit
+
   Scenario Outline: When sent a GET request with the data (updatedId) of the new visitor record to /api/visitorsId endpoint
   it should be verified that the new record is created through API successfully.
 
 
     * An api user sets "api/visitorsId" path parameters.
     # Api kullanicisi "api/visitorsId" path parametrelerini olusturur
-    * An api user sends a GET request with a body containing "<updatedId>" and saves the returned response.
+    * An api user sends a "GET" request with a body containing the "data" of <updatedId> and saves the returned response.
     # Api kullanicisi (id) bilgisi iceren bir GET request gonderir ve donen respons'i kaydeder.
     * An api user verifies that the returned status code is 200.
     # Api kullanicisi status codeun 200 oldugunu dogrular

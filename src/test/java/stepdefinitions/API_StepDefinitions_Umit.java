@@ -29,12 +29,6 @@ public class API_StepDefinitions_Umit extends BaseTest {
 
     }
 
-    @Given("An api user sends a GET request and saves the returned response.")
-    public void an_api_user_sends_a_get_request_and_saves_the_returned_response() {
-
-        API_Methods.sendRequest("GET", null);
-
-    }
 
     @Given("An api user verifies that the status code is {int}.")
     public void an_api_user_verifies_that_the_status_code_is(Integer code) {
@@ -62,8 +56,8 @@ public class API_StepDefinitions_Umit extends BaseTest {
 
     }
 
-    @Given("An api user sends a GET request with a body containing {string} and saves the returned response.")
-    public void an_api_user_sends_a_get_request_with_a_body_containing_and_saves_the_returned_response(String id) {
+    @Given("An api user sends a {string} request with a body containing the {string} of {int} and saves the returned response.")
+    public void an_api_user_sends_a_get_request_with_a_body_containing_and_saves_the_returned_response(String httpMethod, String data, Integer id) {
 
         requestBody.put("id", id);
 
@@ -99,8 +93,8 @@ public class API_StepDefinitions_Umit extends BaseTest {
     }
 
 
-    @Given("An api user sends a GET request with invalid authorization, saves the returned response, and verifies that the status code is {string} with the reason phrase {string}.")
-    public void an_api_user_sends_a_get_body_with_invalid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(String code, String message) {
+    @Given("An api user sends a {string} request with invalid authorization, saves the returned response, and verifies that the status code is {string} with the reason phrase {string}.")
+    public void an_api_user_sends_a_get_body_with_invalid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(String httpMethod,String code, String message) {
 
 
         try {
@@ -113,7 +107,7 @@ public class API_StepDefinitions_Umit extends BaseTest {
         }
 
         System.out.println("exceptionMesaj : " + exceptionMesaj);
-        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), code);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
 
 
     }
@@ -121,8 +115,7 @@ public class API_StepDefinitions_Umit extends BaseTest {
 
     @Given("An api user sends a {string} body with invalid authorization, saves the returned response, and verifies that the status code is {int} with the reason phrase {string}.")
     public void an_api_user_sends_a_get_request_with_invalid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(String httpMethod, Integer code, String message) {
-        Integer id = 1118;
-        requestBody.put("id", id);
+
 
         try {
             response = given()
@@ -130,7 +123,7 @@ public class API_StepDefinitions_Umit extends BaseTest {
                     .contentType(ContentType.JSON)
                     .when()
                     .body(requestBody.toString())
-                    .post(fullPath);
+                    .get(fullPath);
         } catch (Exception e) {
             exceptionMesaj = e.getMessage();
         }
@@ -142,10 +135,10 @@ public class API_StepDefinitions_Umit extends BaseTest {
     }
 
 
-    @Given("An api user sends a GET request with valid authorization and incorrect {string}, saves the returned response, and verifies that the status code is {int} with the reason phrase {string}.")
-    public void an_api_user_sends_a_get_request_with_valid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase(String id, Integer code, String message) {
+    @Given("An api user sends a {string} request with valid authorization, saves the returned response, and verifies that the status code is {int} with the reason phrase {string}.")
+    public void an_api_user_sends_a_get_request_with_valid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase(String httpMethod, Integer code, String message) {
 
-        requestBody.put("id", id);
+        /* requestBody.put("id", id);*/
 
         response = given()
                 .spec(spec)
@@ -158,14 +151,6 @@ public class API_StepDefinitions_Umit extends BaseTest {
 
     }
 
-    @Given("An api user prepears a GET body without {string}")
-    public void an_api_user_prepears_a_get_body_without_data_id(String id) {
-
-        id = null;
-        requestBody.put("key", id);
-
-
-    }
 
     @Given("An api user verifies that the returned status code is {int}.")
     public void an_api_user_verifies_that_the_returned_status_code_is(Integer code) {
@@ -203,9 +188,16 @@ public class API_StepDefinitions_Umit extends BaseTest {
 
     }
 
-    @Given("An api user prepears a {string} request with a body containing no data")
-    public void an_api_user_prepears_a_request_with_a_body_containing_no_data(String httpMethod) {
+    @Given("An api user prepears a {string} request with a body containing no {string}")
+    public void an_api_user_prepears_a_request_with_a_body_containing_no_data(String httpMethod, String data) {
 
+
+    }
+
+    @Given("An api user prepears a {string} request with a body containing incorrect {string}")
+    public void an_api_user_prepears_a_request_with_a_body_containing_incorrect_data(String httpMethod, String data) {
+
+        requestBody.put("id", data);
 
     }
 
@@ -301,13 +293,21 @@ public class API_StepDefinitions_Umit extends BaseTest {
     }
 
     @Given("An api user verifies that the updatedId in the response body is the same as the {int} in the {string} request body.")
-    public void an_api_user_verifies_that_the_updated_ıd_in_the_response_body_is_the_same_as_the_id_in_the_patch_request_body_sent_to_the_api_visitors_update_endpoint(Integer id,String httpMethod) {
+    public void an_api_user_verifies_that_the_updated_ıd_in_the_response_body_is_the_same_as_the_id_in_the_patch_request_body_sent_to_the_api_visitors_update_endpoint(Integer id, String httpMethod) {
 
 
         response.then()
                 .assertThat()
                 .body("updatedId", Matchers.equalTo(id));
-        src/test/java/stepdefinitions/API_StepDefinitions_Umit.java
+
     }
+
+    @Given("An api user prepears a {string} request with a body containing correct {string}")
+    public void an_api_user_prepears_a_request_with_a_body_containing_correct(String httpMethod, String id) {
+
+        requestBody.put("id", id);
+
+    }
+
 }
 

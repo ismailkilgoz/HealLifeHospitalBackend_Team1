@@ -25,7 +25,7 @@ Feature: An administrator (admin) should be able to create a new visitor record 
 
     * An api user sets "api/visitorsAdd" path parameters.
     # Api kullanicisi "api/visitorsAdd" path parametrelerini olusturur
-    * An api user prepears a "POST" request with a body containing no data
+    * An api user prepears a "POST" request with a body containing no "data"
     # Api kullanicisi data icermeyen bir POST request hazırlar
     * An api user sends a "POST" request and saves the returned response.
     # Api kullanicisi gecersiz yetki ile bir POST request gonderir ve donen response'i kaydeder
@@ -58,7 +58,7 @@ Feature: An administrator (admin) should be able to create a new visitor record 
 
     * An api user sets "api/visitorsId" path parameters.
     # Api kullanicisi "api/visitorsId" path parametrelerini olusturur
-    * An api user sends a GET request with a body containing "<id>" and saves the returned response.
+    * An api user sends a "GET" request with a body containing the "data" of <id> and saves the returned response.
     # Api kullanicisi (id) bilgisi iceren bir GET request gonderir ve donen respons'i kaydeder.
     * An api user verifies that the returned status code is 200.
     # Api kullanicisi status codeun 200 oldugunu dogrular
