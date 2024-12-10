@@ -1,6 +1,6 @@
 Feature: As an administrator (admin), I should be able to access announcements via API connection.
 
-  Scenario:When a GET request is sent to the /api/getNotice endpoint with valid authorization information, it should be verified that the status code returned is 200 and the message information in the response body is “Success”.
+  Scenario: When a GET request is sent to the /api/getNotice endpoint with valid authorization information, it should be verified that the status code returned is 200 and the message information in the response body is “Success”.
 
     * The api user sets "api/getNotice" path  parameters.
     # Api kullanicisi "api/getNotice" path parametrelerini olusturur
