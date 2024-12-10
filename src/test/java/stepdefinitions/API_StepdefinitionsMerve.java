@@ -151,11 +151,11 @@ public class API_StepdefinitionsMerve  extends BaseTest {
         System.out.println(id);
         response.then()
                 .assertThat()
-                .body("details[0].id", Matchers.equalTo(id),
-                        "details[0].name", Matchers.equalTo(name),
-                        "details[0].description", Matchers.equalTo(description),
-                        "details[0].finding_category_id", Matchers.equalTo(finding_category_id),
-                        "details[0].created_at", Matchers.equalTo(created_at));
+                .body("details.id", Matchers.equalTo(id),
+                        "details.name", Matchers.equalTo(name),
+                        "details.description", Matchers.equalTo(description),
+                        "details.finding_category_id", Matchers.equalTo(finding_category_id),
+                        "details.created_at", Matchers.equalTo(created_at));
 
 
     }
@@ -240,11 +240,102 @@ public class API_StepdefinitionsMerve  extends BaseTest {
 
     }
 
-    @Given("Api kullanicisi dogru data iceröeyen  bir PATCH body gönderir.")
-    public void api_kullanicisi_dogru_data_iceröeyen_bir_patch_body_gönderir() {
+
+    @Given("Api kullanicisi dogru datalar {string},{string}, {string} , {string} iceren bir PATCH body gönderir.")
+    public void api_kullanicisi_dogru_datalar_iceren_bir_patch_body_gönderir(String id, String name, String description, String finding_category_id) {
+
+        requestBody.put("id",id);
+        requestBody.put("name",name);
+        requestBody.put("description",description);
+        requestBody.put("finding_category_id",finding_category_id);
 
 
     }
+
+
+    @Given("Api kullanicisi api   deleteFinding endpointine gonderilmek üzere bir DELETE request hazırlar")
+    public void api_kullanicisi_api_delete_finding_endpointine_gonderilmek_üzere_bir_delete_request_hazırlar() {
+
+        requestBody.put("id",388);
+        System.out.println("delete id : " + requestBody);
+
+    }
+    @Given("Api kullanicisi DELETE body  request gonderir ve  donen response i kaydeder.")
+    public void api_kullanicisi_delete_body_request_gonderir_ve_donen_response_i_kaydeder() {
+
+        response=given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(requestBody.toString())
+                .delete(fullPath);
+
+        response.prettyPrint();
+
+    }
+    @Given("Api kullanicisi DeleteId bilgisinin request body içindeki id bilgisi ile aynı oldugunu dogrular")
+    public void api_kullanicisi_delete_ıd_bilgisinin_request_body_içindeki_id_bilgisi_ile_aynı_oldugunu_dogrular() {
+
+        repJP=response.jsonPath();
+        Assert.assertEquals(requestBody.get("id"),repJP.getInt("deletedId"));
+
+
+
+    }
+    @Given("Api kullanicisi api   deleteFinding endpointine gonderilmek üzere yeni  bir DELETE request hazırlar")
+    public void api_kullanicisi_api_delete_finding_endpointine_gonderilmek_üzere_yeni_bir_delete_request_hazırlar() {
+        requestBody.put("id",383383);
+        System.out.println("delete id : " + requestBody);
+
+
+    }
+    @Given("Api kullanicisi data icermeyen   bir DELETE request hazırlar")
+    public void api_kullanicisi_data_icermeyen_bir_delete_request_hazırlar() {
+
+
+    }
+
+    @Given("Api kullanicisi DELETE body  request gonderir ve  donen response i kaydeder.statuscode un {int} oldugunu dogrular")
+    public void api_kullanicisi_delete_body_request_gonderir_ve_donen_response_i_kaydeder_statuscode_un_oldugunu_dogrular(Integer int1) {
+
+        try {
+            response=given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .when()
+                    .body(requestBody.toString())
+                    .delete(fullPath);
+        } catch (Exception e) {
+           exceptionMesaj=e.getMessage();
+        }
+
+
+        System.out.println("exceptionsMesaj : "+ exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"),exceptionMesaj);
+    }
+    @Given("Api kullanicisi statuscode un {int} oldugunu dogrular response body deki {string} bilgisinin {string} oldugunu dogrular")
+    public void api_kullanicisi_statuscode_un_oldugunu_dogrular_response_body_deki_bilgisinin_oldugunu_dogrular() {
+
+
+        try {
+            response=given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .when()
+                    .body(requestBody.toString())
+                    .get(fullPath);
+        } catch (Exception e) {
+            exceptionMesaj=e.getMessage();
+        }
+
+        System.out.println("exceptionMesaj : "+ exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"),exceptionMesaj);
+
+
+    }
+
+
+
 
 
 

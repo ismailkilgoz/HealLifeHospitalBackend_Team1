@@ -13,7 +13,17 @@ Feature:  API_US30 As an administrator (admin), I should be able to access the r
     |id|id|category              |created_at  |
     | 7| 7|Nose Diseases |2021-10-25 06:19:58 |
 
+@seren
+  Scenario Outline: API_US30_TC01_ValidAuth_SuccessStatus_ResponseBodyValidation_ById
 
+    * The api user sets "api/getFindingCategoryById" path parameters.
+    * The api user prepares a GET request containing the <id> information to send to the api FindingCategoryById endpoint.
+    * The api user sends a "GET" request body and saves the returned response.
+    * The api user verifies that the status code is 200.
+    * The api user verifies that the "message" information in the response body is "Success".
+    Examples:
+      |id|
+      | 143|
 
 
 
