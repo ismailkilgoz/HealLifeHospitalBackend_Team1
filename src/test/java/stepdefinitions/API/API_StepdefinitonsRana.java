@@ -99,7 +99,7 @@ public class API_StepdefinitonsRana extends BaseTest {
 
     @Given("The api user prepares a DELETE request to send to the api deleteBloodGroup add endpoint.")
     public void the_api_user_prepares_a_delete_request_to_send_to_the_api_delete_blood_group_add_endpoint() {
-        requestBody.put("id",521);
+        requestBody.put("id",557);
 
         System.out.println("Delete Body: "+requestBody);
     }
