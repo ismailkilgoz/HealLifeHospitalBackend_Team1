@@ -69,7 +69,7 @@ Feature: As an administrator (admin) I should be able to delete the Expense Head
     * The api user sets "api/getExpenseHeadById " path parameters.
     # Api kullanicisi "api/getExpenseHeadById " path parametrelerini olusturur
     * The api user prepares a GET request containing the <id> information to send to the api getExpenseHeadById endpoint.
-    # Api kullanicisi api getExpenseHeadById  endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar
+    # Api kullanicisi api getExpenseHeadById  endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar.
     * The api user sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen responsei kaydeder
     * The api user verifies that the "message" information in the response body is "No id or wrong id.".
