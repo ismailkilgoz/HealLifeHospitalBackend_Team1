@@ -50,6 +50,7 @@ public class API_FindingCategorySerenStepdefinitions extends BaseTest {
 
 
 
+
     }
 
 
@@ -57,7 +58,11 @@ public class API_FindingCategorySerenStepdefinitions extends BaseTest {
     @Given("The api user sends a {string} request body and saves the returned response.")
     public void the_api_user_sends_a_request_body_and_saves_the_returned_response(String httpMethod) {
 
+
+
         API_Methods.sendRequest(httpMethod,requestBody.toString());
+        API_Methods.sendRequest(httpMethod,requestBody.toString()).prettyPrint();
+
 
 
     }

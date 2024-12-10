@@ -131,12 +131,40 @@ public class API_StepdefinitionsFatma extends BaseTest {
 
 
     @Given("The api user verifies that the updateId information in the Response body is the same as the id information in the patch request body")
-    public void the_api_user_verifies_that_the_update_ıd_information_in_the_response_body_is_the_same_as_the_id_information_in_the_patch_request_body() {
+    public void the_api_user_verifies_that_the_update_id_information_in_the_response_body_is_the_same_as_the_id_information_in_the_patch_request_body() {
         repJP = response.jsonPath();
 
         Assert.assertEquals(map.get("id"), repJP.getInt("updateId"));
     }
+
+    @Given("The api user prepares a DELETE request to send to the api deleteNotice add endpoint .")
+    public void the_api_user_prepares_a_delete_request_to_send_to_the_api_delete_notice_add_endpoint() {
+        requestBody.put("id", 572);
+        System.out.println("Delete Body : " + requestBody);
+    }
+
+
+    @Given("The api userr prepares a DELETE request to send to the api deleteNotice  add endpoint..")
+    public void the_api_userr_prepares_a_delete_request_to_send_to_the_api_delete_notice_add_endpoint() {
+        requestBody.put("id", 567);
+
+        System.out.println("Delete Body : " + requestBody);
+    }
+
+
+    @Given("The api user verifies that the deletedId information is the same as the id information in the request body .")
+    public void the_api_user_verifies_that_the_deleted_ıd_information_is_the_same_as_the_id_information_in_the_request_body() {
+
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(requestBody.get("id"), repJP.getInt("deletedId"));
+    }
+
+
 }
+
+
+
 
 
 

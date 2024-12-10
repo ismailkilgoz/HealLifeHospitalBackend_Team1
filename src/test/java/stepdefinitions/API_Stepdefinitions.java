@@ -278,8 +278,8 @@ public class API_Stepdefinitions extends BaseTest {
         response.prettyPrint();
     }
 
-    @Given("The api user verifies that the Deletedid information is the same as the id information in the request body")
-    public void the_api_user_verifies_that_the_deletedid_information_is_the_same_as_the_id_information_in_the_request_body() {
+    @Given("The api user verifies that the DeletedId information is the same as the id information in the request body")
+    public void the_api_user_verifies_that_the_DeletedId_information_is_the_same_as_the_id_information_in_the_request_body() {
         repJP = response.jsonPath();
 
         Assert.assertEquals(requestBody.get("id"), repJP.getInt("DeletedId"));

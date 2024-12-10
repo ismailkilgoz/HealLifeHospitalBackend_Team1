@@ -104,6 +104,22 @@ public class API_StepDefinitionsMehmet extends BaseTest {
         response.prettyPrint();
     }
 
+    @Then("The Api User verifies the information in the response for the entry with the specified {int}, including {string}, {string}, {string}, {string} and {string}  .")
+    public void the_api_user_verifies_the_information_in_the_response_for_the_entry_with_the_specified_including_and(Integer id, String name, String description, String finding_category_id, String created_at, String category) {
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(id.toString(), repJP.getString("details.id"));
+        Assert.assertEquals(name, repJP.getString("details.name"));
+        Assert.assertEquals(description, repJP.getString("details.description"));
+        Assert.assertEquals(finding_category_id, repJP.getString("details.finding_category_id"));
+        Assert.assertEquals(created_at, repJP.getString("details.created_at"));
+        Assert.assertEquals(category, repJP.getString("details.category"));
+
+        response.prettyPrint();
+        System.out.println("repJP:");
+        repJP.prettyPrint();
+    }
+
     @Then("The Api User verifies the information in the response body for the entry with the specified {int}, including {string}, {string}, {string}, {string} and {string}  .")
     public void the_api_user_verifies_the_information_in_the_response_body_for_the_entry_with_the_specified_including_and(Integer id, String name, String description, String finding_category_id, String created_at, String category) {
         repJP = response.jsonPath();
@@ -188,23 +204,89 @@ public class API_StepDefinitionsMehmet extends BaseTest {
         requestBody.put("description", description);
         requestBody.put("finding_category_id", finding_category_id);
 
-        System.out.println("Patch Body:" + requestBody);
-
-
+        System.out.println("Patch Body:" + requestBody.toString());
 
     }
     @Then("The Api User sends a Patch request and saves the returned response.")
     public void the_api_user_sends_a_patch_request_and_saves_the_returned_response() {
-        /*response = given()
+        response = given()
                 .spec(spec)
                 .contentType(ContentType.JSON)
                 .when()
                 .body(requestBody.toString())
                 .patch(fullPath);
-        */
-        API_Methods.sendRequest("PATCH",requestBody.toString());
+
+        response.prettyPrint();
+    }
+
+    @Then("The Api User prepares a PATCH request containing {string}, {string} and {int} information to send to the api updateFinding endpoint.")
+    public void theApiUserPreparesAPATCHRequestContainingAndFinding_category_idInformationToSendToTheApiUpdateFindingEndpoint(String name, String description, Integer finding_category_id ) {
+        requestBody.put("name", name);
+        requestBody.put("description", description);
+        requestBody.put("finding_category_id", finding_category_id);
+
+        System.out.println("Patch Body:" + requestBody);
+
 
     }
+
+    @Then("The Api User prepares a PATCH request that does not contain data.")
+    public void theApiUserPreparesAPATCHRequestThatDoesNotContainData() {     }
+
+    @Then("The Api User sends a Patch request and saves the returned response body.")
+    public void the_api_user_sends_a_patch_request_and_saves_the_returned_response_body() {
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(map)
+                .patch(fullPath);
+
+        response.prettyPrint();
+
+    }
+
+    @Then("The Api User prepares a PATCH request body containing {int}, {string}, {string} and {int} information to send to the api updateFinding endpoint.")
+    public void theApiUserPreparesAPATCHRequestBodyContainingIdAndFinding_category_idInformationToSendToTheApiUpdateFindingEndpoint(Integer id, String name, String description, Integer finding_category_id) {
+        map.put("id", id);
+        map.put("name", name);
+        map.put("description", description);
+        map.put("finding_category_id", finding_category_id);
+
+        System.out.println("Patch Body : " + map);
+
+    }
+
+    @Then("The Api User verifies that the updateId information is the same as the id information in the request body")
+    public void theApiUserVerifiesThatTheUpdateIdInformationIsTheSameAsTheIdInformationInTheRequestBody() {
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(requestBody.get("id"), repJP.getInt("updateId"));
+        System.out.println("updateId:" + repJP.getInt("updateId"));
+
+
+    }
+
+    @Then("The Api User sends a PATCH request, saves the returned response, and verifies that the status code is {string} with the reason phrase Forbidden.")
+    public void theApiUserSendsAPATCHRequestSavesTheReturnedResponseAndVerifiesThatTheStatusCodeIsWithTheReasonPhraseForbidden(String string) {
+        try {
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .when()
+                    .body(map)
+                    .patch(fullPath);
+        } catch (Exception e) {
+            exceptionMesaj = e.getMessage();
+        }
+
+        System.out.println("exceptionMesaj : " + exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
+
+
+
+    }
+
 
 
 
@@ -238,6 +320,23 @@ public class API_StepDefinitionsMehmet extends BaseTest {
 
         Assert.assertEquals(requestBody.get("id"), repJP.getInt("deletedId"));
         System.out.println(repJP.getInt("deletedId"));
+    }
+
+    @Then("The Api User sends a Delete request, saves the returned response, and verifies that the status code is {string} with the reason phrase Forbidden.")
+    public void theApiUserSendsADeleteRequestSavesTheReturnedResponseAndVerifiesThatTheStatusCodeIsWithTheReasonPhraseForbidden(String string) {
+        try {
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .when()
+                    .body(requestBody.toString())
+                    .patch(fullPath);
+        } catch (Exception e) {
+            exceptionMesaj = e.getMessage();
+        }
+
+        System.out.println("exceptionMesaj : " + exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
 
     }
 }
