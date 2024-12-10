@@ -39,12 +39,12 @@ Feature: An administrator (admin) should be able to access the Visitor informati
 
     * An api user sets "api/visitorsId" path parameters.
     # Api kullanicisi "api/visitorsId" path parametrelerini olusturur
-    * An api user sends a GET body with invalid authorization, saves the returned response, and verifies that the status code is 403 with the reason phrase "Forbidden".
+    * An api user sends a "GET" body with invalid authorization, saves the returned response, and verifies that the status code is 403 with the reason phrase "Forbidden".
     # Api kullanicisi GET request gonderir, donen response'i kaydeder ve status code'un 403 oldugunu dogrular.
 
 
 
-  Scenario: No Token and No Data, When a GET request that does not contain valid authorization information and data (id) is sent to the /api/visitorsId endpoint,
+  Scenario: Valid Token and No Data, When a GET request with a valid authorization information and no data (id) is sent to the /api/visitorsId endpoint,
   it should be verified that the status code returned is 203
   and the message information in the response body is "No id or wrong id."
 
@@ -52,12 +52,13 @@ Feature: An administrator (admin) should be able to access the Visitor informati
     # Api kullanicisi "api/visitorsId" path parametrelerini olusturur
     * An api user prepears a GET body without "id"
     # Api kullanicisi eksik bir veri (id) ile bir GET body'si hazirlar
-    * An api user sends a GET request with invalid authorization, saves the returned response, and verifies that the status code is "203" with the reason phrase "No id or wrong id.".
+    * An api user sends a GET request and saves the returned response.
+    * An api user verifies that the "message" information in the response body is "No id or wrong id.".
     # Api kullanicisi GET request gonderir, donen response'i kaydeder ve status code'un 203 mesaj iceriginin "No id or wrong id." oldugunu dogrular.
 
 
 
-  @umit
+
   Scenario Outline: Valid Token and Incorrect Data, When a GET body containing incorrect data (id) is sent, it should be verified that
   the status code returned is 203 and the message information in the response body is "No id or wrong id."
 
