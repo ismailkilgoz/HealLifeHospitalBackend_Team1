@@ -32,12 +32,12 @@ Feature: As an administrator (admin), I should be able to access the relevant fi
     # Api kullanicisi api getFindingById endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar
     And     The Api User sends a GET body and saves the returned response.
     # Api kullanicisi GET body gonderir ve donen response'u kaydeder
-    Then    The Api User verifies the information in the response body for the entry with the specified <id>, including "<name>", "<description>", "<finding_category_id>", "<created_at>" and "<category>"  .
+    Then    The Api User verifies the information in the response for the entry with the specified <id>, including "<name>", "<description>", "<finding_category_id>", "<created_at>" and "<category>"  .
     # Api kullanıcısı response body icindeki <id> numarasına sahip olanin "<name>", "<description>", "<finding_category_id>", "<created_at>" and "<category>" bilgilerini doğrular.
 
     Examples:
-      | id        | name   | description       | finding_category_id | created_at          | category       |
-      | 5         | MAHMUT | trial description | 2                   | 2023-05-26 11:39:04 | ill category 2 |
+      | id        | name           | description       | finding_category_id | created_at          | category       |
+      | 8         | bauchschmerzen | Bauchproblem      | 188                 | 2024-12-09 04:42:58 | head Diseases  |
 
 
   Scenario: When a GET body that does not contain a data (id) with valid authorization information is sent to
