@@ -307,7 +307,7 @@ public class API_StepDefinitions_Umit extends BaseTest {
         response.then()
                 .assertThat()
                 .body("updatedId", Matchers.equalTo(id));
-        src/test/java/stepdefinitions/API_StepDefinitions_Umit.java
+
     }
 }
 
