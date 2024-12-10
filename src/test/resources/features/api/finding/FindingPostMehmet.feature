@@ -1,5 +1,6 @@
 Feature: As an administrator (admin) I want to be able to create a new finding record via API connection.
 
+  @US1
   Scenario Outline:   When a POST body with valid authorization information and correct data (name, description, finding_category_id)
   is sent to /api/addFinding endpoint, it should be verified that the status code returned is 200 and the message information
   in the response body is “Success”.
@@ -28,7 +29,7 @@ Feature: As an administrator (admin) I want to be able to create a new finding r
     When    The Api User sets "api/addFinding" path parameters.
     # Api kullanicisi "api/addFinding" path parametrelerini olusturur
     Then    The Api User prepares a POST request that does not contain data.
-    # Api kullanicisi api addFinding endpointine gondermek icin "<name>", "<description>" ve "<finding_category_id>" bilgilerini iceren bir post request hazirlar
+    # Api kullanicisi api addFinding endpointine gondermek icin her hangi bir data icermeyen bir post request hazirlar
     And     The Api User sends a POST request and saves the returned response.
     # Api kullanicisi POST request gonderir ve donen responsei kaydeder
     Then    The Api User verifies that the status code is 203.
@@ -38,7 +39,7 @@ Feature: As an administrator (admin) I want to be able to create a new finding r
 
 
 
-  Scenario Outline:   When a POST body is sent to /api/addFinding endpoint with invalid authorization (Invalid Token) information
+  Scenario Outline: When a POST body is sent to /api/addFinding endpoint with invalid authorization (Invalid Token) information
   and correct data (name, description, finding_category_id), it should be verified that the status code returned
   is 403 and the message in the response body is "You do not have authorization or token error".
 
@@ -74,5 +75,5 @@ Feature: As an administrator (admin) I want to be able to create a new finding r
     # Api kullanicisi response bodydeki message bilgisinin "Success" oldugunu dogrular
 
     Examples:
-      | id |
-      | 2  |
+      | id   |
+      | 413  |

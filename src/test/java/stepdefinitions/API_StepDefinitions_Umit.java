@@ -119,8 +119,8 @@ public class API_StepDefinitions_Umit extends BaseTest {
     }
 
 
-    @Given("An api user sends a GET body with invalid authorization, saves the returned response, and verifies that the status code is {int} with the reason phrase {string}.")
-    public void an_api_user_sends_a_get_request_with_invalid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(Integer code, String message) {
+    @Given("An api user sends a {string} body with invalid authorization, saves the returned response, and verifies that the status code is {int} with the reason phrase {string}.")
+    public void an_api_user_sends_a_get_request_with_invalid_authorization_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_forbidden(String httpMethod, Integer code, String message) {
         Integer id = 1118;
         requestBody.put("id", id);
 
@@ -130,7 +130,7 @@ public class API_StepDefinitions_Umit extends BaseTest {
                     .contentType(ContentType.JSON)
                     .when()
                     .body(requestBody.toString())
-                    .get(fullPath);
+                    .post(fullPath);
         } catch (Exception e) {
             exceptionMesaj = e.getMessage();
         }
@@ -173,8 +173,8 @@ public class API_StepDefinitions_Umit extends BaseTest {
     }
 
 
-    @Given("An api user prepears a POST request with a body containing correct data of {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void an_api_user_preapers_and_sends_a_request_with_a_body_containing_correct_data_of_and_saves_the_returned_response(String purpose, String name, String email, String contact, String id_proof, String visit_to, String ipd_opd_staff_id, String related_to, String no_of_pepple, String date, String in_time, String out_time, String note) {
+    @Given("An api user prepears a {string} request with a body containing correct data of {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void an_api_user_preapers_and_sends_a_request_with_a_body_containing_correct_data_of_and_saves_the_returned_response(String httpMethod, String purpose, String name, String email, String contact, String id_proof, String visit_to, String ipd_opd_staff_id, String related_to, String no_of_pepple, String date, String in_time, String out_time, String note) {
 
         requestBody.put("purpose", purpose);
         requestBody.put("name", name);
@@ -198,14 +198,7 @@ public class API_StepDefinitions_Umit extends BaseTest {
     @Given("An api user sends a {string} request and saves the returned response.")
     public void an_api_user_sends_a_request_and_saves_the_returned_response(String httpMethod) {
 
-        response = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .when()
-                .body(requestBody.toString())
-                .post(fullPath);
-
-        response.prettyPrint();
+        API_Methods.sendRequest(httpMethod, requestBody.toString());
 
 
     }
@@ -215,14 +208,106 @@ public class API_StepDefinitions_Umit extends BaseTest {
 
 
     }
+
     @Given("An api user sends a {string} request with a body with invalid token and saves the returned response.")
     public void an_api_user_sends_a_request_with_a_body_with_invalid_token_and_saves_the_returned_response(String httpMethod) {
 
-        API_Methods.sendRequest(httpMethod,requestBody);
+        API_Methods.sendRequest(httpMethod, requestBody);
 
 
     }
 
+    @Given("An api user sends a {string} request with invalid token and correct data, saves the returned response, verifies that the returned status code is {int} with the reason phrase {string}.")
+    public void an_api_user_sends_a_request_with_invalid_token_and_correct_data_saves_the_returned_response_verifies_that_the_information_in_the_response_body_is(String httpMethod, Integer code, String value) {
 
 
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(requestBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+
+        API_Methods.statusCodeAssert(code);
+        API_Methods.assertBody("message", value);
+
+    }
+
+    @Given("An api user prepears a {string} request with a body containing correct data of {int}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void an_api_user_prepears_a_request_with_a_body_containing_correct_data_of(String httpMethod, Integer id, String purpose, String name, String email, String contact, String id_proof, String visit_to, String ipd_opd_staff_id, String related_to, String no_of_pepple, String date, String in_time, String out_time, String note) {
+
+        requestBody.put("id", id);
+        requestBody.put("purpose", purpose);
+        requestBody.put("name", name);
+        requestBody.put("email", email);
+        requestBody.put("contact", contact);
+        requestBody.put("id_proof", id_proof);
+        requestBody.put("visit_to", visit_to);
+        requestBody.put("ipd_opd_staff_id", ipd_opd_staff_id);
+        requestBody.put("related_to", related_to);
+        requestBody.put("no_of_pepple", no_of_pepple);
+        requestBody.put("date", date);
+        requestBody.put("in_time", in_time);
+        requestBody.put("out_time", out_time);
+        requestBody.put("note", note);
+
+        System.out.println("Patch Body : " + requestBody.toString());
+
+
+    }
+
+    @Given("An api user prepears a {string} request with incorrect data of {int} and correct data of {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void an_api_user_prepears_a_request_with_a_body_containing_incorrect_data_of_and_correct_data_of(String httpMethod, Integer incorrecId, String updatePurpose, String updateName, String updateEmail, String updateContact, String updatId_proof, String updateVisit_to, String updateOpd_opd_staff_id, String updateRelated_to, String updateNo_of_pepple, String updateDate, String updateIn_time, String updatOut_time, String updateNote) {
+
+        requestBody.put("id", incorrecId);
+        requestBody.put("purpose", updatePurpose);
+        requestBody.put("name", updateName);
+        requestBody.put("email", updateEmail);
+        requestBody.put("contact", updateContact);
+        requestBody.put("id_proof", updatId_proof);
+        requestBody.put("visit_to", updateVisit_to);
+        requestBody.put("ipd_opd_staff_id", updateOpd_opd_staff_id);
+        requestBody.put("related_to", updateRelated_to);
+        requestBody.put("no_of_pepple", updateNo_of_pepple);
+        requestBody.put("date", updateDate);
+        requestBody.put("in_time", updateIn_time);
+        requestBody.put("out_time", updatOut_time);
+        requestBody.put("note", updateNote);
+
+        System.out.println("Patch Body : " + requestBody.toString());
+    }
+
+    @Given("An api user prepears a {string} request without data of id and correct data of {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void an_api_user_prepears_a_request_without_data_of_id_and_correct_data_of(String httpMethod, String updatePurpose, String updateName, String updateEmail, String updateContact, String updatId_proof, String updateVisit_to, String updateOpd_opd_staff_id, String updateRelated_to, String updateNo_of_pepple, String updateDate, String updateIn_time, String updatOut_time, String updateNote) {
+
+        requestBody.put("purpose", updatePurpose);
+        requestBody.put("name", updateName);
+        requestBody.put("email", updateEmail);
+        requestBody.put("contact", updateContact);
+        requestBody.put("id_proof", updatId_proof);
+        requestBody.put("visit_to", updateVisit_to);
+        requestBody.put("ipd_opd_staff_id", updateOpd_opd_staff_id);
+        requestBody.put("related_to", updateRelated_to);
+        requestBody.put("no_of_pepple", updateNo_of_pepple);
+        requestBody.put("date", updateDate);
+        requestBody.put("in_time", updateIn_time);
+        requestBody.put("out_time", updatOut_time);
+        requestBody.put("note", updateNote);
+
+        System.out.println("Patch Body : " + requestBody.toString());
+
+    }
+
+    @Given("An api user verifies that the updatedId in the response body is the same as the {int} in the {string} request body.")
+    public void an_api_user_verifies_that_the_updated_ıd_in_the_response_body_is_the_same_as_the_id_in_the_patch_request_body_sent_to_the_api_visitors_update_endpoint(Integer id,String httpMethod) {
+
+
+        response.then()
+                .assertThat()
+                .body("updatedId", Matchers.equalTo(id));
+
+    }
 }
+
