@@ -1,8 +1,7 @@
-package stepdefinitions;
+package stepdefinitions.API;
 
 import base.BaseTest;
 import io.cucumber.java.en.Given;
-import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import pojos.Pojo;

@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.API;
 
 import base.BaseTest;
 
@@ -12,7 +12,6 @@ import utilities.API_Utilities.TestData;
 
 import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 import static utilities.API_Utilities.API_Methods.fullPath;
 
 public class API_StepDefinitions_Umit extends BaseTest {

@@ -1,9 +1,8 @@
-package stepdefinitions;
+package stepdefinitions.API;
 
 import base.BaseTest;
 import io.cucumber.java.en.Given;
 import io.restassured.http.ContentType;
-import org.checkerframework.checker.units.qual.C;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import pojos.Pojo;

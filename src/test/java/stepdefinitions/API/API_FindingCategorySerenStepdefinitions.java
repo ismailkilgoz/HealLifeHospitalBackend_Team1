@@ -1,14 +1,12 @@
-package stepdefinitions;
+package stepdefinitions.API;
 
 import base.BaseTest;
 import com.google.gson.Gson;
 import io.cucumber.java.en.Given;
 import io.restassured.http.ContentType;
-import org.json.JSONObject;
 import org.junit.Assert;
 import pojos.PojoFindingCategoryListsDataRequest;
 import utilities.API_Utilities.API_Methods;
-import utilities.API_Utilities.RequestBuilder;
 import utilities.API_Utilities.TestData;
 import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;

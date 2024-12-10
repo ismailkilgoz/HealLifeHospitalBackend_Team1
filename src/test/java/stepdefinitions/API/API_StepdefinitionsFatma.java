@@ -1,21 +1,14 @@
-package stepdefinitions;
+package stepdefinitions.API;
 
 import base.BaseTest;
 import io.cucumber.java.en.Given;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import pojos.Pojo;
-import pojos.VisitorsPojo;
 import utilities.API_Utilities.API_Methods;
 import utilities.API_Utilities.TestData;
-import static hooks.HooksAPI.spec;
-import static io.restassured.RestAssured.given;
-import static utilities.API_Utilities.API_Methods.fullPath;
 
-import io.restassured.response.ValidatableResponse;
-import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
-import static utilities.API_Utilities.API_Methods.fullPath;
 
 public class API_StepdefinitionsFatma extends BaseTest {
 
