@@ -72,4 +72,30 @@ public class JDBC_Structure_Methods {
         return preparedStatement;
     }
 
+    public static void printTable(ResultSet resultSet) {
+        try {
+            // Meta data ile sütun isimlerini almak
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int columnCount = metaData.getColumnCount();
+
+            // Sütun isimlerini yazdır
+            for (int i = 1; i <= columnCount; i++) {
+                System.out.print(metaData.getColumnName(i) + "\t");
+            }
+            System.out.println();
+
+            // Satırları yazdır
+            while (resultSet.next()) {
+                for (int i = 1; i <= columnCount; i++) {
+                    System.out.print(resultSet.getString(i) + "\t");
+                }
+                System.out.println();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Tablo yazdırılırken bir hata oluştu.");
+        }
+    }
+
+
 }
