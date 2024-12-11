@@ -85,7 +85,7 @@ public class DB_007_008_009 extends Manage {
             rows.add(resultSet.getString("child_name"));
         }
 
-        Assert.assertEquals("3",rows.size());
+        Assert.assertEquals(3,rows.size());
         System.out.println("Total number of rows: " + rows.size());
     }
 
