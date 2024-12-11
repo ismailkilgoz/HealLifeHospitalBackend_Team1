@@ -148,14 +148,12 @@ public class API_StepdefinitionsMerve  extends BaseTest {
     @Given("Api kullanicisi {string} index, {string}, {string},{string},{string} her bir alan için beklenen degerle eslestigini dogrulama")
     public void api_kullanicisi_index_her_bir_alan_için_beklenen_degerle_eslestigini_dogrulama(String id, String name, String description, String finding_category_id, String created_at) {
 
-        System.out.println(id);
-        response.then()
-                .assertThat()
-                .body("details.id", Matchers.equalTo(id),
-                        "details.name", Matchers.equalTo(name),
-                        "details.description", Matchers.equalTo(description),
-                        "details.finding_category_id", Matchers.equalTo(finding_category_id),
-                        "details.created_at", Matchers.equalTo(created_at));
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(map.get("name"), repJP.getString("name"));
+        Assert.assertEquals(map.get("description"), repJP.getString("description"));
+        Assert.assertEquals(map.get("finding_category_id"), repJP.getString("finding_category_id"));
+        Assert.assertEquals(map.get("created_at"), repJP.getString("created_at"));
 
 
     }
@@ -333,6 +331,99 @@ public class API_StepdefinitionsMerve  extends BaseTest {
 
 
     }
+
+    @Given("Api kullanicisi GET request gonderir, donen response'u' kaydeder, status code'unun '{int}' ve reason phrase bilgisinin Forbidden oldugunu dogrular")
+    public void api_kullanicisi_get_request_gonderir_donen_response_u_kaydeder_status_code_unun_ve_reason_phrase_bilgisinin_forbidden_oldugunu_dogrular(Integer int1) {
+
+        try {
+            response = given()
+                    .spec(spec)
+                    .when()
+                    .get(fullPath);
+        } catch (Exception e) {
+            exceptionMesaj = e.getMessage();
+        }
+
+        System.out.println("exceptionMesaj : " + exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
+
+    }
+
+
+
+    @Given("Api kullanicisi dogru data iceröeyen  bir PATCH body gönderir.")
+    public void api_kullanicisi_dogru_data_iceröeyen_bir_patch_body_gönderir() {
+
+    }
+
+    @Given("Api kullanicisi PATCH request gonderir, donen responsei kaydeder, status codeun {string} ve reason phrase bilgisinin Forbidden oldugunu dogrular")
+    public void api_kullanicisi_patch_request_gonderir_donen_responsei_kaydeder_status_codeun_ve_reason_phrase_bilgisinin_forbidden_oldugunu_dogrular(String string) {
+
+        try {
+            response = given()
+                    .spec(spec)
+                    .when()
+                    .get(fullPath);
+        } catch (Exception e) {
+            exceptionMesaj = e.getMessage();
+        }
+
+        System.out.println("exceptionMesaj : " + exceptionMesaj);
+        Assert.assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), exceptionMesaj);
+    }
+
+    @Given("Api kullanicisi api deleteFinding endpointine gondermek icin {int} bilgisini iceren bir get request hazirlar")
+    public void api_kullanicisi_api_delete_finding_endpointine_gondermek_icin_bilgisini_iceren_bir_get_request_hazirlar(int id) {
+        requestBody.put("id", id);
+
+        System.out.println("Delete Body : " + requestBody);
+    }
+    @Given("Api kullanıcısı DeletedId bilgisinin request body icindeki id bilgisi ile ayni oldugunu dogrular")
+    public void api_kullanıcısı_deleted_ıd_bilgisinin_request_body_icindeki_id_bilgisi_ile_ayni_oldugunu_dogrular() {
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(requestBody.get("id"), repJP.getInt("deletedId"));
+        System.out.println(repJP.getInt("deletedId"));
+    }
+
+    @Given("Api kullanicisi api updateFinding endpointine gondermek icin {int} {string}, {string} ve {string} bilgilerini iceren bir post request hazirlar")
+    public void api_kullanicisi_api_update_finding_endpointine_gondermek_icin_ve_bilgilerini_iceren_bir_post_request_hazirlar(int id, String name, String description, String finding_category_id) {
+
+
+        requestBody.put("id", id);
+        requestBody.put("name", name);
+        requestBody.put("description", description);
+        requestBody.put("finding_category_id", finding_category_id);
+
+        System.out.println("Patch Body:" + requestBody.toString());
+    }
+    @Given("Api kullanicisi PATCH body  request gonderir ve donen response u kaydeder")
+    public void api_kullanicisi_patch_body_request_gonderir_ve_donen_response_u_kaydeder() {
+
+        response=given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(requestBody)
+                .patch(fullPath);
+
+        response.prettyPrint();
+
+    }
+    @Given("Api kullanıcısı updateId bilgisinin request body icindeki id bilgisi ile ayni oldugunu dogrular")
+    public void api_kullanıcısı_update_ıd_bilgisinin_request_body_icindeki_id_bilgisi_ile_ayni_oldugunu_dogrular() {
+
+
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(requestBody.get("id"), repJP.getInt("updateId"));
+        System.out.println("updateId:" + repJP.getInt("updateId"));
+
+    }
+
+
+
+
 
 
 
