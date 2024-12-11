@@ -261,7 +261,7 @@ public class API_Stepdefinitions extends BaseTest {
 
     @Given("The api user prepares a DELETE request to send to the api visitorsPurposeDelete add endpoint.")
     public void the_api_user_prepares_a_delete_request_to_send_to_the_api_visitors_purpose_delete_add_endpoint() {
-        requestBody.put("id", 775);
+        requestBody.put("id", 556);
 
         System.out.println("Delete Body : " + requestBody);
     }
