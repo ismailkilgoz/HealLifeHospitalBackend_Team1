@@ -9,7 +9,7 @@ Feature:
     * Database closed
 
 
-  Scenario: data control into the patients table
+  Scenario: US02 Inserting new data to table
     * Query prepared into the ambulance call table
     * Verify result is returned US02
     * Database closed
