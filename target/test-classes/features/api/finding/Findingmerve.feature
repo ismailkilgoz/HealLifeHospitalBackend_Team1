@@ -1,3 +1,5 @@
+
+@merve
 Feature:
 
 
@@ -65,18 +67,15 @@ Feature:
       | id |
       |1000 |
 
-  Scenario Outline: Invalid Token  US_035>TC_04  api/getFindingById endpoint'ine gecersiz yetkilendirme bilgileri ile bir GET gövdesinin gönderilenginde dönen durum kodu'in
+  Scenario: Invalid Token  US_035>TC_04  api/getFindingById endpoint'ine gecersiz yetkilendirme bilgileri ile bir GET gövdesinin gönderilenginde dönen durum kodu'in
   403 olduğu ve yanıt gövdesindeki mesaj bilgilerinin "You do not have authorization or token error" olduğu doğrulanmalı.
 
     * Api kullanicisi "api/getFindingById" path parametrelerini olusturur.
     * Api kullanicisi, FindingById uc noktasiina gonderilecek <id> bilgisini iceren bir GET istegi hazirlar.
     *  Api kullanicisi GET body  request gonderir ve  donen response i kaydeder.
-    * Api kullanicisi statuscode un 403 oldugunu dogrular
-    * Api kullanicisi response body deki "message" bilgisinin "You do not have authorization or token error" oldugunu dogrular
 
-    Examples:
-      | id |
-      | 6 |
+
+
 
   Scenario Outline: US_036 >TC_01 /api/getFindingCategoryId endpoint'ine gecerli authorization bilgileri ve dogru data (finding_category_id)
   iceren bir GET body gönderildiginde dönen status code'in 200 oldugu ve response body'deki message bilgisinin "Success" oldugu  ve
@@ -91,8 +90,8 @@ Feature:
 
 
     Examples:
-      | id | id   | name        | description         |  finding_category_id       | created_at          |
-      | 3   | 7   |Rosacea        | Rosacea (roe-ZAY-she-uh) is a common skin condition that causes blushing or flushing and visible blood vessels in your face. It may also produce small, pus-filled bumps. These signs and symptoms may flare up for weeks to months and then go away for a while.      | 3   | 2023-05-26 13:36:06|
+      | id     | name           | description         |  finding_category_id       | created_at          |
+      | 11     |Damaged Hair  |                   | 5                           | 2023-05-26 13:36:06|
 
 
   Scenario: US_036>TC_02 /api/getFindingCategoryId endpoint'ine gecerli authorization bilgileri ve data (finding_category_id) icermeyen bir
@@ -102,7 +101,7 @@ Feature:
     * Api kullanicisi, finding_category_id uc noktasiina gonderilecek <id> bilgisini iceren bir GET istegi hazirlar.
     *  Api kullanicisi GET body  request gonderir ve donen response u kaydeder
     * Api kullanicisi statuscode un 203 oldugunu dogrular
-    * Api kullanicisi response body deki "message" bilgisinin "No id or wrong id" oldugunu dogrular
+    * Api kullanicisi response body deki "message" bilgisinin "No id or wrong id." oldugunu dogrular
 
 
   Scenario Outline: US_036 >TC_03 /api/getFindingCategoryId endpoint'ine gecerli authorization bilgileri gecersiz data (finding_category_id) iceren bir
@@ -118,7 +117,7 @@ Feature:
 
     Examples:
       | id |
-      | |
+      |386386 |
 
 
   Scenario Outline:  Invalid Token  US_036>TC_004 /api/getFindingCategoryId endpoint'ine gecersiz authorization bilgileri ile bir GET body gönderildiginde dönen status code'in
@@ -127,8 +126,7 @@ Feature:
     * Api kullanicisi "api/getFindingById" path parametrelerini olusturur.
     * Api kullanicisi, FindingById uc noktasiina gonderilecek <id> bilgisini iceren bir GET istegi hazirlar.
     *  Api kullanicisi GET body  request gonderir ve  donen response i kaydeder.
-    * Api kullanicisi statuscode un 403 oldugunu dogrular
-    * Api kullanicisi response body deki "message" bilgisinin "You do not have authorization or token error" oldugunu dogrular
+     * Api kullanicisi GET request gonderir, donen response'u' kaydeder, status code'unun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
 
     Examples:
       | id |
@@ -190,15 +188,16 @@ Feature:
   /api/updateFinding endpoint'ine gönderilen patch request body icindeki id bilgisi ile ayni oldugu dogrulanmasi testi.
 
     * Api kullanicisi "api/updateFinding" path parametrelerini olusturur.
-    * Api kullanicisi dogru datalar <id>,"<name>", "<description>" , "<finding_category_id>" iceren bir PATCH body gönderir.
-    *  Api kullanicisi PATCH body  request gonderir ve  donen response i kaydeder.
+    * Api kullanicisi api updateFinding endpointine gondermek icin <id> "<name>", "<description>" ve "<finding_category_id>" bilgilerini iceren bir post request hazirlar
+    *  Api kullanicisi PATCH body  request gonderir ve donen response u kaydeder
     * Api kullanicisi statuscode un 200 oldugunu dogrular
     * Api kullanicisi response body deki "message" bilgisinin "Success" oldugunu dogrular
-    * Api kullanicisi  Response body icindeki updateId bilgisinin endpoint'e gönderilen PATCH request body icindeki id bilgisi ile ayni oldugu dogrular
+    * Api kullanıcısı updateId bilgisinin request body icindeki id bilgisi ile ayni oldugunu dogrular
+
 
     Examples:
       | id | name        | description         |  finding_category_id       |
-      | 372  |mouth sore   | mouth sore is      | 2  |
+      | 437  |mouth sore   | mouth sore is      | 2  |
 
   Scenario Outline: US_038 >TC_02 /api/updateFinding endpoint'ine gecerli authorization bilgileri ile gecersiz (id) iceren bir PATCH body
   (id, name, description, finding_category_id) gönderildiginde dönen status code'in 203
@@ -241,11 +240,73 @@ Feature:
     * Api kullanicisi response body deki "message" bilgisinin "Wrong information or missing information. Please check your input data and id number." oldugunu dogrular
 
 
-  Scenario Outline:Invalid Token  US_038 >TC_04 /api/updateFinding endpoint'ine gecersiz authorization bilgileri ile bir PATCH body (id, name, description, finding_category_id)
+  Scenario Outline:Invalid Token  US_038 >TC_05 /api/updateFinding endpoint'ine gecersiz authorization bilgileri ile bir PATCH body (id, name, description, finding_category_id)
   gönderildiginde dönen status code'in 403 oldugu ve response body'deki message bilgisinin "You do not have authorization or token error" oldugu dogrulanmali.
 
     * Api kullanicisi "api/updateFinding" path parametrelerini olusturur.
-    * Api kullanicisi dogru datalar <id>,"<name>", "<description>" , "<finding_category_id>" iceren bir PATCH body gönderir.
-    *  Api kullanicisi PATCH body  request gonderir ve  donen response i kaydeder.
-    * Api kullanicisi statuscode un 403 oldugunu dogrular
-    * Api kullanicisi response body deki "message" bilgisinin "You do not have authorization or token error" oldugunu dogrular
+    * Api kullanicisi dogru datalar "<id>","<name>", "<description>" , "<finding_category_id>" iceren bir PATCH body gönderir.
+    *  Api kullanicisi PATCH request gonderir, donen responsei kaydeder, status codeun '403' ve reason phrase bilgisinin Forbidden oldugunu dogrular
+
+    Examples:
+      | id | name        | description         |  finding_category_id       |
+      | 372  |mouth sore   | mouth sore is      | 2  |
+
+
+   Scenario Outline: US_039>TC_01 /api/deleteFinding endpoint'ine gecerli authorization bilgileri ve dogru data (id)
+   iceren bir DELETE body gönderildiginde dönen status code'in 200 oldugu ve response body'deki message bilgisinin "Success" oldugu  ve
+   Response body icindeki deletedId bilgisinin /api/deleteFinding endpoint'ine gönderilen delete request body icindeki id bilgisi ile ayni oldugu dogrulanmali.
+
+     * Api kullanicisi "api/deleteFinding" path parametrelerini olusturur.
+     * Api kullanicisi api deleteFinding endpointine gondermek icin <id> bilgisini iceren bir get request hazirlar
+     *  Api kullanicisi DELETE body  request gonderir ve  donen response i kaydeder.
+     * Api kullanicisi statuscode un 200 oldugunu dogrular
+     * Api kullanicisi response body deki "message" bilgisinin "Success" oldugunu dogrular
+     *  Api kullanıcısı DeletedId bilgisinin request body icindeki id bilgisi ile ayni oldugunu dogrular
+
+     Examples:
+       | id   |
+       | 438  |
+
+
+  Scenario: US_039>TC_03 /api/deleteFinding endpoint'ine gecerli authorization bilgileri ve  gecersiz data (id) iceren bir
+     DELETE body gönderildiginde de dönen status code'in 203 oldugu ve response body'deki message bilgisinin "No id or wrong id. Please check your id number." oldugu dogrulanmali.
+
+       * Api kullanicisi "api/deleteFinding" path parametrelerini olusturur.
+       *  Api kullanicisi api   deleteFinding endpointine gonderilmek üzere yeni  bir DELETE request hazırlar
+       *  Api kullanicisi DELETE body  request gonderir ve  donen response i kaydeder.
+       * Api kullanicisi statuscode un 203 oldugunu dogrular
+       * Api kullanicisi response body deki "message" bilgisinin "No id or wrong id. Please check your id number." oldugunu dogrular
+
+
+       Scenario: US_039 >TC_02 /api/deleteFinding endpoint'ine gecerli authorization bilgileri ve data (id) icermeyen bir DELETE request
+       gönderildiginde dönen status code'un 203 oldugu ve response body'deki message bilgisinin "No id or wrong id. Please check your id number." oldugu
+
+
+         * Api kullanicisi "api/deleteFinding" path parametrelerini olusturur.
+         *  Api kullanicisi data icermeyen   bir DELETE request hazırlar
+         *  Api kullanicisi DELETE body  request gonderir ve  donen response i kaydeder.
+         * Api kullanicisi statuscode un 203 oldugunu dogrular
+         * Api kullanicisi response body deki "message" bilgisinin "No id or wrong id. Please check your id number." oldugunu dogrular
+
+
+       Scenario: Invalid Token US_039>TC_04 /api/deleteFinding endpoint'ine gecersiz authorization bilgileri ile bir DELETE body gönderildiginde dönen
+       status code'in 403 oldugu ve response body'deki message bilgisinin "You do not have authorization or token error" oldugu dogrulanmali.
+
+
+         * Api kullanicisi "api/deleteFinding" path parametrelerini olusturur.
+         *  Api kullanicisi data icermeyen   bir DELETE request hazırlar
+         *  Api kullanicisi DELETE body  request gonderir ve  donen response i kaydeder.statuscode un 403 oldugunu dogrular
+
+         Scenario:  US_039>TC_05 API uzerinden silinmek istenen finding kaydinin silindigi, API uzerinden dogrulandıgı testi
+         (Response body'de dönen "deletedId" ile /api/getFindingById endpoint'ine GET body gönderilerek kaydın silindiği doğrulanabilir.)
+
+
+           * Api kullanicisi "api/getFindingById" path parametrelerini olusturur.
+           * Api kullanicisi, FindingById uc noktasiina gonderilecek <id> bilgisini iceren bir GET istegi hazirlar.
+           *  Api kullanicisi GET body  request gonderir ve donen response u kaydeder
+           * Api kullanicisi statuscode un 203 oldugunu dogrular
+           * Api kullanicisi response body deki "message" bilgisinin "No id or wrong id." oldugunu dogrular
+
+
+
+
