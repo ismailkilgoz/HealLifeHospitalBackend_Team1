@@ -240,7 +240,7 @@ Feature:
     * Api kullanicisi response body deki "message" bilgisinin "Wrong information or missing information. Please check your input data and id number." oldugunu dogrular
 
 
-  Scenario Outline:Invalid Token  US_038 >TC_04 /api/updateFinding endpoint'ine gecersiz authorization bilgileri ile bir PATCH body (id, name, description, finding_category_id)
+  Scenario Outline:Invalid Token  US_038 >TC_05 /api/updateFinding endpoint'ine gecersiz authorization bilgileri ile bir PATCH body (id, name, description, finding_category_id)
   gönderildiginde dönen status code'in 403 oldugu ve response body'deki message bilgisinin "You do not have authorization or token error" oldugu dogrulanmali.
 
     * Api kullanicisi "api/updateFinding" path parametrelerini olusturur.
