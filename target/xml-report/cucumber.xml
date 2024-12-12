@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="3.445">
-    <testcase classname="Verifying that a set of data is selected from related tables and the returned data is complete and correct." name="US_027: List the account_title data of the employees with qualification=MS," time="3.197">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="4.621">
+    <testcase classname="Unknown" name="Verify vehicles with same index in both lists" time="4.232">
         <system-out><![CDATA[* Database connection established...........................................passed
-* Prepare a query into the staff table......................................passed
-* Verify that a result set is turned........................................passed
-* Close the connection to Database..........................................passed
+* I execute the query to get vehicle lists..................................passed
+* Verify that both lists have the same vehicles at the same index...........passed
+* Database closed...........................................................passed
 ]]></system-out>
     </testcase>
 </testsuite>
