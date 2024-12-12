@@ -33,7 +33,8 @@ public class Manage_Seren_29_30_15 {
            "WHERE related_to = ?\n" +
            "  AND purpose = ?;\n";
 
-   private String US15="";
+   private String US15=" INSERT INTO consultant_register(ipd_id, date, ins_date, instruction, cons_doctor, created_at)\n" +
+           " VALUES (?, ? , ? , ?, ?, ?);";
 
 
 
