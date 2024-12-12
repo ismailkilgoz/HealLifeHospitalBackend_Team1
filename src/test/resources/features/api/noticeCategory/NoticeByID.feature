@@ -17,7 +17,7 @@ Feature: As an administrator (admin), I should be able to access the relevant an
      #  the information ("<id>","<type>", "<slug>", "<url>","<title>""<date>") returned in the response body of id(x) should be verified
     Examples:
       | id    |id  | type    |slug |title|date      |
-      | 341  |341  |notice   |Ein    |hallo|2024-12-07|
+      | 341  |341  |notice   |Ein    |hallo|2024-12-09|
 
 
   Scenario Outline: When a GET body containing valid authorization information and invalid data (id) is sent to the

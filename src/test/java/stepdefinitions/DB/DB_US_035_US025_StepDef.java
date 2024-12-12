@@ -11,7 +11,7 @@ import static HelperDB.JDBC_Structure_Methods.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-public class DB_Stepdefinitions extends Manage {
+public class DB_US_035_US025_StepDef extends Manage {
     CommonData data=new CommonData();
 
     @Given("Database connection established")

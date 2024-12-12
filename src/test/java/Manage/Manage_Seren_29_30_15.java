@@ -28,10 +28,12 @@ public class Manage_Seren_29_30_15 {
             "WHERE myo.id =cao.id;";
 
 
-   private String US30="";
+   private String US30="SELECT name\n" +
+           "FROM visitors_book\n" +
+           "WHERE related_to = ?\n" +
+           "  AND purpose = ?;\n";
 
-   private String US35="INSERT INTO email_config (email_type, smtp_server, smtp_port, smtp_username, smtp_password) \n" +
-            "VALUES (?, ?, ?, ?, SHA2(?, 256));";
+   private String US15="";
 
 
 

@@ -234,4 +234,6 @@ JDBCMethods {
     }
 
 
+    public void birthRecordAccess(ResultSet resultSet) {
+    }
 }
