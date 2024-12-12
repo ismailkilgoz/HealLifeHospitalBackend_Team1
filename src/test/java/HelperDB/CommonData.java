@@ -12,8 +12,8 @@ import java.util.HashMap;
 
 @Getter
 public class CommonData {
-    Faker faker=new Faker();
-    public static HashMap<String,String> patientsEmailGender;
+    Faker faker = new Faker();
+    public static HashMap<String, String> patientsEmailGender;
     //email_type, smtp_server, smtp_port, smtp_username, smtp_password, ssl_tls, smtp_auth, is_active, created_at
     //smtp.gmail.com  // 587/465
     private String email_type;
@@ -113,7 +113,7 @@ public class CommonData {
         this.visit_details_id = 214;
         this.time = Time.valueOf(LocalTime.now());
         this.priority = "5";
-        this.specialist= "1";
+        this.specialist = "1";
         this.doctor = 792;
         //amount,
         this.message = "T144_SQL";
@@ -126,5 +126,21 @@ public class CommonData {
         this.is_queue = 0;
         this.live_consult = "no";
 
+
     }
+
+    // US_026-US_027-US-028:
+    public static HashMap <String,String> patientsKnown_allergies;
+    public static HashMap <String, String> expectedData= new HashMap<>();
+
+    public static HashMap <String,String> vehicles;
+    public static HashMap <String, String> vehiclesExpectedData= new HashMap<>();
+
+    public static HashMap <String,String> account_title;
+
+
+
+
+
+
 }
