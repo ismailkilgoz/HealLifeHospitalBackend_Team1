@@ -13,14 +13,23 @@ public class Manage {
     String US08="SELECT * FROM u201212290_heallifeqa.bed  WHERE bed_group_id = 4 AND is_active = 'no';";
     String US09="SELECT * FROM u201212290_heallifeqa.birth_report WHERE weight >= 2.5;";
 
-    String US023="select * from medicine_supplier where address = 'Andheri, Mumbai';";
-    String US024="insert into nurse_note(date, ipd_id, staff_id, note, comment, updated_at)\n" +
-            "values(?, ?, ?, ?, ?, ?)";
-    String US025="select patient_name, gender, email from patients where patient_name LIKE ('%Jain%');";
-
-    String US026="SELECT known_allergies, created_at FROM patients where known_allergies= 'Fast food' order by created_at asc LIMIT 1";
-    String US027="select distinct account_title from staff where qualification= 'MS' and specialization= 'Neurology' order by account_title asc";
-    String US028="SELECT driver_name, driver_licence FROM vehicles WHERE driver_name = 'bayram erguven' and driver_licence= 'b' ORDER BY manufacture_year ASC LIMIT 1";
 
 
+
+    @Getter
+    String US31 = "SELECT * FROM u201212290_heallifeqa.consultant_register WHERE instruction AND cons_doctor;";
+
+
+    String US32 = "SELECT count(*) AS row_count  FROM u201212290_heallifeqa.consultant_register" +
+                        "WHERE created_at BETWEEN '2024-11-01' AND '2024-11-31';";
+
+
+    String US33 = "SELECT s.name, s.surname, cr.instruction from staff s " +
+            "join consultant_register cr on cr.cons_doctor = s.id " +
+            "join ipd_details id on id.cons_doctor = s.id and cr.cons_doctor =id.cons_doctor";
+
+    String US033 =  "SELECT cr.instruction, ipd.ipd_registration_id, s.staff_name AS doctor_name " +
+            "FROM consultant_register cr " +
+            "JOIN ipd_details ipd ON cr.ipd_id = ipd.ipd_id " +
+            "JOIN staff s ON cr.cons_doctor = s.staff_id";
 }
