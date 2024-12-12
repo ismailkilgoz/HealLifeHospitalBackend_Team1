@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="4.621">
-    <testcase classname="Unknown" name="Verify vehicles with same index in both lists" time="4.232">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="7.577">
+    <testcase classname="Unknown" name="Verify visitor's name for given related_to and purpose" time="6.319">
         <system-out><![CDATA[* Database connection established...........................................passed
-* I execute the query to get vehicle lists..................................passed
-* Verify that both lists have the same vehicles at the same index...........passed
+* The visitors_book table contains data.....................................passed
+* I fetch the visitor's name with related_to "Maria Fernandis (4) (OPDN24)" and purpose "visit"..passed
+* The visitor's name should be "Jhon".......................................passed
 * Database closed...........................................................passed
 ]]></system-out>
     </testcase>

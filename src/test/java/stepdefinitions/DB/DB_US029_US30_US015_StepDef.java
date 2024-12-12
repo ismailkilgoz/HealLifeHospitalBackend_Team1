@@ -18,21 +18,6 @@ public class DB_US029_US30_US015_StepDef extends Manage_Seren_29_30_15 {
 
 
 
-
-    @Given("Insert a record with SHA2 encrypted password into the email_config table.")
-    public void insert_a_record_with_sha2_encrypted_password_into_the_email_config_table() {
-            query=getUS35();
-            preparedStatement=getPraperedStatement(query);
-
-
-    }
-    @Given("Verify that the SHA2 encrypted password should be stored in the database.")
-    public void verify_that_the_sha2_encrypted_password_should_be_stored_in_the_database() {
-
-    }
-
-
-
     // US29
 
     @Given("I execute the query to get vehicle lists.")
@@ -41,6 +26,7 @@ public class DB_US029_US30_US015_StepDef extends Manage_Seren_29_30_15 {
 
             query=getUS29();
             resultSet = getResultset(query);
+
 
 
 
@@ -71,12 +57,46 @@ public class DB_US029_US30_US015_StepDef extends Manage_Seren_29_30_15 {
 
     }
 
+    // US30
 
 
-                        //_-----------------------------//
+    @Given("The visitors_book table contains data")
+    public void the_visitors_book_table_contains_data() throws SQLException {
+      query=getUS30();
+      preparedStatement=getPraperedStatement(query);
 
 
 
+    }
+    @Given("I fetch the visitor's name with related_to {string} and purpose {string}.")
+    public void i_fetch_the_visitor_s_name_with_related_to_and_purpose(String relatedTo, String purpose) throws SQLException {
+        preparedStatement.setString(1, relatedTo );
+        preparedStatement.setString(2, purpose );
+
+
+    }
+    @Given("The visitor's name should be {string}.")
+    public void the_visitor_s_name_should_be(String expectedName) {
+
+
+        try {
+            // Sorguyu çalıştır
+            resultSet = preparedStatement.executeQuery();
+
+            // Sorgu sonucu kontrol et
+            if (resultSet.next()) {
+                // Sonuçtan alınan name değerini doğrula
+                String actualName = resultSet.getString("name");
+                assertEquals("Visitor name does not match!", expectedName, actualName);
+            } else {
+                // Sonuç bulunamazsa hata fırlat
+               fail("No visitor found with the given related_to and purpose.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 
 

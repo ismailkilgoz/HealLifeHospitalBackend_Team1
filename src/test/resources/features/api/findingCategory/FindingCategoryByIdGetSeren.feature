@@ -13,7 +13,7 @@ Feature:  API_US30 As an administrator (admin), I should be able to access the r
     |id|id|category              |created_at  |
     | 7| 7|Nose Diseases |2021-10-25 06:19:58 |
 
-@seren
+
   Scenario Outline: API_US30_TC01_ValidAuth_SuccessStatus_ResponseBodyValidation_ById
 
     * The api user sets "api/getFindingCategoryById" path parameters.
@@ -53,6 +53,7 @@ Feature:  API_US30 As an administrator (admin), I should be able to access the r
     Examples:
       | id     |
       | 42863 |
+
 
   Scenario: API_US30_TC03_InvalidAuth_403Error_UnauthorizedMessage_ById
 
