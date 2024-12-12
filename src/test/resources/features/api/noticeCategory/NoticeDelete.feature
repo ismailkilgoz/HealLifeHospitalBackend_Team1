@@ -1,5 +1,5 @@
 Feature: As an administrator (admin) I should be able to delete the announcement record in the system via API connection.
-@XN
+
   Scenario: A DELETE request to the "api/deleteNotice" endpoint with valid authorization
   and correct data (id) should return a 200 status code, a response body message of "Success," and the "deletedId" in the
   response should match the "id" in the request body. The deletion should be confirmed by sending a GET request to the
