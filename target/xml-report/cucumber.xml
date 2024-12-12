@@ -1,10 +1,143 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="7.577">
-    <testcase classname="Unknown" name="Verify visitor's name for given related_to and purpose" time="6.319">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="20" time="38.867">
+    <testcase classname="Unknown" name="US01 Verify that shipment has occurred many times with whose driver Smith and the patient_id=1" time="4.888">
+        <system-out><![CDATA[* Database connection established...........................................passed
+* SQL Query01 is prepared and is run........................................passed
+* SQL Query01 results wil be tested.........................................passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="US03 Verify that shipment has occurred many times with whose driver Smith and the patient_id=1" time="1.453">
+        <system-out><![CDATA[* Database connection established...........................................passed
+* SQL Query03 is prepared and is run........................................passed
+* SQL Query03 results wil be tested.........................................passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="US_07" time="1.844">
+        <system-out><![CDATA[* Database connection established...........................................passed
+* I query the bed table for created_at = '2023-05-04 06:41:17'..............passed
+* Verify that is_active is yes in the return table..........................passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="US_08" time="1.559">
+        <system-out><![CDATA[* Database connection established...........................................passed
+* I query the bed table for bed group id 4 and is_active no.................passed
+* The patient's name should be visible......................................passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="US_09" time="1.747">
+        <system-out><![CDATA[* Database connection established...........................................passed
+* I query the birth_report table for babies with weight >= 2.5 kg...........passed
+* I should get the correct count of babies with weight >= 2.5 kg............passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="This feature is a file created for Database User Stories 10,11 12" name="DB_US10: List and verify the names of babies who are siblings in the birth_report table." time="1.405">
+        <system-out><![CDATA[Given Database connection established.......................................passed
+When I execute query the database for "DB_US10".............................passed
+Then The user verifies children who are siblings............................passed
+And Database closed.........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="This feature is a file created for Database User Stories 10,11 12" name="DB_US11: Verify that the blood donor with id = 7 has donor_name = Maria, date_of_birth = '2001-03-02', gender = Female, father_name = Jhonson, address = England in the blood_donor table." time="1.411">
+        <system-out><![CDATA[Given Database connection established.......................................passed
+When Execute query the database for "DB_US11"...............................passed
+Then The user validates donor data..........................................passed
+And Database closed.........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="This feature is a file created for Database User Stories 10,11 12" name="DB_US12: List the id numbers of blood_donor_cycle entries where the institution is known, and verify that id = 17 is in the list." time="2.159">
+        <system-out><![CDATA[Given Database connection established.......................................passed
+When I execute query the  database  foor "DB_US12"..........................passed
+Then The user finds id 17 in the listed blood_donor_cycle table information.passed
+And Database closed.........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="DB_023- Check that the other information in the medicine_supplier table" time="3.025">
+        <system-out><![CDATA[Given Database connection established.......................................passed
+Then User creates Query for DB_US23.........................................passed
+And Verifies that the returned informations for the data are correct........passed
+Then Database closed........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="DB_024- It must be verified that multiple data entry can be made to the nurse_note table via the database." time="1.936">
+        <system-out><![CDATA[Given Database connection established.......................................passed
+Then User creates Query for multiple data 3 entry on the nurse_note table...passed
+And Verifies that the 3 datas added to the nurse_note table.................passed
+Then Database closed........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="DB_025- Please verify the gender and email information of the patients whose" time="1.624">
+        <system-out><![CDATA[Given Database connection established.......................................passed
+Then User creates Query for DB_US25.........................................passed
+And Verifies that the returned information for the patient_name, gender and email are correct.passed
+Then Database closed........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Verifying that a set of data is selected from related tables and the returned data is complete and correct." name="US_027: List the account_title data of the employees with qualification=MS," time="1.643">
+        <system-out><![CDATA[* Database connection established...........................................passed
+* Prepare a query into the staff table......................................passed
+* Verify that a result set is turned........................................passed
+* Close the connection to Database..........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Verifying that a set of data is selected from related tables and the returned data is complete and correct." name="US_028: Verify that the oldest vehicle in the vehicles table has &quot;driver_name&quot;= &quot;bayram erguven&quot; and &quot;driver_licence&quot;= &quot;b&quot;." time="1.78">
+        <system-out><![CDATA[* Database connection established...........................................passed
+* Prepare a query into the vehicles table...................................passed
+* Verify that a resultset is turned.........................................passed
+* Close the connection to Database..........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="US_038 List donors connected to a specific blood bank (for example, blood_bank_product_id = 1).(blood_donor table)" time="1.733">
+        <system-out><![CDATA[* Database connection established...........................................passed
+When I query for donors with blood_bank_product_id = 1......................passed
+Then I should see the following donors:.....................................passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="US_039 in the Blood_Donor table, verify the names of donors over the age of 50 from the list." time="1.441">
+        <system-out><![CDATA[* Database connection established...........................................passed
+When I query the table for donors over the age of fifty.....................passed
+Then I should see the following names:......................................passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="US_040 List and verify the reference numbers for all dispatches sent to &quot;Sadar&quot; (dispatch_receive table)." time="1.796">
+        <system-out><![CDATA[* Database connection established...........................................passed
+When I query the table for dispatches sent to Sadar.........................passed
+Then I should see the following reference numbers:..........................passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="Verify vehicles with same index in both lists" time="2.249">
+        <system-out><![CDATA[* Database connection established...........................................passed
+* I execute the query to get vehicle lists..................................passed
+* Verify that both lists have the same vehicles at the same index...........passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="Verify visitor's name for given related_to and purpose" time="1.446">
         <system-out><![CDATA[* Database connection established...........................................passed
 * The visitors_book table contains data.....................................passed
 * I fetch the visitor's name with related_to "Maria Fernandis (4) (OPDN24)" and purpose "visit"..passed
 * The visitor's name should be "Jhon".......................................passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="add data whose passcode is protected with sha2 method  into the database" time="1.579">
+        <system-out><![CDATA[* Database connection established...........................................passed
+* I insert the new data to the email_config table...........................passed
+* Verify that 1 added to the table..........................................passed
+* Database closed...........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unknown" name="data control into the patients table" time="1.348">
+        <system-out><![CDATA[* Database connection established...........................................passed
+* Query prepared into the patients table....................................passed
+* Verify result is returned.................................................passed
 * Database closed...........................................................passed
 ]]></system-out>
     </testcase>

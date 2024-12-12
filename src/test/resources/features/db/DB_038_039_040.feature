@@ -1,6 +1,6 @@
 Feature:
 
-
+  @DBUS
   Scenario: US_038 List donors connected to a specific blood bank (for example, blood_bank_product_id = 1).(blood_donor table)
     * Database connection established
     When I query for donors with blood_bank_product_id = 1
@@ -13,7 +13,7 @@ Feature:
    | 19  | Eleni Adams           | 2001-05-05     | 1                     | Female |
  * Database closed
 
-
+  @DBUS
   Scenario: US_039 in the Blood_Donor table, verify the names of donors over the age of 50 from the list.
     * Database connection established
     When I query the table for donors over the age of fifty
@@ -21,7 +21,7 @@ Feature:
       | Mehmet Uçankuş |
     * Database closed
 
-
+  @DBUS
   Scenario: US_040 List and verify the reference numbers for all dispatches sent to "Sadar" (dispatch_receive table).
     * Database connection established
     When I query the table for dispatches sent to Sadar

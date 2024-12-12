@@ -12,7 +12,7 @@ import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static utilities.API_Utilities.API_Methods.fullPath;
 
-public class API_FindingCategorySerenStepdefinitions extends BaseTest {
+public class API_FindingCategoryStepdefinitions extends BaseTest {
 
 
 

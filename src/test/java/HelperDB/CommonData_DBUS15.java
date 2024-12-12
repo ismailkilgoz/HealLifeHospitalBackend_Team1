@@ -4,11 +4,10 @@ import com.github.javafaker.Faker;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashMap;
 
 @Getter
-public class CommonDataSeren   {
+public class CommonData_DBUS15 {
 
 
     Faker faker=new Faker();
@@ -24,7 +23,7 @@ public class CommonDataSeren   {
     private int cons_doctor;
     private LocalDateTime created_at;
 
-    public CommonDataSeren() {
+    public CommonData_DBUS15() {
 
         this.ipd_id = 1258;
         this.date =  LocalDateTime.now();

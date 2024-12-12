@@ -3,7 +3,7 @@ Feature:
     * Database connection established
 
 #29
-
+  @DBUS
     Scenario: Verify vehicles with same index in both lists
 
       * I execute the query to get vehicle lists.
@@ -11,7 +11,7 @@ Feature:
       * Database closed
 
     #30
-
+  @DBUS
   Scenario: Verify visitor's name for given related_to and purpose
 
     * The visitors_book table contains data
@@ -22,10 +22,8 @@ Feature:
     #US15
 
 
-  @DBUS
   Scenario:
     #ipd_id, date, ins_date, instruction, cons_doctor, created_at
     * I insert the new data to the consultant_register table
    #* Verify that 1 added to the table
     * Database closed
-
