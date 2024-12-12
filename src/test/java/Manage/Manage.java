@@ -12,4 +12,57 @@ public class Manage {
     String US07="SELECT * FROM u201212290_heallifeqa.bed WHERE created_at = '2023-05-04 06:41:17';";
     String US08="SELECT * FROM u201212290_heallifeqa.bed  WHERE bed_group_id = 4 AND is_active = 'no';";
     String US09="SELECT * FROM u201212290_heallifeqa.birth_report WHERE weight >= 2.5;";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    String US023="select * from medicine_supplier where address = 'Andheri, Mumbai';";
+    String US024="insert into nurse_note(date, ipd_id, staff_id, note, comment, updated_at)\n" +
+            "values(?, ?, ?, ?, ?, ?)";
+    String US025="select patient_name, gender, email from patients where patient_name LIKE ('%Jain%');";
+
+
+
+
+
 }
