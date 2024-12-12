@@ -4,8 +4,10 @@ import HelperDB.CommonDataSeren;
 import Manage.Manage_Seren_29_30_15;
 import io.cucumber.java.en.Given;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +16,8 @@ import static org.junit.Assert.*;
 
 public class DB_US029_US30_US015_StepDef extends Manage_Seren_29_30_15 {
 
-    CommonDataSeren commonData=new CommonDataSeren();
 
+    CommonDataSeren commonData=new CommonDataSeren();
 
 
     // US29
@@ -95,6 +97,28 @@ public class DB_US029_US30_US015_StepDef extends Manage_Seren_29_30_15 {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    //  US 15
+
+    @Given("I insert the new data to the consultant_register table")
+    public void i_insert_the_new_data_to_the_consultant_register_table() throws SQLException {
+
+        query=getUS15();
+        preparedStatement=getPraperedStatement(query);
+        preparedStatement.setInt(1,commonData.getIpd_id());
+        preparedStatement.setTimestamp(2, Timestamp.valueOf((commonData.getDate())));
+        preparedStatement.setTimestamp(3, Timestamp.valueOf(commonData.getIns_date()));
+        preparedStatement.setString(4, commonData.getInstruction());
+        preparedStatement.setInt(5,commonData.getCons_doctor());
+        preparedStatement.setTimestamp(6, new java.sql.Timestamp(System.currentTimeMillis()));
+
+
+        int rowCount = preparedStatement.executeUpdate();
+        //assertEquals("Record was not added to the table!", 1, rowCount);
+
+
 
     }
 
