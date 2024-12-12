@@ -18,3 +18,6 @@ Feature:
     * I fetch the visitor's name with related_to "Maria Fernandis (4) (OPDN24)" and purpose "visit".
     * The visitor's name should be "Jhon".
     * Database closed
+
+    #US15
+
