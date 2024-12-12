@@ -60,6 +60,15 @@ public class JDBC_Structure_Methods {
         }
         return resultSet;
     }
+    public static ResultSet getResultset(String query) {
+        try {
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            resultSet = statement.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
 
     public static PreparedStatement getPraperedStatement(String sqlQuery) {
 
@@ -96,6 +105,9 @@ public class JDBC_Structure_Methods {
             System.out.println("Tablo yazdırılırken bir hata oluştu.");
         }
     }
+
+
+
 
 
 }

@@ -77,4 +77,4 @@ Feature: As an administrator (admin) I should be able to delete the Expense Head
 
     Examples:
       | id  |
-      | 596 |
+      | 595 |

@@ -72,7 +72,7 @@ public class DB_001_002_003 extends Manage_001_002_003 {
         query=getUS001();
         resultSet=getStatement().executeQuery(query);
     }
-        /**   US25      */
+    /**   US25      */
 
     @Given("Query prepared into the ambulance call table")
     public void query_prepared_into_the_patients_table() throws SQLException {

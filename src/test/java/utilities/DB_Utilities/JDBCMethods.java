@@ -10,7 +10,9 @@ import java.util.*;
 import static HelperDB.JDBC_Structure_Methods.*;
 
 
-public class JDBCMethods {
+public class
+
+JDBCMethods {
 
     //prepared statement timestamp instant döndürür.
     static Instant instant = Instant.now();
@@ -231,4 +233,7 @@ public class JDBCMethods {
 
     }
 
+
+    public void birthRecordAccess(ResultSet resultSet) {
+    }
 }
