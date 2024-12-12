@@ -16,8 +16,7 @@ public class CommonData {
     Faker faker=new Faker();
     public static HashMap<String,String> patientsEmailGender;
     public static int [] result;
-    Faker faker = new Faker();
-    public static HashMap<String, String> patientsEmailGender;
+
     //email_type, smtp_server, smtp_port, smtp_username, smtp_password, ssl_tls, smtp_auth, is_active, created_at
     //smtp.gmail.com  // 587/465
     private String email_type;

@@ -1,11 +1,9 @@
 package stepdefinitions.DB;
 
-import HelperDB.CommonDataSeren;
-import Manage.Manage_Seren_29_30_15;
+import HelperDB.CommonData_DBUS15;
+import Manage.Manage_29_30_15;
 import io.cucumber.java.en.Given;
 
-import java.sql.Date;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -14,10 +12,10 @@ import java.util.List;
 import static HelperDB.JDBC_Structure_Methods.*;
 import static org.junit.Assert.*;
 
-public class DB_US029_US30_US015_StepDef extends Manage_Seren_29_30_15 {
+public class DB_US029_US30_US015_StepDef extends Manage_29_30_15 {
 
 
-    CommonDataSeren commonData=new CommonDataSeren();
+    CommonData_DBUS15 commonData=new CommonData_DBUS15();
 
 
     // US29

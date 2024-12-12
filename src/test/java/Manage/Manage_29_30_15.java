@@ -2,7 +2,7 @@ package Manage;
 import lombok.Getter;
 
 @Getter
-public class Manage_Seren_29_30_15 {
+public class Manage_29_30_15 {
 
    // id, vehicle_no, vehicle_model, manufacture_year, vehicle_type, driver_name, driver_licence, driver_contact, note, created_at
 

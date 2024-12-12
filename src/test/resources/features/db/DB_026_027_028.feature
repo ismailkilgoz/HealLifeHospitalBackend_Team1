@@ -11,7 +11,7 @@ Feature: Verifying that a set of data is selected from related tables and the re
     * Verify that a result is turned.
     * Close the connection to Database
 
-  @umitDB
+  @DBUS
   Scenario: US_027: List the account_title data of the employees with qualification=MS,
   specialisation= Neurology in the staff table by sorting them according to the letter order.
 
@@ -19,7 +19,7 @@ Feature: Verifying that a set of data is selected from related tables and the re
     * Verify that a result set is turned.
     * Close the connection to Database
 
-
+  @DBUS
   Scenario: US_028: Verify that the oldest vehicle in the vehicles table has "driver_name"= "bayram erguven" and "driver_licence"= "b".
 
     * Prepare a query into the vehicles table.
