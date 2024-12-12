@@ -4,14 +4,16 @@ import com.github.javafaker.DateAndTime;
 import com.github.javafaker.Faker;
 import lombok.Getter;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashMap;
 
 @Getter
 public class CommonData {
-    Faker faker=new Faker();
-    public static HashMap<String,String> patientsEmailGender;
+    Faker faker = new Faker();
+    public static HashMap<String, String> patientsEmailGender;
     //email_type, smtp_server, smtp_port, smtp_username, smtp_password, ssl_tls, smtp_auth, is_active, created_at
     //smtp.gmail.com  // 587/465
     private String email_type;
@@ -47,6 +49,24 @@ public class CommonData {
     String note;
     int generated_by;
 
+    HashMap<String, String> appointment;
+
+    int visit_details_id;
+    Time time;
+    String priority;
+    String specialist;
+    int doctor;
+    //amount,
+    String message;
+    String appointment_status;
+    String source;
+    String is_opd;
+    String is_ipd;
+    int global_shift_id;
+    int shift_id;
+    int is_queue;
+    String live_consult;
+
     //id, patient_id, case_reference_id, vehicle_id, contact_no, address, vehicle_model, driver,date ) \n" +
 //            "call_from, call_to, charge_category_id, charge_id, standard_charge, tax_percentage, amount,  net_amount, transaction_id, note, generated_by, created_at
     public CommonData() {
@@ -69,7 +89,7 @@ public class CommonData {
         this.is_active = "yes";
         this.created_at = Timestamp.valueOf(LocalDateTime.now());
 
-        this.id = 78954;
+        this.id = 230;
         this.patient_id = 1;
         this.case_reference_id = 0;
         this.vehicle_id = 2;
@@ -90,5 +110,37 @@ public class CommonData {
         this.note = "Deneme";
         this.generated_by = 3;
 
+        this.visit_details_id = 214;
+        this.time = Time.valueOf(LocalTime.now());
+        this.priority = "5";
+        this.specialist = "1";
+        this.doctor = 792;
+        //amount,
+        this.message = "T144_SQL";
+        this.appointment_status = "approved";
+        this.source = "Online";
+        this.is_opd = "";
+        this.is_ipd = "";
+        this.global_shift_id = 1;
+        this.shift_id = 52;
+        this.is_queue = 0;
+        this.live_consult = "no";
+
+
     }
+
+    // US_026-US_027-US-028:
+    public static HashMap <String,String> patientsKnown_allergies;
+    public static HashMap <String, String> expectedData= new HashMap<>();
+
+    public static HashMap <String,String> vehicles;
+    public static HashMap <String, String> vehiclesExpectedData= new HashMap<>();
+
+    public static HashMap <String,String> account_title;
+
+
+
+
+
+
 }
