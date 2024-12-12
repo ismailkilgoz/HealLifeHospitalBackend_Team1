@@ -18,8 +18,7 @@ Feature: As an administrator (admin), I should be able to access the relevant Ex
     # Api kullanicisi response bodydeki data "<id>", "<name>", "<is_blood_group>" ve "<created_at>" içeriklerini doğrular.
     Examples:
       | id | id | name | is_blood_group | created_at |
-      | 4  |  4 | AB+  | 1              | 2021-10-25 06:32:48|
-
+      | 7 |  7  | B-   | 1              | 2021-10-25 06:33:13|
 
   Scenario Outline: When a GET body containing valid authorization information and invalid data (id) is sent to the
   /api/getBloodGroupById endpoint, the status code returned is 203 and the message information in the response body
@@ -69,4 +68,4 @@ Feature: As an administrator (admin), I should be able to access the relevant Ex
 
     Examples:
       | id |
-      | 25 |
+      | 4 |

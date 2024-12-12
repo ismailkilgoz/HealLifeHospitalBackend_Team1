@@ -54,5 +54,6 @@ Scenario Outline:API_US31_TC01_ValidAuth_SuccessStatus_RecordCreationValidation
     * The api user verifies that the data in the response body includes "<id>", "<category>", "<created_at>".
     Examples:
       |id   |id   |category           |created_at          |
-      | 143 | 143 | Abdominal Diseases|2024-12-04 08:57:34 |
+      | 306 | 306 | Abdominal Diseases| 2024-12-12 09:45:52|
 
+    # Abdominal Diseases | 2024-12-04 08:57:34
