@@ -127,4 +127,18 @@ public class CommonData {
         this.live_consult = "no";
 
     }
+
+    public static HashMap<String,String> consultant_register;
+
+    private Integer cons_id;
+    private Integer ipd_id;
+    private String cons_date;
+    private String ins_date;
+    private String instruction;
+    private Integer cons_doctor;
+    private Timestamp cons_created_at;
+
+
+
+
 }
