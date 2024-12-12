@@ -10,7 +10,7 @@ Feature: API_US32 As an administrator (admin), I should be able to update the fi
 
     Examples:
               |id   |    category    |
-              |143 | ill category 500|
+              |143 | Abdominal Diseases|
 
 
   Scenario Outline: API_US32_TC02_InvalidData_203Error_WrongOrMissingInput

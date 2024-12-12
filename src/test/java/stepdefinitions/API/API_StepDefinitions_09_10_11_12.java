@@ -14,7 +14,7 @@ import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static utilities.API_Utilities.API_Methods.fullPath;
 
-public class API_StepDefinitions_Umit extends BaseTest {
+public class API_StepDefinitions_09_10_11_12 extends BaseTest {
 
     VisitorsPojo pojoRequest;
     TestData testData = new TestData();
