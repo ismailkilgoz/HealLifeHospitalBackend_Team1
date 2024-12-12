@@ -1,6 +1,6 @@
 Feature: Verifying that a set of data is selected from related tables and the returned data is complete and correct.
 
-  Background: Database connection established:
+  Background: Database connection:
 
     * Database connection established
 
