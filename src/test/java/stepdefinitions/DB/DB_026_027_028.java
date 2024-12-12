@@ -155,8 +155,12 @@ public class DB_026_027_028 extends Manage {
 
                 for (int i = 0; i < vehicles.size(); i++) {
 
-                    System.out.println(resultSet);
+                    vehiclesExpectedData.put("driver_name", "bayram erguven");
+                    vehiclesExpectedData.put("driver_licence", "b");
 
+                    Assert.assertEquals(vehiclesExpectedData, vehicles);
+
+                    System.out.println("Expected Data: " + vehiclesExpectedData + "\n" + "Actual Data: " + vehicles);
 
                 }
             } else {
