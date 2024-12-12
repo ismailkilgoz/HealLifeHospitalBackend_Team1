@@ -98,7 +98,7 @@ public void the_api_user_prepares_a_patch_request_containing_and_information_to_
     }
     @Given("The api user prepares a  DELETE request to send to the api deleteNotice add endpoint.")
     public void the_api_user_prepares_a_delete_request_to_send_to_the_api_delete_notice_add_endpoint() {
-        requestBody.put("id", 520);
+        requestBody.put("id", 631);
         System.out.println("Delete Body : " + requestBody);
     }
 
