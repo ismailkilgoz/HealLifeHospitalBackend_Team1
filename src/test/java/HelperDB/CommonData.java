@@ -12,6 +12,10 @@ import java.util.HashMap;
 
 @Getter
 public class CommonData {
+
+    Faker faker=new Faker();
+    public static HashMap<String,String> patientsEmailGender;
+    public static int [] result;
     Faker faker = new Faker();
     public static HashMap<String, String> patientsEmailGender;
     //email_type, smtp_server, smtp_port, smtp_username, smtp_password, ssl_tls, smtp_auth, is_active, created_at
@@ -89,7 +93,7 @@ public class CommonData {
         this.is_active = "yes";
         this.created_at = Timestamp.valueOf(LocalDateTime.now());
 
-        this.id = 230;
+        this.id = 233;
         this.patient_id = 1;
         this.case_reference_id = 0;
         this.vehicle_id = 2;

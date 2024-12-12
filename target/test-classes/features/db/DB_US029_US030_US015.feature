@@ -21,9 +21,11 @@ Feature:
 
     #US15
 
+
   @DBUS
   Scenario:
     #ipd_id, date, ins_date, instruction, cons_doctor, created_at
     * I insert the new data to the consultant_register table
    #* Verify that 1 added to the table
     * Database closed
+
